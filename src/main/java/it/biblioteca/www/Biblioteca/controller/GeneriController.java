@@ -35,12 +35,12 @@ public class GeneriController {
         generiService.saveOrUpdateGeneri(generi);
     }
 
-    @DeleteMapping("/canella-generi")
+    @DeleteMapping("/cancella-generi")
     public void deleteGeneri(@RequestBody @NotNull List<Generi> generi){
         generiService.deleteGeneri(generi);
     }
 
-    @DeleteMapping("/canella-genere/{id}")
+    @DeleteMapping("/cancella-genere/{id}")
     public void deleteGenereById(@PathVariable("id") Integer id){
         generiService.deleteGenereById(id);
     }

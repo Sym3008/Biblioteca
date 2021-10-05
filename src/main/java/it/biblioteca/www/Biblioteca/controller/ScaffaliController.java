@@ -35,12 +35,12 @@ public class ScaffaliController {
         scaffaliService.saveOrUpdateScaffali(scaffali);
     }
 
-    @DeleteMapping("/canella-scaffali")
+    @DeleteMapping("/cancella-scaffali")
     public void deleteScaffali(@RequestBody @NotNull List<Scaffali> scaffali){
         scaffaliService.deleteScaffali(scaffali);
     }
 
-    @DeleteMapping("/canella-scaffale/{id}")
+    @DeleteMapping("/cancella-scaffale/{id}")
     public void deleteScaffaleById(@PathVariable("id") Integer id){
         scaffaliService.deleteScaffaleById(id);
     }

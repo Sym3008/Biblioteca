@@ -35,12 +35,12 @@ public class ConsegneController {
         consegneService.saveOrUpdateConsegne(consegne);
     }
 
-    @DeleteMapping("/canella-consegne")
+    @DeleteMapping("/cancella-consegne")
     public void deleteCaseEditrici(@RequestBody @NotNull List<Consegne> consegne){
         consegneService.deleteConsegne(consegne);
     }
 
-    @DeleteMapping("/canella-consegna/{id}")
+    @DeleteMapping("/cancella-consegna/{id}")
     public void deleteConsegnaById(@PathVariable("id") Integer id){
         consegneService.deleteConsegnaById(id);
     }

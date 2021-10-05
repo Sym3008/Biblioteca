@@ -1,7 +1,33 @@
 .logo{
-    background-image: url("../../static/image/FastBook.png");
+    max-width: 200px;
+}
+.logo img{
     width: 100%;
 }
+.Bottone{
+    border: 3px #6935fd solid;
+    border-radius: 20px;
+    padding: 1rem 2rem;
+    margin: 0.900rem;
+    background: #ffffff;
+}
+.Bottone:hover{
+    background: #a68af5;
+}
+.hero a {
+    text-decoration: none;
+    color: black;
+}
+.hero a:hover {
+    color: #313131;
+}
 .menu{
-    min-width: 300px;
+    margin-left: 15%;
+    background-color: #6c5dff;
+    border-radius: 10px;
+    width: 80%;
+}
+.mScelta:hover{
+    font-size: 22px;
+    color: #c9a8d5;
 }

@@ -35,12 +35,12 @@ public class CaseEditriciController {
         caseEditriciService.saveOrUpdateCaseEditrici(caseEditrici);
     }
 
-    @DeleteMapping("/canella-case-editrici")
+    @DeleteMapping("/cancella-case-editrici")
     public void deleteCaseEditrici(@RequestBody @NotNull List<CaseEditrici> caseEditrici){
         caseEditriciService.deleteCaseEditrici(caseEditrici);
     }
 
-    @DeleteMapping("/canella-casa-editrice/{id}")
+    @DeleteMapping("/cancella-casa-editrice/{id}")
     public void deleteCasaEditriceById(@PathVariable("id") Integer id){
         caseEditriciService.deleteCasaEditricieById(id);
     }

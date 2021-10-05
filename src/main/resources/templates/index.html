@@ -1,98 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link href="style.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
     <link rel="stylesheet" type="text/css" href="../static/css/index.css"/>
     <link rel="stylesheet" type="text/css" href="../static/css/header.css"/>
     <link rel="stylesheet" type="text/css" href="../static/css/Footer.css"/>
-    <link href="../static/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="../static/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="../static/icon/icon.png">
     <meta charset="UTF-8">
     <title>FastBook</title>
 </head>
 <body>
-    <div class="sfondo p0 d-flex justify-content-end align-items-center">
-        <div class="container home Bord1">
-            <!-- Intestazione responsitive dal tablet -->
-            <div class="row p0">
-                <nav class="hero  d-flex flex-column flex-md-row justify-content-between align-items-stretch">
-                    <div class="p0 d-flex flex-row justify-content-center align-items-center">
-                        <span class=" Bord1 "><img src="../static/image/FastBook.png"/></span>
-                    </div>
-                    <div class="menu p0 d-flex flex-row justify-content-between align-items-center">
-                        <span class="Bord1"><a href="index.html">Home</a></span>
-                        <span class="Bord1"><a href="RegistrationForm.html">Registrati</a></span>
-                    </div>
-                    <div class="Bottone d-flex justify-content-center align-items-center">
+<div class="sfondo p0 d-flex justify-content-end align-items-center">
+    <div class="container home Bord1">
+        <!-- Intestazione responsitive dal tablet -->
+        <div class="row p0">
+            <nav class="px-md-5 hero d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <div class="">
+                    <span class="logo"><img src="../static/image/FastBook.png"/></span>
+                </div>
+                <div class="menu p-3  d-flex flex-row justify-content-center align-items-center">
+                    <span class="Bord1 mScelta px-5"><a href="index.html">Home</a></span>
+                    <span class="Bord1 mScelta px-5"><a href="RegistrationForm.html">Registrati</a></span>
+                </div>
+                <div class="Bottone d-flex justify-content-center align-items-center">
                         <span class="Bord1">
-                            <a href="SignUp.html">Sign up</a></span>
-                    </div>
-                </nav>
-            </div>
-            <!-- Corpo responsitive dal tablet -->
-            <div class="row pT5">
-                <div class="p0 col-md-10 offset-md-1 ">
-                    <div class="Bord1 textC"><h1>Find your book</h1></div>
-                    <div class="Bord1 p0 textC">
-                        <p>
-                            Cerca fra centinaia di titoli ed autori, un nuovo viaggio ti aspetta !
-                        </p>
-                    </div>
-                    <form  id="search" method="post">
-                        <div class="ricerca d-flex flex-column  justify-content-start align-items-center">
-                            <div class="Bord1 col-md-9 ">
-                                <input type="text" value="" placeholder="Search for name" id="inputArea">
-                            </div>
-                            <div class="Bord1 col-md-9 ">
-                                <input type="text" value="" placeholder="Search for autor" id="inputArea">
-                            </div>
-                            <div class="Bord1 col-md-9 ">
-                                <input type="text" value="" placeholder="Search for type" id="inputArea">
-                            </div>
-                            <div class="Bord1 col-md-3 d-flex justify-content-center align-items-stretch">
-                                <button type="submit">Search</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <!-- Inserzioni responsitive dal tablet -->
-            <div class="row p0 risultati">
-                <div class="col-md-10 offset-md-1" id="idReport"> <!-- #TODO modificarlo in maniera tale che non si veda il primo elemento -->
-                </div>
-            </div>
-
-            <!-- libri in primo piano -->
-            <div class="Bord1 textC"><h1>Libri in evidenza</h1></div>
-            <nav class=" libriPrimoPiano d-flex flex-column flex-md-row justify-content-between align-items-center p-5">
-                <div class="d-flex flex-row justify-content-center align-items-center">
-                    <a class="mx-2"> <img src="../static/image/Harry_Potter_e_il_calice_di_fuoco.jpg"></a>
-                    <a class="mx-2"> <img src="../static/image/Harry_Potter_e_il_prigioniero_di_Azkaban.jpg"></a>
-
-                </div>
-                <div class="d-flex flex-row justify-content-center align-items-center">
-                    <a class="mx-2"> <img src="../static/image/Harry_Potter_e_la_camera_dei_segreti.jpg"></a>
-                    <a class="mx-2"> <img src="../static/image/harry_potter_e_la_pietra_filosofale.jpg"></a>
-
+                            <a href="Login.html">Accedi</a>
+                        </span>
                 </div>
             </nav>
-
-            <footer class="footer p0 d-flex flex-row justify-content-between align-items-center">
-                <div class="p0 w5-1">
-                    Fastebook © 2020
-                </div>
-                <div class="p0 w5-1 d-flex flex-row justify-content-end align-items-center">
-                    <span>About</span>
-                    <span>FAQ</span>
-                    <span>Terms & Conditions</span>
-                    <span>Privacy Policy</span>
-                </div>
-            </footer>
         </div>
+        <!-- Corpo responsitive dal tablet -->
+        <div class="row pT5">
+            <div class="p0 col-md-10 offset-md-1 ">
+                <div class="Bord1 textC"><h1>Find your book</h1></div>
+                <div class="Bord1 p0 textC">
+                    <p>
+                        Cerca fra centinaia di titoli ed autori, un nuovo viaggio ti aspetta !
+                    </p>
+                </div>
+                <form id="search" method="post">
+                    <div class="ricerca d-flex flex-column  justify-content-start align-items-center">
+                        <div class="Bord1 col-md-9 ">
+                            <input type="text" value="" placeholder="Ricerca per nome" id="inputName">
+                        </div>
+                        <div class="Bord1 col-md-9 ">
+                            <input type="text" value="" placeholder="Ricerca per autore" id="inputAutor">
+                        </div>
+                        <div class="Bord1 col-md-9 ">
+                            <input type="text" value="" placeholder="Ricerca per genere" id="inputGener">
+                        </div>
+                        <div class="Bord1 col-md-3 d-flex justify-content-center align-items-stretch">
+                            <button type="submit">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Inserzioni responsitive dal tablet -->
+        <div class="row p0 risultati">
+            <div class="col-md-10 offset-md-1" id="idReport">
+                <!-- #TODO modificarlo in maniera tale che non si veda il primo elemento -->
+            </div>
+        </div>
+
+        <!-- libri in primo piano -->
+        <div class="Bord1 textC"><h1>Libri in evidenza</h1></div>
+        <nav class=" libriPrimoPiano d-flex flex-column flex-md-row justify-content-between align-items-center p-5">
+            <div class="d-flex flex-row justify-content-center align-items-center">
+                <a class="mx-2"> <img src="../static/image/Harry_Potter_e_il_calice_di_fuoco.jpg"></a>
+                <a class="mx-2"> <img src="../static/image/Harry_Potter_e_il_prigioniero_di_Azkaban.jpg"></a>
+
+            </div>
+            <div class="d-flex flex-row justify-content-center align-items-center">
+                <a class="mx-2"> <img src="../static/image/Harry_Potter_e_la_camera_dei_segreti.jpg"></a>
+                <a class="mx-2"> <img src="../static/image/harry_potter_e_la_pietra_filosofale.jpg"></a>
+
+            </div>
+        </nav>
+
+        <footer class="footer p0 d-flex flex-row justify-content-between align-items-center">
+            <div class="p0 w5-1">
+                Fastebook © 2020
+            </div>
+            <div class="p0 w5-1 d-flex flex-row justify-content-end align-items-center">
+                <span>About</span>
+                <span>FAQ</span>
+                <span>Terms & Conditions</span>
+                <span>Privacy Policy</span>
+            </div>
+        </footer>
     </div>
-    <script src="Static/JS/FindHome.js"></script>
+</div>
+<script src=""></script>
 </body>
 </html>
 

@@ -36,12 +36,12 @@ public class AutoriController {
         autoriService.saveOrUpdateAutori(autori);
     }
 
-    @DeleteMapping("/canella-autori")
+    @DeleteMapping("/cancella-autori")
     public void deleteAutori(@RequestBody @NotNull List<Autori> autori){
         autoriService.deleteAutori(autori);
     }
 
-    @DeleteMapping("/canella-autore/{id}")
+    @DeleteMapping("/cancella-autore/{id}")
     public void deleteAutoreById(@PathVariable("id") Integer id){
         autoriService.deleteAutoreById(id);
     }

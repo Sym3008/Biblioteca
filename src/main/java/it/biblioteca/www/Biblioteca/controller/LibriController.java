@@ -35,12 +35,12 @@ public class LibriController {
         libriService.saveOrUpdateLibri(libri);
     }
 
-    @DeleteMapping("/canella-libri")
+    @DeleteMapping("/cancella-libri")
     public void deleteLibri(@RequestBody @NotNull List<Libri> libri){
         libriService.deleteLibri(libri);
     }
 
-    @DeleteMapping("/canella-libro/{id}")
+    @DeleteMapping("/cancella-libro/{id}")
     public void deleteLibroById(@PathVariable("id") Integer id){
         libriService.deleteLibroById(id);
     }

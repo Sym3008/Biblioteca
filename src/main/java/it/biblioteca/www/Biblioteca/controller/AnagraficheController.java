@@ -35,12 +35,12 @@ public class AnagraficheController {
         anagraficheService.saveOrUpdateAnagrafiche(anagrafiche);
     }
 
-    @DeleteMapping("/canella-anagrafiche")
+    @DeleteMapping("/cancella-anagrafiche")
     public void deleteAnagrafiche(@RequestBody @NotNull List<Anagrafiche> anagrafiche){
         anagraficheService.deleteAnagrafiche(anagrafiche);
     }
 
-    @DeleteMapping("/canella-anagrafica/{id}")
+    @DeleteMapping("/cancella-anagrafica/{id}")
     public void deleteAnagraficaById(@PathVariable("id") Integer id){
         anagraficheService.deleteAnagraficaById(id);
     }

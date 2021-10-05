@@ -35,12 +35,12 @@ public class RipianiController {
         ripianiService.saveOrUpdateRipiani(ripiani);
     }
 
-    @DeleteMapping("/canella-ripiani")
+    @DeleteMapping("/cancella-ripiani")
     public void deleteRipiani(@RequestBody @NotNull List<Ripiani> ripiani){
         ripianiService.deleteRipiani(ripiani);
     }
 
-    @DeleteMapping("/canella-ripiani/{id}")
+    @DeleteMapping("/cancella-ripiani/{id}")
     public void deleteRipianiById(@PathVariable("id") Integer id){
         ripianiService.deleteRipianoById(id);
     }
