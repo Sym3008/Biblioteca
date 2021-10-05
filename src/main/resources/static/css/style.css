@@ -1,0 +1,140 @@
+*{
+    margin: 0;
+}
+.sfondo{
+    background-image: linear-gradient(to top right, #7fff00 0%, #7fff00 65.1%, #7fff00 100%);
+    /*height: 98vh;*/
+    width: 98vw;
+}
+.container{
+    background-color: #ffffff;
+    max-width: 90%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    /*height: 90%;*/
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 18px;
+    font-family: Helvetica, sans-serif;
+
+}
+/*.Bord1 {*/
+/*    border: 1px solid black;*/
+/*}*/
+.Bottone{
+    border: 1px #6935fd solid;
+    color: #6935fd;
+    padding:0 5%;
+}
+h1{
+    font-size: 70px;
+}
+p{
+    font-size: 22px;
+    color: #616161;
+}
+.ricerca input{
+    color: #a8a8a8;
+}
+div{
+    padding: 2%;
+}
+.boxIn div{
+    padding: 0;
+}
+.RadioIn{
+    padding: 0;
+}
+.row{
+    padding: 5px;
+}
+.ricerca{
+    padding: 0;
+}
+.w5-1{
+    width: 50%;
+}
+.w1-1{
+    width: 100%;
+}
+.p0 {
+    padding: 0;
+}
+.row input{
+    padding: 10px;
+}
+.pB2{
+    padding-bottom: 2%;
+}
+.pT5{
+    padding-top: 15%;
+}
+.pLR5{
+    padding: 0 5%;
+}
+.boxIn .pR2{
+    padding-right: 2%;
+}
+.textC{
+    text-align: center;
+}
+.textIn input{
+    width: 100%;
+}
+.messErr{
+    font-size: 12px;
+    color: red;
+}
+button{
+    width: 100%;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+button{
+    color: white;
+    background-color: #6935fd;
+    width: 100%;
+    text-align: center;
+    padding: 10% 0%;
+}
+.Bott button{
+    padding: 5% 0;
+}
+.home input{
+    width: 100%;
+    height: 100%;
+    padding:5%;
+    border: 1px gray solid;
+}
+.s16DG{
+    font-size: 16px;
+    color: #616161;
+}
+.note{
+    text-align: center;
+    color: black;
+}
+@media (max-width: 768px) {
+    .w5-1{
+        width: 100%;
+    }
+    .container{
+        max-width: 100%;
+        background-color: #EBFFF4;
+    }
+    botton{
+        padding: 5% 0;
+    }
+    p{
+        font-size: 20px;
+    }
+    .risultati img{
+        visibility: hidden;
+    }
+}
+
+.hidden {
+    display:none;
+}

@@ -1,0 +1,7 @@
+.logo{
+    background-image: url("../../static/image/FastBook.png");
+    width: 100%;
+}
+.menu{
+    min-width: 300px;
+}

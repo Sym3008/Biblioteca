@@ -1,0 +1,45 @@
+header {
+    position: absolute;
+    width: 1370px;
+    height: 620px;
+    left: 80px;
+    top: 81px;
+    radius: 10px;
+    bland: pass through;
+    background: #EBFFF4;
+}
+
+.logo{
+    position: absolute;
+    top: 28px;
+    left: 98px;
+    max-width: 220px;
+    max-height: 71px;
+}
+
+.flex-container2 {
+    display: flex;
+}
+
+.flex-item {
+    background-color: #EBFFF4;
+    width: 200px;
+    margin: 10px;
+    text-align: center;
+    line-height: 100px;
+    font-size: 20px;
+
+}
+
+.flex-container3 {
+    display: flex;
+    font-family: "Helvetica";
+    text-align: center;
+}
+
+.flex-container4 {
+    display: flex;
+    font-family: "Helvetica";
+    text-align: center;
+}
+

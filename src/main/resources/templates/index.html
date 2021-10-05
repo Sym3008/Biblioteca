@@ -2,9 +2,77 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/header.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/Footer.css"/>
+    <link href="../static/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" >
+    <meta charset="UTF-8">
+    <title>FastBook</title>
 </head>
 <body>
+    <div class="sfondo p0 d-flex justify-content-center align-items-center">
+        <div class="container home Bord1">
+            <!-- Intestazione responsitive dal tablet -->
+            <div class="row p0">
+                <nav class="hero  d-flex flex-column flex-md-row justify-content-between align-items-stretch">
+                    <div class="p0 d-flex flex-row justify-content-center align-items-center">
+                        <span class=" Bord1 "><img src="../static/image/FastBook.png"/></span>
+                    </div>
+                    <div class="menu p0 d-flex flex-row justify-content-between align-items-center">
+                        <span class="Bord1"><a href="index.html">Home</a></span>
+                        <span class="Bord1"><a href="DoveSiamo.html">Dove Siamo</a></span>
+                    </div>
+                    <div class="Bottone d-flex justify-content-center align-items-center">
+                        <span class="Bord1">
+                            <a href="SignUp.html">Sign up</a></span>
+                    </div>
+                </nav>
+            </div>
+            <!-- Corpo responsitive dal tablet -->
+            <div class="row pT5">
+                <div class="p0 col-md-10 offset-md-1 ">
+                    <div class="Bord1 textC"><h1>Find your book</h1></div>
+                    <div class="Bord1 p0 textC">
+                        <p>
+                            Cerca fra centinaia di titoli ed autori, un nuovo viaggio ti aspetta !
+                        </p>
+                    </div>
+                    <form  id="search" method="post">
+                        <div class="ricerca d-flex flex-column flex-md-row justify-content-start align-items-stretch">
+                            <div class="Bord1 col-md-9 ">
+                                <input type="text" value="" placeholder="Search for name" id="inputArea">
+                            </div>
+                            <div class="Bord1 col-md-3 d-flex justify-content-center align-items-stretch">
+                                <button type="submit">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Inserzioni responsitive dal tablet -->
+            <div class="row p0 risultati">
+                <div class="col-md-10 offset-md-1" id="idReport"> <!-- #TODO modificarlo in maniera tale che non si veda il primo elemento -->
+                </div>
+            </div>
+
+            <footer class="footer p0 d-flex flex-row justify-content-between align-items-center">
+                <div class="p0 w5-1">
+                    Fastebook © 2020
+                </div>
+                <div class="p0 w5-1 d-flex flex-row justify-content-end align-items-center">
+                    <span>About</span>
+                    <span>FAQ</span>
+                    <span>Terms & Conditions</span>
+                    <span>Privacy Policy</span>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="Static/JS/FindHome.js"></script>
+</body>
+</html>
 
 </body>
 </html>
