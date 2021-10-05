@@ -31,3 +31,8 @@
     font-size: 22px;
     color: #c9a8d5;
 }
+@media (max-width: 768px) {
+    .menu{
+        margin-left: 0;
+    }
+}
