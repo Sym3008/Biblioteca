@@ -16,7 +16,7 @@ public class Generi {
     private Integer idGenere;
 
     @Column(name="descrizione")
-    private String descrisione;
+    private String descrizione;
 
     @OneToMany(mappedBy = "genere",fetch = FetchType.EAGER)
     private List<Libri> libri;

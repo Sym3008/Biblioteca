@@ -46,6 +46,9 @@ public class Libri {
     @Column(name = "lingua")
     private String lingua;
 
+    @Column(name = "quantita")
+    private Integer quantita;
+
     @JoinColumn(name = "id_scaffale")
     @ManyToOne
     @JsonIgnoreProperties("libri")

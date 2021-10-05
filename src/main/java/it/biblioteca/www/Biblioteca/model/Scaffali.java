@@ -16,7 +16,7 @@ public class Scaffali {
     private Integer idScaffale;
 
     @Column(name="descrizione")
-    private String descriozne;
+    private String descrizione;
 
     @OneToMany (mappedBy = "scaffale",fetch = FetchType.EAGER)
     private List<Libri> libri;
