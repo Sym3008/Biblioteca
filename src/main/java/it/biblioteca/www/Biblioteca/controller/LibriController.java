@@ -25,7 +25,7 @@ public class LibriController {
         return libriService.getLibroById(id);
     }
 
-    @PostMapping("/save-generi")
+    @PostMapping("/save-libri")
     public void saveLibri(@RequestBody @NotNull List<Libri> libri){
         libriService.saveOrUpdateLibri(libri);
     }

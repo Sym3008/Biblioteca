@@ -18,6 +18,6 @@ public class Generi {
     @Column(name="descrizione")
     private String descrisione;
 
-    @OneToMany(mappedBy = "genere")
+    @OneToMany(mappedBy = "genere",fetch = FetchType.EAGER)
     private List<Libri> libri;
 }

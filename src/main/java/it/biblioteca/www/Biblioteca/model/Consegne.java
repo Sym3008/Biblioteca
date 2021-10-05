@@ -22,7 +22,7 @@ public class Consegne {
 
     @JoinColumn(name = "id_anagrafica")
     @ManyToOne
-    @JsonIgnoreProperties("anagrafiche")
+    @JsonIgnoreProperties("consegne")
     private Anagrafiche anagrafica;
 
     @Temporal(TemporalType.DATE)

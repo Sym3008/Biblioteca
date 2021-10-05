@@ -47,6 +47,6 @@ public class Anagrafiche {
     @Column(name="email")
     private String email;
 
-    @OneToMany (mappedBy = "anagrafica")
+    @OneToMany (mappedBy = "anagrafica",fetch = FetchType.EAGER)
     private List<Consegne> consegne;
 }

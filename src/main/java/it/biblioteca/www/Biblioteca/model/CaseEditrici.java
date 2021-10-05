@@ -36,6 +36,6 @@ public class CaseEditrici {
     @Column(name="sito_web")
     private String sitoWeb;
 
-    @OneToMany (mappedBy = "casaEditrice")
+    @OneToMany (mappedBy = "casaEditrice",fetch = FetchType.EAGER)
     private List<Libri> libri;
 }

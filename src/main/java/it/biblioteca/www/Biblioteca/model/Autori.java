@@ -36,6 +36,6 @@ public class Autori {
     @Column(name="biografia")
     private String biografia;
 
-    @OneToMany (mappedBy = "autore")
+    @OneToMany (mappedBy = "autore",fetch = FetchType.EAGER)
     private List<Libri> libri;
 }
