@@ -49,6 +49,9 @@ public class Libri {
     @Column(name = "quantita")
     private Integer quantita;
 
+    @Column(name = "url_copertina")
+    private String urlCopertina;
+
     @JoinColumn(name = "id_scaffale")
     @ManyToOne
     @JsonIgnoreProperties("libri")
