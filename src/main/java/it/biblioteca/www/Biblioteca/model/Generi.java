@@ -1,5 +1,6 @@
 package it.biblioteca.www.Biblioteca.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -7,7 +8,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name="Generi")
+@Table(name="generi")
 public class Generi {
 
     @Id
@@ -19,5 +20,6 @@ public class Generi {
     private String descrizione;
 
     @OneToMany(mappedBy = "genere",fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<Libri> libri;
 }

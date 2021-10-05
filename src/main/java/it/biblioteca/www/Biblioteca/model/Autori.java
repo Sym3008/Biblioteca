@@ -1,5 +1,6 @@
 package it.biblioteca.www.Biblioteca.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -37,5 +38,6 @@ public class Autori {
     private String biografia;
 
     @OneToMany (mappedBy = "autore",fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<Libri> libri;
 }

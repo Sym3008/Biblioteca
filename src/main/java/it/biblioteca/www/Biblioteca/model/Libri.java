@@ -63,6 +63,6 @@ public class Libri {
     private Ripiani ripiano;
 
     @ManyToMany(mappedBy = "libriList", targetEntity = Consegne.class)
-    @JsonIgnoreProperties({"libri","libriList"})
+    @JsonIgnoreProperties("libriList")
     private List<Consegne> consegneList;
 }

@@ -37,6 +37,6 @@ public class Consegne {
     @JoinTable(name = "libri_consegnati",
             joinColumns = @JoinColumn(name="id_consegna"),
             inverseJoinColumns = @JoinColumn(name="id_libro"))
-    @JsonIgnoreProperties("consegne")
+    @JsonIgnoreProperties("consegneList")
     private List<Libri> libriList;
 }

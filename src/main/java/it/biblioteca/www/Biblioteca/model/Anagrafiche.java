@@ -1,5 +1,6 @@
 package it.biblioteca.www.Biblioteca.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -20,7 +21,7 @@ public class Anagrafiche {
     private String nome;
 
     @Column(name = "cognome")
-    private String congome;
+    private String cognome;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "data_nascita")
@@ -48,5 +49,6 @@ public class Anagrafiche {
     private String email;
 
     @OneToMany (mappedBy = "anagrafica",fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<Consegne> consegne;
 }
