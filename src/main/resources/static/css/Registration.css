@@ -9,5 +9,41 @@
     height: 70px;
     color: white;
     font-family: "Helvetica Neue", sans-serif;
-    background-color: green;
+    background-color: forestgreen;
+    display: block;
+}
+label{
+    display: block;
+    width: 150px;
+    height: 30px;
+    font-size: 20px ;
+}
+input{
+    font-size: large;
+    border: 1px solid ;
+    height: 45px;
+}
+.sfondo {
+    background-image: url("../image/sfondo.jpg");
+    /*background-image: linear-gradient(to top right, #7fff00 0%, #7fff00 65.1%, #7fff00 100%);*/
+    /*height: 98vh;*/
+    width: 98vw;
+}
+.container {
+    background-color: #ffffff;
+    opacity: 0.9;
+    max-width: 90%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    /*height: 90%;*/
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 18px;
+    font-family: Helvetica, sans-serif;
+}
+.textC {
+    text-align: left;
+}
+select{
+    height: 45px;
 }
