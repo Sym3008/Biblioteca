@@ -13,7 +13,7 @@
     <title>FastBook</title>
 </head>
 <body>
-    <div class="sfondo p0 d-flex justify-content-center align-items-center">
+    <div class="sfondo p0 d-flex justify-content-end align-items-center">
         <div class="container home Bord1">
             <!-- Intestazione responsitive dal tablet -->
             <div class="row p0">
@@ -23,7 +23,7 @@
                     </div>
                     <div class="menu p0 d-flex flex-row justify-content-between align-items-center">
                         <span class="Bord1"><a href="index.html">Home</a></span>
-                        <span class="Bord1"><a href="DoveSiamo.html">Dove Siamo</a></span>
+                        <span class="Bord1"><a href="RegistrationForm.html">Registrati</a></span>
                     </div>
                     <div class="Bottone d-flex justify-content-center align-items-center">
                         <span class="Bord1">
@@ -41,9 +41,15 @@
                         </p>
                     </div>
                     <form  id="search" method="post">
-                        <div class="ricerca d-flex flex-column flex-md-row justify-content-start align-items-stretch">
+                        <div class="ricerca d-flex flex-column  justify-content-start align-items-center">
                             <div class="Bord1 col-md-9 ">
                                 <input type="text" value="" placeholder="Search for name" id="inputArea">
+                            </div>
+                            <div class="Bord1 col-md-9 ">
+                                <input type="text" value="" placeholder="Search for autor" id="inputArea">
+                            </div>
+                            <div class="Bord1 col-md-9 ">
+                                <input type="text" value="" placeholder="Search for type" id="inputArea">
                             </div>
                             <div class="Bord1 col-md-3 d-flex justify-content-center align-items-stretch">
                                 <button type="submit">Search</button>
@@ -59,14 +65,17 @@
             </div>
 
             <!-- libri in primo piano -->
-            <nav class="d-flex flex-column flex-md-row justify-content-end align-items-center p-0">
+            <div class="Bord1 textC"><h1>Libri in evidenza</h1></div>
+            <nav class=" libriPrimoPiano d-flex flex-column flex-md-row justify-content-between align-items-center p-5">
                 <div class="d-flex flex-row justify-content-center align-items-center">
-                    <a class="p-2 px-md-0 mt-3 mt-md-0 lh-1"> <img src="../static/image/Harry_Potter_e_il_calice_di_fuoco.jpg"></a>
-                    <a class="p-2 px-md-0 mt-3 mt-md-0"> <img src="../static/image/Harry_Potter_e_il_prigioniero_di_Azkaban.jpg"></a>
+                    <a class="mx-2"> <img src="../static/image/Harry_Potter_e_il_calice_di_fuoco.jpg"></a>
+                    <a class="mx-2"> <img src="../static/image/Harry_Potter_e_il_prigioniero_di_Azkaban.jpg"></a>
+
                 </div>
                 <div class="d-flex flex-row justify-content-center align-items-center">
-                    <a class="p-2 px-md-0 mx-2 lh-1"> <img src="../static/image/Harry_Potter_e_la_camera_dei_segreti.jpg"></a>
-                    <a class="p-2 px-md-0 mx-2 lh-1"> <img src="../static/image/harry_potter_e_la_pietra_filosofale.jpg"></a>
+                    <a class="mx-2"> <img src="../static/image/Harry_Potter_e_la_camera_dei_segreti.jpg"></a>
+                    <a class="mx-2"> <img src="../static/image/harry_potter_e_la_pietra_filosofale.jpg"></a>
+
                 </div>
             </nav>
 
