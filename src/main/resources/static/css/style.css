@@ -6,6 +6,7 @@
     /*background-image: linear-gradient(to top right, #7fff00 0%, #7fff00 65.1%, #7fff00 100%);*/
     /*height: 98vh;*/
     width: 98vw;
+    background-attachment: fixed;
 
 }
 .container{
@@ -25,12 +26,21 @@
 /*    border: 1px solid black;*/
 /*}*/
 .Bottone{
-    border: 1px #6935fd solid;
+    border: 3px #6935fd solid;
     color: #6935fd;
-    padding:0 5%;
+    padding: 1rem 1rem;
+    margin: 0.900rem;
+    background: #f4a460;
+
 }
 h1{
     font-size: 70px;
+    font-family:  Impact, Charcoal, sans-serif;
+}
+
+span{
+    font-family:  Impact, Charcoal, sans-serif;
+    font-size: 25px;
 }
 p{
     font-size: 22px;
@@ -93,7 +103,7 @@ button{
 }
 
 a{
-    text-decoration: none;
+    text-decoration:blue;
     color: black;
 }
 button{
