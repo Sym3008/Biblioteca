@@ -5,15 +5,18 @@ window.addEventListener("load", function (Event){
     form.addEventListener("submit",function (e){
         e.preventDefault()
         let id=document.querySelector("#Email")
-        let url= "http://localhost:8080/api/get-anagrafica/1"
+        let urlApi= "http://localhost:8080/api/get-anagrafica/"+id.value
 
-        fetch(url,{method:"GET",mode: 'no-cors'
+        console.log(id.value)
+        console.log(urlApi)
+        fetch(urlApi,
+        {method:"GET",
+            mode:"no-cros"
         }).then(function (response){
-            //return response.json()
             console.log(response)
+            return response.json()
         }).then(function (data){
             console.log(data)
         })
-
     })
 })
