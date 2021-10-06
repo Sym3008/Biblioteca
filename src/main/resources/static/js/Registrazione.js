@@ -1,5 +1,4 @@
 window.addEventListener('load', function(event){
-    console.log("ciao!!!")
     let form = document.querySelector('#registrationForm')
     form.addEventListener('submit', function (event){
 
@@ -42,7 +41,7 @@ window.addEventListener('load', function(event){
 
         if(formValido === false){
             console.log("ERRORE!!!");
-            // event.preventDefault();
+             event.preventDefault();
         }
     })
 })
