@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="../static/css/Style.css"/>
+  <link rel="stylesheet" type="text/css" href="../static/css/Header.css"/>
+  <link rel="stylesheet" type="text/css" href="../static/css/Footer.css"/>
+  <link rel="stylesheet" type="text/css" href="../static/css/Gestionale.css">
+  <link href="../static/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" >
+  <link rel="icon" href="../static/icon/icon.png">
+  <meta charset="UTF-8">
+  <title>FastBook</title>
+</head>
+<body>
+<div class="sfondo p0 d-flex justify-content-center align-items-center">
+  <div class="container home Bord1">
+    <!-- Intestazione responsitive dal tablet -->
+    <div class="row p0">
+      <nav class="px-md-5 hero d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <div class="">
+          <span class="logo"><img src="../static/image/FastBook.png"/></span>
+        </div>
+        <div class="menu p-3  d-flex flex-row justify-content-center align-items-center">
+          <span class="Bord1 mScelta px-5"><a href="Index.html">Home</a></span>
+          <span class="Bord1 mScelta px-5"><a href="Registrazione.html">Registrati</a></span>
+        </div>
+        <div class="Bottone d-flex justify-content-center align-items-center">
+                        <span class="Bord1">
+                            <a href="Login.html">Accedi</a>
+                        </span>
+        </div>
+      </nav>
+    </div>
+    <!-- Corpo responsitive dal tablet -->
+    <div class="row ">
+      <div class="p-0 col-md-10 offset-md-1 ">
+        <div class="Bord1">
+
+        </div>
+        <form  id="aggiungiLibro" method="post">
+          <div class="d-flex flex-column flex-md-row justify-content-start align-items-start">
+            <div class="col-12 col-md-6">
+              <div>
+               <label for="Titolo" class="fw-bold"> Titolo  </label>
+              </div>
+              <div>
+                <input class="border-dark textInput-required" id="Titolo" type="text"
+                       name="Titolo" placeholder="Inserisci il titolo del libro">
+              </div>
+              <div>
+
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div>
+                <label for="Autore" class="fw-bold "> Autore  </label>
+              </div>
+              <div>
+                <input class=" border-dark textInput-required" id="Autore" type="text"
+                       name="Autore" placeholder="Inserisci il nome dell'autore">
+              </div>
+              <div>
+
+              </div>
+            </div>
+          </div>
+
+    <div class="d-flex flex-column flex-md-row justify-content-start align-items-start">
+      <div class="col-12 col-md-6">
+        <div>
+          <label for="Prefazione" class="fw-bold"> Prefazione </label>
+        </div>
+        <div>
+          <input class="border-dark" id="Prefazione" type="text"
+                 placeholder="Inserisci la prefazione">
+        </div>
+        <div>
+
+        </div>
+      </div>
+      <div>
+
+      </div>
+      <div class="col-12 col-md-6">
+        <div>
+          <label for="Genere" class="fw-bold "> Genere </label>
+        </div>
+        <div>
+          <input class="border-dark" id="Genere" type="text"
+                 placeholder="Inserisci il genere del libro">
+        </div>
+        <div>
+
+        </div>
+      </div>
+    </div>
+    <div class="d-flex flex-column flex-md-row justify-content-start align-items-start">
+      <div class="col-12 col-md-6">
+        <div>
+          <label for="Casa-editrice" class="fw-bold"> Casa editrice </label>
+        </div>
+        <div>
+          <input class="border-dark" id="Casa-editrice" type="text"
+                 placeholder="Inserisci la casa editrice">
+        </div>
+      </div>
+    </div>
+    <div class="d-flex flex-column flex-md-row justify-content-start align-items-start">
+
+      <div class="col-12 col-md-6">
+        <div>
+          <label for="ISBN" class="fw-bold "> ISBN </label>
+        </div>
+        <div>
+          <input class="border-dark" id="ISBN" type="text"
+                 placeholder="Inserisci l'ISBN del libro">
+        </div>
+      </div>
+    </div>
+    <div class="d-flex flex-column flex-md-row justify-content-start align-items-start">
+      <div class="col-12 col-md-6">
+        <div>
+          <label for="Numero-pagine" class="fw-bold">Numero pagine </label>
+        </div>
+        <div>
+          <input class="border-dark" id="Numero-pagine" type="text"
+                 placeholder="Inserisci numero di pagine">
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div>
+          <label for="lingua" class="fw-bold "> Lingua </label>
+        </div>
+        <div class="col-12 col-md-6">
+          <select name="lingua" id="lingua" class="border-dark">
+            <option>Scegli la lingua</option>
+            <option>Italiano</option>
+            <option>English</option>
+            <option>Français</option>
+            <option>Deutsch</option>
+            <option>Español</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex flex-column flex-md-row justify-content-start align-items-start">
+      <div class="col-12 col-md-6">
+        <div>
+          <label for="Quantità" class="fw-bold "> Quantità  </label>
+        </div>
+        <div>
+          <input class="border-dark textInput-required" id="Quantità" type="email"
+                 placeholder="Inserisci la quantità">
+        </div>
+        <div>
+
+        </div>
+      </div>
+    </div>
+    <div class="d-flex flex-column flex-md-row justify-content-start align-items-start">
+      <div class="col-12 col-md-6">
+        <div>
+
+        </div>
+        <div>
+          <form
+          action="upload.asp" method="post" enctype="multipart/form-data">
+          Copertina <input type="text" name="testo1" class="fw-bold">
+          Inserisci file copertina <input type="file" name="file1" >
+          <input type="submit" value="Upload">
+        </form>
+        </div>
+        <div>
+
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div>
+          <label for="Scaffale" class="fw-bold"> Scaffale  </label>
+        </div>
+        <div>
+          <input class="border-dark textInput-required" id="Scaffale"
+                 type="text" placeholder="Inserisci lo scaffale">
+        </div>
+        <div>
+            <div>
+              <label for="Ripiano" class="fw-bold"> Ripiano  </label>
+            </div>
+              <div>
+                <input class="border-dark textInput-required " id="Ripiano"
+                       type="text" placeholder="Inserisci il ripiano">
+              </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-4">
+      <button class="btn btn-lg px-2 py-4 ms-auto mt-2 col-4" id="Aggiorna" type="submit"
+              value="submit"> Aggiorna
+      </button>
+    </div>
+        </form>
+      </div>
+    </div>
+    <!-- Inserzioni responsitive dal tablet -->
+    <div class="row ">
+      <div class="col-md-10 offset-md-1" id="idReport">
+
+      </div>
+    </div>
+
+    <footer class="footer p-0 d-flex flex-row justify-content-between align-items-center">
+      <div class="p-0 ">
+        Fastbook © 2020
+      </div>
+      <div class="p-0 d-flex flex-row justify-content-end align-items-center">
+        <span>About</span>
+        <span>FAQ</span>
+        <span>Terms & Conditions</span>
+        <span>Privacy Policy</span>
+      </div>
+    </footer>
+  </div>
+</div>
+<script src=""></script>
+</body>
+</html>

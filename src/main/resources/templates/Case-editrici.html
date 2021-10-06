@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../static/css/Style.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/Header.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/Footer.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/Case-editrici.css"/>
+    <link href="../static/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link rel="icon" href="../static/icon/icon.png">
+    <meta charset="UTF-8">
+    <title>FastBook</title>
+</head>
+<body>
+<div class="sfondo p0 d-flex justify-content-center align-items-center">
+    <div class="container home Bord1">
+        <!-- Intestazione responsitive dal tablet -->
+        <div class="row p0">
+            <nav class="px-md-5 hero d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <div class="">
+                    <span class="logo"><img src="../static/image/FastBook.png"/></span>
+                </div>
+                <div class="menu p-3  d-flex flex-row justify-content-center align-items-center">
+                    <span class="Bord1 mScelta px-5"><a href="Index.html">Home</a></span>
+                    <span class="Bord1 mScelta px-5"><a href="Registrazione.html">Registrati</a></span>
+                </div>
+                <div class="Bottone d-flex justify-content-center align-items-center">
+                        <span class="Bord1">
+                            <a href="Login.html">Accedi</a>
+                        </span>
+                </div>
+            </nav>
+        </div>
+        <!-- Corpo responsitive dal tablet -->
+        <div class="row ">
+            <div class="p-0 col-md-10 offset-md-1 ">
+                <div class="Bord1">
+
+                </div>
+                <form  id="" method="post">
+                    <div class="d-flex flex-column flex-md-row justify-content-start align-items-start">
+                        <div class="col-12 col-md-6 ">
+                            <div>
+                                <label for="Nominativo" class="fw-bold"> Nominativo  </label>
+                            </div>
+                            <div>
+                                <input class="border-dark textInput-required  " id="Nominativo" type="text"
+                                       name="Nominativo" placeholder="Inserisci nome e cognome">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-start align-items-start">
+                        <div class="col-12 col-md-6">
+                            <div>
+                                <label for="Città" class="fw-bold"> Città </label>
+                            </div>
+                            <div>
+                                <input class="border-dark" id="Città" type="text"
+                                       placeholder="Inserisci la dcittà">
+                            </div>
+                        </div>
+                        <div>
+
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div>
+                                <label for="CAP" class="fw-bold "> CAP </label>
+                            </div>
+                            <div>
+                                <input class="border-dark" id="CAP" type="text"
+                                       placeholder="Inserisci il CAP">
+                            </div>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-start align-items-start">
+                        <div class="col-12 col-md-6">
+                            <div>
+                                <label for="Indirizzo" class="fw-bold">Indirizzo </label>
+                            </div>
+                            <div>
+                                <input class="border-dark " id="Indirizzo" type="text"
+                                       placeholder="Inserisci l'indirizzo">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-start align-items-start">
+                        <div class="col-12 col-md-6">
+                            <div>
+                                <label for="email" class="fw-bold"> Email </label>
+                            </div>
+                            <div>
+                                <input class="border-dark" id="email" type="email"
+                                       placeholder="Inserisci l'email">
+                            </div>
+                        </div>
+                        <div>
+
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div>
+                                <label for="Telefono" class="fw-bold "> Telefono </label>
+                            </div>
+                            <div>
+                                <input class="border-dark" id="Telefono" type="text"
+                                       placeholder="Inserisci il numero di telefono">
+                            </div>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-start align-items-start">
+                        <div class="col-12 col-md-6">
+                            <div>
+                                <label for="Sito-Web" class="fw-bold">Sito Web </label>
+                            </div>
+                            <div>
+                                <input class="border-dark " id="Sito-Web" type="text"
+                                       placeholder="Inserisci il sito web">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <button class="btn btn-lg px-2 py-4 ms-auto mt-2 col-4" id="Aggiorna" type="submit"
+                                value="submit"> Aggiorna
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Inserzioni responsitive dal tablet -->
+        <div class="row ">
+            <div class="col-md-10 offset-md-1" id="idReport">
+
+            </div>
+        </div>
+
+        <footer class="footer p-0 d-flex flex-row justify-content-between align-items-center">
+            <div class="p-0 ">
+                Fastbook © 2020
+            </div>
+            <div class="p-0 d-flex flex-row justify-content-end align-items-center">
+                <span>About</span>
+                <span>FAQ</span>
+                <span>Terms & Conditions</span>
+                <span>Privacy Policy</span>
+            </div>
+        </footer>
+    </div>
+</div>
+<script src=""></script>
+</body>
+</html>
