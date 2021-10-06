@@ -41,14 +41,14 @@ div{
 .ricerca{
     margin: 0;
     padding: 1px;
-    background-color: #8d85aa;
+    background-color: #FAEBD7;
     border-radius: 10px;
     opacity: 1;
 }
 button{
     width: 100%;
     color: black;
-    background-color: #6935fd;
+    background-color: #DAA520;
     border-radius: 20px;
 }
 button:hover{
