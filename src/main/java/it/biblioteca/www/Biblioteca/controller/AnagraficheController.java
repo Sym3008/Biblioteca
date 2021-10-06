@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin
 @RestController
 @RequestMapping
 public class AnagraficheController {
@@ -35,13 +35,13 @@ public class AnagraficheController {
         anagraficheService.saveOrUpdateAnagrafiche(anagrafiche);
     }
 
-    @DeleteMapping("/cancella-anagrafiche")
-    public void deleteAnagrafiche(@RequestBody @NotNull List<Anagrafiche> anagrafiche){
-        anagraficheService.deleteAnagrafiche(anagrafiche);
-    }
-
-    @DeleteMapping("/cancella-anagrafica/{id}")
-    public void deleteAnagraficaById(@PathVariable("id") Integer id){
-        anagraficheService.deleteAnagraficaById(id);
-    }
+//    @DeleteMapping("/cancella-anagrafiche")
+//    public void deleteAnagrafiche(@RequestBody @NotNull List<Anagrafiche> anagrafiche){
+//        anagraficheService.deleteAnagrafiche(anagrafiche);
+//    }
+//
+//    @DeleteMapping("/cancella-anagrafica/{id}")
+//    public void deleteAnagraficaById(@PathVariable("id") Integer id){
+//        anagraficheService.deleteAnagraficaById(id);
+//    }
 }

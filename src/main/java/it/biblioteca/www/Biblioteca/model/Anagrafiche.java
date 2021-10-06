@@ -48,6 +48,9 @@ public class Anagrafiche {
     @Column(name="email")
     private String email;
 
+    @Column(name="password")
+    private String password;
+
     @OneToMany (mappedBy = "anagrafica",fetch = FetchType.EAGER)
     @JsonIgnore
     private List<Consegne> consegne;

@@ -2,6 +2,7 @@ package it.biblioteca.www.Biblioteca.dao;
 
 import it.biblioteca.www.Biblioteca.model.Anagrafiche;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

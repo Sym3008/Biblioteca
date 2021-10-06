@@ -10,10 +10,8 @@ window.addEventListener("load", function (Event){
         console.log(id.value)
         console.log(urlApi)
         fetch(urlApi,
-        {method:"GET",
-            mode:"no-cros"
+        {method:"GET"
         }).then(function (response){
-            console.log(response)
             return response.json()
         }).then(function (data){
             console.log(data)
