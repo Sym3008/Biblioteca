@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../static/css/Style.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/Header.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/Footer.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/Carrello.css"/>
+    <link href="../static/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link rel="icon" href="../static/icon/icon.png">
+    <meta charset="UTF-8">
+    <title>FastBookCarrello</title>
+</head>
+<body>
+<div class="sfondo p0 d-flex justify-content-center align-items-center">
+    <div class="container home Bord1">
+
+        <!-- Intestazione responsitive dal tablet -->
+        <div class="row p0">
+            <nav class="px-md-5 hero d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <div class="">
+                    <span class="logo"><img src="../static/image/FastBook.png"/></span>
+                </div>
+                <div class="menu p-3  d-flex flex-row justify-content-center align-items-center">
+                    <span class="Bord1 mScelta px-5"><a href="Index.html">Home</a></span>
+                    <span class="Bord1 mScelta px-5"><a href="Registrazione.html">Registrati</a></span>
+                </div>
+                <div class="Bottone d-flex justify-content-center align-items-center">
+                        <span class="Bord1">
+                            <a href="Login.html">Accedi</a>
+                        </span>
+                </div>
+            </nav>
+        </div>
+        <!-- Corpo responsitive dal tablet -->
+        <div class="row ">
+            <h1><strong> Il Tuo Carrello Prenotazione</strong></h1>
+
+            <div class="p-0 col-md-10 offset-md-1 ">
+                <div class="Bord1">
+
+
+                <form  id="" method="post">
+
+
+
+        <!-- Inserzioni responsitive dal tablet -->
+        <div class="row ">
+            <div class="col-md-10 offset-md-1" id="idReport">
+                <div class="productList" id="prodotti">
+                    <div class="d-flex flex-column flex-md-row justify-content-start align-items-start" id="oggetto">
+                        <a> <img src="../static/image/Harry_Potter_e_il_calice_di_fuoco.jpg" width="150" ></a>
+
+                    <div class="productInfo" id="productInform">
+                        <ul class="description" id="descrizioneprod">
+                            <li class="name"><strong>Harry Potter e il Calice di Fuoco</strong></li>
+                            <br>
+                            <li class="descript"><strong>DESCRIPTION</strong></li>
+                            <div class="controlProduct">
+                                <div class="quantity col-12 col-md-6" >
+                                    <div>
+                                    <label for="select" class="fw-bold">Quantità Libri</label>
+                                    </div>
+                                    <br>
+                                    <div>
+                                    <select id="select">
+                                        <optgroup>
+                                            <option value="5" selected>5</option>
+                                            <option value="4" selected>4</option>
+                                            <option value="3" selected>3</option>
+                                            <option value="2" selected>2</option>
+                                            <option value="1" selected>1</option>
+                                        </optgroup>
+                                    </select>
+                                    </div>
+                                </div>
+
+                                <div class="mt-4 deleteProduct">
+                                    <button class="btn btn-lg px-2 py-4 ms-auto mt-2 col-4" id="elimina" type="button" value="button">Elimina Prenotazione
+                                    </button>
+                                </div>
+                                </form>
+                </div>
+                            </div>
+
+                        </ul>
+                    </div>
+
+                </div>
+                </div>
+                <label for="data_prenotazione"><strong>Seleziona una data per la consegna</strong></label>
+                <br>
+                <br>
+                <br>
+                <input id="data_prenotazione" type="date" name="data_preno" maxlength="50" placeholder="Formato XX-YY-ZZZZ">
+                <form>
+                    <div class="mt-4">
+                        <button class="btn btn-lg px-2 py-4 ms-auto mt-2 col-4" id="prenota" type="button" value="button">PIANIFICA CONSEGNA</button>
+                    </div>
+
+                </form>
+
+
+
+            </div>
+        </div>
+
+        <footer class="footer p-0 d-flex flex-row justify-content-between align-items-center">
+            <div class="p-0 ">
+                Fastbook © 2020
+            </div>
+            <div class="p-0 d-flex flex-row justify-content-end align-items-center">
+                <span>About</span>
+                <span>FAQ</span>
+                <span>Terms & Conditions</span>
+                <span>Privacy Policy</span>
+            </div>
+        </footer>
+    </div>
+</div>
+<script src=""></script>
+</body>
+</html>

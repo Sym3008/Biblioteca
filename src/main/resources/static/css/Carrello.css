@@ -1,0 +1,27 @@
+#prenota{
+    max-width: 300px;
+    max-height: 100px;
+    color: white;
+    font-family: "Helvetica Neue", sans-serif;
+    background-color: forestgreen;
+}
+#elimina{
+    width: 300px;
+    max-height: 100px;
+    color: black;
+    font-family: "Helvetica Neue", sans-serif;
+    background-color: forestgreen;
+}
+#select{
+    width: 80px;
+    height: 50px;
+    border: 1px solid;
+}
+li{
+    display: flex;
+}
+#data_prenotazione{
+    width: 200px;
+    height: 75px;
+    border: 1px solid;
+}
