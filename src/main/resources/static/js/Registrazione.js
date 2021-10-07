@@ -77,7 +77,7 @@ function inserisciRecord(){
         codiceFiscale:cf.value,
         email:e.value,
         password:p.value};
-    
+
     console.log(newRecord);
 
     let urlApi= "http://localhost:8080/api/save-anagrafiche";
