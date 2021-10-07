@@ -24,11 +24,9 @@ public class AutoriDao {
         return currentSession.find(Autori.class, id);
     }
 
-    public void saveOrUpdateAutori(List<Autori> autori){
+    public void saveOrUpdateAutori(Autori autori){
         Session currentSession = entityManager.unwrap(Session.class);
-        for (Autori a: autori){
-            currentSession.saveOrUpdate(a);
-        }
+        currentSession.saveOrUpdate(autori);
     }
 
     public void deleteAutori(List<Autori> autori){

@@ -21,7 +21,7 @@ public class CaseEditriciService {
     public CaseEditrici getCasaEditriceById(Integer id){
         return caseEditriciDao.getCasaEditriceById(id);
     }
-    public void saveOrUpdateCaseEditrici(List<CaseEditrici> caseEditrici){
+    public void saveOrUpdateCaseEditrici(CaseEditrici caseEditrici){
         caseEditriciDao.saveOrUpdateCaseEditrici(caseEditrici);
     }
     public void deleteCaseEditrici(List<CaseEditrici> caseEditrici){

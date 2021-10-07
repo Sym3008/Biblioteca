@@ -26,12 +26,12 @@ public class ScaffaliController {
     }
 
     @PostMapping("/save-scaffali")
-    public void saveScaffali(@RequestBody @NotNull List<Scaffali> scaffali){
+    public void saveScaffali(@RequestBody @NotNull Scaffali scaffali){
         scaffaliService.saveOrUpdateScaffali(scaffali);
     }
 
     @PutMapping("/update-scaffali")
-    public void updateScaffali(@RequestBody @NotNull List<Scaffali> scaffali){
+    public void updateScaffali(@RequestBody @NotNull Scaffali scaffali){
         scaffaliService.saveOrUpdateScaffali(scaffali);
     }
 

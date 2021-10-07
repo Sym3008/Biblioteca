@@ -21,7 +21,7 @@ public class RipianiService {
     public Ripiani getRipianoById(Integer id){
         return ripianiDao.getRipianoById(id);
     }
-    public void saveOrUpdateRipiani(List<Ripiani> ripiani){
+    public void saveOrUpdateRipiani(Ripiani ripiani){
         ripianiDao.saveOrUpdateRipiani(ripiani);
     }
     public void deleteRipiani (List<Ripiani> ripiani){

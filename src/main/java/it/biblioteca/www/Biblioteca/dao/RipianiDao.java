@@ -24,11 +24,9 @@ public class RipianiDao {
         return currentSession.find(Ripiani.class, id);
     }
 
-    public void saveOrUpdateRipiani(List<Ripiani> ripiani){
+    public void saveOrUpdateRipiani(Ripiani ripiani){
         Session currentSession = entityManager.unwrap(Session.class);
-        for (Ripiani r: ripiani){
-            currentSession.saveOrUpdate(r);
-        }
+        currentSession.saveOrUpdate(ripiani);
     }
 
     public void deleteRipiani(List<Ripiani> ripiani){

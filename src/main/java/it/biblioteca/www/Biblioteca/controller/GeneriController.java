@@ -26,12 +26,12 @@ public class GeneriController {
     }
 
     @PostMapping("/save-generi")
-    public void saveGeneri(@RequestBody @NotNull List<Generi> generi){
+    public void saveGeneri(@RequestBody @NotNull Generi generi){
         generiService.saveOrUpdateGeneri(generi);
     }
 
     @PutMapping("/update-generi")
-    public void updateGeneri(@RequestBody @NotNull List<Generi> generi){
+    public void updateGeneri(@RequestBody @NotNull Generi generi){
         generiService.saveOrUpdateGeneri(generi);
     }
 

@@ -26,12 +26,12 @@ public class CaseEditriciController {
     }
 
     @PostMapping("/save-case-editrici")
-    public void saveCaseEditrici(@RequestBody @NotNull List<CaseEditrici> caseEditrici){
+    public void saveCaseEditrici(@RequestBody @NotNull CaseEditrici caseEditrici){
         caseEditriciService.saveOrUpdateCaseEditrici(caseEditrici);
     }
 
     @PutMapping("/update-case-editrici")
-    public void updateCaseEditrici(@RequestBody @NotNull List<CaseEditrici> caseEditrici){
+    public void updateCaseEditrici(@RequestBody @NotNull CaseEditrici caseEditrici){
         caseEditriciService.saveOrUpdateCaseEditrici(caseEditrici);
     }
 

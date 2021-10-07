@@ -13,7 +13,7 @@ import java.util.List;
 public class Anagrafiche {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_anagrafica")
     private Integer idAnagrafica;
 
@@ -51,7 +51,7 @@ public class Anagrafiche {
     @Column(name="password")
     private String password;
 
-    @OneToMany (mappedBy = "anagrafica",fetch = FetchType.EAGER)
+    @OneToMany (mappedBy = "anagrafica")
     @JsonIgnore
     private List<Consegne> consegne;
 }

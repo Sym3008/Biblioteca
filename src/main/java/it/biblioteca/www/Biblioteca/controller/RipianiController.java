@@ -26,12 +26,12 @@ public class RipianiController {
     }
 
     @PostMapping("/save-ripiani")
-    public void saveRipiani(@RequestBody @NotNull List<Ripiani> ripiani){
+    public void saveRipiani(@RequestBody @NotNull Ripiani ripiani){
         ripianiService.saveOrUpdateRipiani(ripiani);
     }
 
     @PutMapping("/update-ripiani")
-    public void updateLibri(@RequestBody @NotNull List<Ripiani> ripiani){
+    public void updateLibri(@RequestBody @NotNull Ripiani ripiani){
         ripianiService.saveOrUpdateRipiani(ripiani);
     }
 

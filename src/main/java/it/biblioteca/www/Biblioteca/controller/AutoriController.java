@@ -26,13 +26,12 @@ public class AutoriController {
     }
 
     @PostMapping("/save-autori")
-    public void saveAutori(@RequestBody @NotNull List<Autori> autori){
-
+    public void saveAutori(@RequestBody @NotNull Autori autori){
         autoriService.saveOrUpdateAutori(autori);
     }
 
     @PutMapping("/update-autori")
-    public void updateAutori(@RequestBody @NotNull List<Autori> autori){
+    public void updateAutori(@RequestBody @NotNull Autori autori){
         autoriService.saveOrUpdateAutori(autori);
     }
 

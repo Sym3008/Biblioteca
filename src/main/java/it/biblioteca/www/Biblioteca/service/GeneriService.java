@@ -21,7 +21,7 @@ public class GeneriService {
     public Generi getGenereById(Integer id){
         return generiDao.getGenereById(id);
     }
-    public void saveOrUpdateGeneri(List<Generi> generi){
+    public void saveOrUpdateGeneri(Generi generi){
         generiDao.saveOrUpdateGeneri(generi);
     }
     public void deleteGeneri(List<Generi> generi){

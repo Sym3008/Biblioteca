@@ -21,7 +21,7 @@ public class AutoriService {
     public Autori getAutoreById(Integer id){
         return autoriDao.getAutoreById(id);
     }
-    public void saveOrUpdateAutori(List<Autori> autori){
+    public void saveOrUpdateAutori(Autori autori){
         autoriDao.saveOrUpdateAutori(autori);
     }
     public void deleteAutori(List<Autori> autori){

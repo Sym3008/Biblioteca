@@ -24,11 +24,9 @@ public class GeneriDao {
         return currentSession.find(Generi.class, id);
     }
 
-    public void saveOrUpdateGeneri(List<Generi> generi){
+    public void saveOrUpdateGeneri(Generi generi){
         Session currentSession = entityManager.unwrap(Session.class);
-        for (Generi g: generi){
-            currentSession.saveOrUpdate(g);
-        }
+        currentSession.saveOrUpdate(generi);
     }
 
     public void deleteGeneri(List<Generi> generi){

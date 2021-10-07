@@ -24,11 +24,9 @@ public class ScaffaliDao {
         return currentSession.find(Scaffali.class, id);
     }
 
-    public void saveOrUpdateScaffali(List<Scaffali> scaffali){
+    public void saveOrUpdateScaffali(Scaffali scaffali){
         Session currentSession = entityManager.unwrap(Session.class);
-        for (Scaffali s: scaffali){
-            currentSession.saveOrUpdate(s);
-        }
+        currentSession.saveOrUpdate(scaffali);
     }
 
     public void deleteScaffali(List<Scaffali> scaffali){

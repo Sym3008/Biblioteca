@@ -26,12 +26,12 @@ public class LibriController {
     }
 
     @PostMapping("/save-libri")
-    public void saveLibri(@RequestBody @NotNull List<Libri> libri){
+    public void saveLibri(@RequestBody @NotNull Libri libri){
         libriService.saveOrUpdateLibri(libri);
     }
 
     @PutMapping("/update-libri")
-    public void updateLibri(@RequestBody @NotNull List<Libri> libri){
+    public void updateLibri(@RequestBody @NotNull Libri libri){
         libriService.saveOrUpdateLibri(libri);
     }
 

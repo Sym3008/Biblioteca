@@ -21,7 +21,7 @@ public class LibriService {
     public Libri getLibroById(Integer id){
         return libriDao.getLibroById(id);
     }
-    public void saveOrUpdateLibri(List<Libri> libri){
+    public void saveOrUpdateLibri(Libri libri){
         libriDao.saveOrUpdateLibri(libri);
     }
     public void deleteLibri(List<Libri> libri){

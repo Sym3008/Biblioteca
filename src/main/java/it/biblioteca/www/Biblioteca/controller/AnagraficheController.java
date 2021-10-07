@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 @CrossOrigin
 @RestController
 @RequestMapping
@@ -26,12 +27,12 @@ public class AnagraficheController {
     }
 
     @PostMapping ("/save-anagrafiche")
-    public void saveAnagrafiche(@RequestBody @NotNull List<Anagrafiche> anagrafiche){
+    public void saveAnagrafiche(@RequestBody @NotNull Anagrafiche anagrafiche){
         anagraficheService.saveOrUpdateAnagrafiche(anagrafiche);
     }
 
     @PutMapping ("/update-anagrafiche")
-    public void updateAnagrafiche(@RequestBody @NotNull List<Anagrafiche> anagrafiche){
+    public void updateAnagrafiche(@RequestBody @NotNull Anagrafiche anagrafiche){
         anagraficheService.saveOrUpdateAnagrafiche(anagrafiche);
     }
 

@@ -21,7 +21,7 @@ public class ScaffaliService {
     public Scaffali getScaffaleById(Integer id){
         return scaffaliDao.getScaffaleById(id);
     }
-    public void saveOrUpdateScaffali(List<Scaffali> scaffali){
+    public void saveOrUpdateScaffali(Scaffali scaffali){
         scaffaliDao.saveOrUpdateScaffali(scaffali);
     }
     public void deleteScaffali(List<Scaffali> scaffali){

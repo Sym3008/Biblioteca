@@ -25,11 +25,9 @@ public class AnagraficheDao {
         return currentSession.find(Anagrafiche.class, id);
     }
 
-    public void saveOrUpdateAnagrafiche(List<Anagrafiche> anagrafiche){
+    public void saveOrUpdateAnagrafiche(Anagrafiche anagrafiche){
         Session currentSession = entityManager.unwrap(Session.class);
-        for (Anagrafiche a: anagrafiche){
-            currentSession.saveOrUpdate(a);
-        }
+        currentSession.saveOrUpdate(anagrafiche);
     }
 
     public void  deleteAnagrafiche(List<Anagrafiche> anagrafiche){

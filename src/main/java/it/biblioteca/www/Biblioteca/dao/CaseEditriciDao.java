@@ -24,11 +24,9 @@ public class CaseEditriciDao {
         return currentSession.find(CaseEditrici.class, id);
     }
 
-    public void saveOrUpdateCaseEditrici(List<CaseEditrici> caseEditrici){
+    public void saveOrUpdateCaseEditrici(CaseEditrici caseEditrici){
         Session currentSession = entityManager.unwrap(Session.class);
-        for (CaseEditrici c: caseEditrici){
-            currentSession.saveOrUpdate(c);
-        }
+        currentSession.saveOrUpdate(caseEditrici);
     }
 
     public void deleteCaseEditrici(List<CaseEditrici> caseEditrici){

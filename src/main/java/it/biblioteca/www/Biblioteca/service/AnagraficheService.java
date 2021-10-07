@@ -21,7 +21,7 @@ public class AnagraficheService {
     public Anagrafiche getAnagraficaById(Integer id){
         return anagraficheDao.getAnagraficaById(id);
     }
-    public void saveOrUpdateAnagrafiche(List<Anagrafiche> anagrafiche){
+    public void saveOrUpdateAnagrafiche(Anagrafiche anagrafiche){
         anagraficheDao.saveOrUpdateAnagrafiche(anagrafiche);
     }
     public void deleteAnagrafiche(List<Anagrafiche> anagrafiche){
