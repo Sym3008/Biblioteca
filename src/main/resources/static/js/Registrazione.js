@@ -64,7 +64,7 @@ function inserisciRecord(){
 
     let prov = provincia.value.toUpperCase();
 
-    let newRecord =[{
+    let newRecord ={
         idAnagrafica: '',
         nome: n.value,
         cognome:c.value,
@@ -76,9 +76,8 @@ function inserisciRecord(){
         telefonoCellulare: tel.value,
         codiceFiscale:cf.value,
         email:e.value,
-        password:p.value}];
-
-                 // [{"idAnagrafica":"","nome":"P",      "cognome":"S",         "dataNascita":"2000-02-10","indirizzo":"V",            "cap":"76121","localita":"Barletta","provincia":"BT","telefonoCellulare":"3801961628","codiceFiscale":"SCMPQL00B10A669F","email":"pasqualee.scommegna@gmail.com","password":"gino"}]
+        password:p.value};
+    
     console.log(newRecord);
 
     let urlApi= "http://localhost:8080/api/save-anagrafiche";
