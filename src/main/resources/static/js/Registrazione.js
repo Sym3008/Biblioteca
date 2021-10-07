@@ -93,6 +93,7 @@ function inserisciRecord(){
         body: JSON.stringify(newRecord),
         }).then(function (response){
             console.log("record inserito");
+            alert("Anagrafica inserita correttamente")
             // return response.json()
         }).then(data => {
             console.log('Success:', data);
