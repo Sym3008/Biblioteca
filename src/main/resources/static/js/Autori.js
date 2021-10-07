@@ -58,7 +58,7 @@ function inserisciRecord(){
 
     console.log(newRecord);
 
-    let urlApi= "http://localhost:8080/api/save-anagrafiche";
+    let urlApi= "http://localhost:8080/api/save-autori";
 
     fetch(urlApi, {
         method: "POST",
