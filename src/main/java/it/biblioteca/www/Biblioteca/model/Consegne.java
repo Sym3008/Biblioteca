@@ -13,7 +13,7 @@ import java.util.List;
 public class Consegne {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_consegna")
     private Integer idConsegna;
 

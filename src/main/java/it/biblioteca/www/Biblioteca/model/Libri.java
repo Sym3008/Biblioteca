@@ -12,7 +12,7 @@ import java.util.List;
 public class Libri {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(name = "id_libro")
     private Integer idLibro;
 

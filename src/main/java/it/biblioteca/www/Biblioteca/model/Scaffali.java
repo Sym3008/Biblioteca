@@ -12,7 +12,7 @@ import java.util.List;
 public class Scaffali {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_scaffale")
     private Integer idScaffale;
 

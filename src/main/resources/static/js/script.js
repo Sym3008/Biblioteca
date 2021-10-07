@@ -26,6 +26,6 @@ window.addEventListener("load", function (Event){
     form.addEventListener("submit",function (e){
         let id=document.querySelector("#Email")
         let urlApi= "http://localhost:63342/Biblioteca/templates/show/AutoriShow.html?id="+id.value
-        window.open(urlApi,"_blank");
+        window.open(urlApi);
     })
 })

@@ -12,7 +12,7 @@ import java.util.List;
 public class Ripiani {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)  //lascia gestire l'autoincrement della primary key al DB
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_ripiano")
     private Integer idRipiano;
 
