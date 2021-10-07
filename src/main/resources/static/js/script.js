@@ -1,20 +1,31 @@
+// window.addEventListener("load", function (Event){
+//
+//     let form=document.querySelector("#login")
+//
+//     form.addEventListener("submit",function (e){
+//         e.preventDefault()
+//         let id=document.querySelector("#Email")
+//         let urlApi= "http://localhost:8080/api/get-anagrafica/"+id.value
+//
+//         console.log(id.value)
+//         console.log(urlApi)
+//         fetch(urlApi,
+//         {method:"GET"
+//         }).then(function (response){
+//             return response.json()
+//         }).then(function (data){
+//             console.log(data)
+//         })
+//     })
+// })
+
 window.addEventListener("load", function (Event){
 
     let form=document.querySelector("#login")
 
     form.addEventListener("submit",function (e){
-        e.preventDefault()
         let id=document.querySelector("#Email")
-        let urlApi= "http://localhost:8080/api/get-anagrafica/"+id.value
-
-        console.log(id.value)
-        console.log(urlApi)
-        fetch(urlApi,
-        {method:"GET"
-        }).then(function (response){
-            return response.json()
-        }).then(function (data){
-            console.log(data)
-        })
+        let urlApi= "http://localhost:63342/Biblioteca/templates/show/AutoriShow.html?id="+id.value
+        window.open(urlApi,"_blank");
     })
 })
