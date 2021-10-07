@@ -25,16 +25,10 @@ public class ConsegneDao {
         return currentSession.find(Consegne.class, id);
     }
 
-    public void saveOrUpdateConsegne(List<Consegne> consegne){
+    public void saveOrUpdateConsegne(Consegne consegna){
         Session currentSession = entityManager.unwrap(Session.class);
-        Session updateSession = entityManager.unwrap(Session.class);
-        for (Consegne c: consegne){
-            for(Libri l: c.getLibriList()){
-                l.setConsegneList(consegne);
-                updateSession.saveOrUpdate(l);
-            }
-            currentSession.saveOrUpdate(c);
-        }
+        currentSession.saveOrUpdate(consegna);
+
     }
 
     public void deleteConsegne(List<Consegne> consegne){

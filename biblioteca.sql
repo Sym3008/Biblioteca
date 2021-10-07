@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Ott 05, 2021 alle 17:26
--- Versione del server: 10.4.21-MariaDB
--- Versione PHP: 8.0.10
+-- Creato il: Ott 07, 2021 alle 23:36
+-- Versione del server: 10.4.20-MariaDB
+-- Versione PHP: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -129,8 +129,16 @@ CREATE TABLE `consegne` (
   `descrizione` varchar(100) DEFAULT NULL,
   `id_anagrafica` int(11) DEFAULT NULL,
   `data_consegna` date DEFAULT NULL,
-  `data_restituzione` date DEFAULT NULL
+  `data_restituzione` date DEFAULT NULL,
+  `id_libro` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `consegne`
+--
+
+INSERT INTO `consegne` (`id_consegna`, `descrizione`, `id_anagrafica`, `data_consegna`, `data_restituzione`, `id_libro`) VALUES
+(1, 'Consegna 1', 2, '2021-10-01', '2021-11-01', 2);
 
 -- --------------------------------------------------------
 
@@ -218,18 +226,6 @@ INSERT INTO `libri` (`id_libro`, `titolo`, `id_autore`, `prefazione`, `id_casa_e
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `libri_consegnati`
---
-
-CREATE TABLE `libri_consegnati` (
-  `id_libro_consegnato` int(11) NOT NULL,
-  `id_consegna` int(11) DEFAULT NULL,
-  `id_libro` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Struttura della tabella `ripiani`
 --
 
@@ -298,7 +294,8 @@ ALTER TABLE `case_editrici`
 --
 ALTER TABLE `consegne`
   ADD PRIMARY KEY (`id_consegna`),
-  ADD KEY `id_anagrafica` (`id_anagrafica`);
+  ADD KEY `id_anagrafica` (`id_anagrafica`),
+  ADD KEY `consegne_ibfk_2` (`id_libro`);
 
 --
 -- Indici per le tabelle `generi`
@@ -316,14 +313,6 @@ ALTER TABLE `libri`
   ADD KEY `id_genere` (`id_genere`),
   ADD KEY `id_ripiano` (`id_ripiano`),
   ADD KEY `id_scaffale` (`id_scaffale`);
-
---
--- Indici per le tabelle `libri_consegnati`
---
-ALTER TABLE `libri_consegnati`
-  ADD PRIMARY KEY (`id_libro_consegnato`),
-  ADD KEY `id_consegna` (`id_consegna`),
-  ADD KEY `id_libro` (`id_libro`);
 
 --
 -- Indici per le tabelle `ripiani`
@@ -363,7 +352,7 @@ ALTER TABLE `case_editrici`
 -- AUTO_INCREMENT per la tabella `consegne`
 --
 ALTER TABLE `consegne`
-  MODIFY `id_consegna` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_consegna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT per la tabella `generi`
@@ -376,12 +365,6 @@ ALTER TABLE `generi`
 --
 ALTER TABLE `libri`
   MODIFY `id_libro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
-
---
--- AUTO_INCREMENT per la tabella `libri_consegnati`
---
-ALTER TABLE `libri_consegnati`
-  MODIFY `id_libro_consegnato` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT per la tabella `ripiani`
@@ -403,24 +386,18 @@ ALTER TABLE `scaffali`
 -- Limiti per la tabella `consegne`
 --
 ALTER TABLE `consegne`
-  ADD CONSTRAINT `consegne_ibfk_1` FOREIGN KEY (`id_anagrafica`) REFERENCES `anagrafiche` (`id_anagrafica`);
+  ADD CONSTRAINT `consegne_ibfk_1` FOREIGN KEY (`id_anagrafica`) REFERENCES `anagrafiche` (`id_anagrafica`) ON DELETE CASCADE,
+  ADD CONSTRAINT `consegne_ibfk_2` FOREIGN KEY (`id_libro`) REFERENCES `libri` (`id_libro`) ON DELETE CASCADE;
 
 --
 -- Limiti per la tabella `libri`
 --
 ALTER TABLE `libri`
-  ADD CONSTRAINT `libri_ibfk_1` FOREIGN KEY (`id_autore`) REFERENCES `autori` (`id_autore`),
-  ADD CONSTRAINT `libri_ibfk_2` FOREIGN KEY (`id_casa_editrice`) REFERENCES `case_editrici` (`id_casa_editrice`),
-  ADD CONSTRAINT `libri_ibfk_3` FOREIGN KEY (`id_genere`) REFERENCES `generi` (`id_genere`),
-  ADD CONSTRAINT `libri_ibfk_4` FOREIGN KEY (`id_ripiano`) REFERENCES `ripiani` (`id_ripiano`),
-  ADD CONSTRAINT `libri_ibfk_5` FOREIGN KEY (`id_scaffale`) REFERENCES `scaffali` (`id_scaffale`);
-
---
--- Limiti per la tabella `libri_consegnati`
---
-ALTER TABLE `libri_consegnati`
-  ADD CONSTRAINT `libri_consegnati_ibfk_1` FOREIGN KEY (`id_consegna`) REFERENCES `consegne` (`id_consegna`),
-  ADD CONSTRAINT `libri_consegnati_ibfk_2` FOREIGN KEY (`id_libro`) REFERENCES `libri` (`id_libro`);
+  ADD CONSTRAINT `libri_ibfk_1` FOREIGN KEY (`id_autore`) REFERENCES `autori` (`id_autore`) ON DELETE CASCADE,
+  ADD CONSTRAINT `libri_ibfk_2` FOREIGN KEY (`id_casa_editrice`) REFERENCES `case_editrici` (`id_casa_editrice`) ON DELETE CASCADE,
+  ADD CONSTRAINT `libri_ibfk_3` FOREIGN KEY (`id_genere`) REFERENCES `generi` (`id_genere`) ON DELETE CASCADE,
+  ADD CONSTRAINT `libri_ibfk_4` FOREIGN KEY (`id_ripiano`) REFERENCES `ripiani` (`id_ripiano`) ON DELETE CASCADE,
+  ADD CONSTRAINT `libri_ibfk_5` FOREIGN KEY (`id_scaffale`) REFERENCES `scaffali` (`id_scaffale`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

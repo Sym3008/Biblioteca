@@ -21,8 +21,8 @@ public class ConsegneService {
     public Consegne getConsegnaById(Integer id){
         return consegneDao.getConsegnaById(id);
     }
-    public void saveOrUpdateConsegne(List<Consegne> consegne){
-        consegneDao.saveOrUpdateConsegne(consegne);
+    public void saveOrUpdateConsegne(Consegne consegna){
+        consegneDao.saveOrUpdateConsegne(consegna);
     }
     public void deleteConsegne(List<Consegne> consegne){
         consegneDao.deleteConsegne(consegne);

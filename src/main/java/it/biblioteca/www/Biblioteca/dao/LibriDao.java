@@ -25,16 +25,9 @@ public class LibriDao {
         return currentSession.find(Libri.class, id);
     }
 
-    public void saveOrUpdateLibri (List<Libri> libri){
+    public void saveOrUpdateLibri (Libri libro){
         Session currentSession = entityManager.unwrap(Session.class);
-        Session updateSession = entityManager.unwrap(Session.class);
-        for (Libri l: libri){
-            for (Consegne c: l.getConsegneList()){
-                c.setLibriList(libri);
-                updateSession.save(c);
-            }
-            currentSession.saveOrUpdate(l);
-        }
+        currentSession.saveOrUpdate(libro);
     }
 
     public void deleteLibri(List<Libri> libri){

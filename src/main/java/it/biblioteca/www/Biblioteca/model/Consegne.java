@@ -5,7 +5,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Data
 @Entity
@@ -33,10 +32,15 @@ public class Consegne {
     @Column(name = "data_restituzione")
     private Date dataRestituzione;
 
-    @ManyToMany(targetEntity = Libri.class)
-    @JoinTable(name = "libri_consegnati",
-            joinColumns = @JoinColumn(name="id_consegna"),
-            inverseJoinColumns = @JoinColumn(name="id_libro"))
-    @JsonIgnoreProperties("consegneList")
-    private List<Libri> libriList;
+    @JoinColumn(name = "id_libro")
+    @ManyToOne
+    @JsonIgnoreProperties("consegne")
+    private Libri libro;
+
+//    @ManyToMany(targetEntity = Libri.class)
+//    @JoinTable(name = "libri_consegnati",
+//            joinColumns = @JoinColumn(name="id_consegna"),
+//            inverseJoinColumns = @JoinColumn(name="id_libro"))
+//    @JsonIgnoreProperties("consegneList")
+//    private List<Libri> libriList;
 }

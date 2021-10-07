@@ -19,7 +19,6 @@ window.addEventListener("load", function (Event) {
 })
 
 function carica(id) {
-    let msg
     let urlApi = "http://localhost:8080/api/get-libri/" + id
 
     console.log(id)
@@ -31,7 +30,6 @@ function carica(id) {
         console.log(response)
             return response.json()
     }).then(function (data) {
-
         console.log(data)
 
         let div1=document.querySelector('#copertina')
@@ -54,5 +52,7 @@ function carica(id) {
         div9.innerHTML=`${data.isbn}`
         let div10=document.querySelector('#quantita')
         div10.innerHTML=`${data.quantita}`
+
+
     })
 }

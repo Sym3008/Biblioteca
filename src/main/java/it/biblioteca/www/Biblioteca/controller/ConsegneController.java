@@ -26,13 +26,13 @@ public class ConsegneController {
     }
 
     @PostMapping("/save-consegne")
-    public void saveConsegne(@RequestBody @NotNull List<Consegne> consegne){
-        consegneService.saveOrUpdateConsegne(consegne);
+    public void saveConsegne(@RequestBody @NotNull Consegne consegna){
+        consegneService.saveOrUpdateConsegne(consegna);
     }
 
     @PutMapping("/update-consegne")
-    public void updateCaseEditrici(@RequestBody @NotNull List<Consegne> consegne){
-        consegneService.saveOrUpdateConsegne(consegne);
+    public void updateCaseEditrici(@RequestBody @NotNull Consegne consegna){
+        consegneService.saveOrUpdateConsegne(consegna);
     }
 
     @DeleteMapping("/cancella-consegne")

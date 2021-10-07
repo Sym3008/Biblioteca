@@ -1,5 +1,6 @@
 package it.biblioteca.www.Biblioteca.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
@@ -62,7 +63,11 @@ public class Libri {
     @JsonIgnoreProperties("libri")
     private Ripiani ripiano;
 
-    @ManyToMany(mappedBy = "libriList", targetEntity = Consegne.class)
-    @JsonIgnoreProperties("libriList")
+    @OneToMany(mappedBy = "libro")
+    @JsonIgnore
     private List<Consegne> consegneList;
+
+//    @ManyToMany(mappedBy = "libriList", targetEntity = Consegne.class)
+//    @JsonIgnoreProperties("libriList")
+//    private List<Consegne> consegneList;
 }
