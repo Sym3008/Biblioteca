@@ -32,37 +32,51 @@
                 </div>
             </nav>
         </div>
-        <div class="p-0 col-md-10 offset-md-2" >
-                <form id="search" method="post">
-                    <div class="ricerca d-flex flex-column flex-md-row justify-content-end align-items-center">
-                        <div class="Bord1">
-                            <input type="text" value="" placeholder="Ricerca per nome" id="inputName">
-                        </div>
-                        <div class="Bord1">
-                            <input type="text" value="" placeholder="Ricerca per autore" id="inputAutor">
-                        </div>
-                        <div class="Bord1">
-                            <input type="text" value="" placeholder="Ricerca per genere" id="inputGener">
-                        </div>
-                        <div class="Bord1 col-md-3">
-                            <button type="submit">Search</button>
-                        </div>
+        <div class="p-0 col-md-10 offset-md-2">
+            <form id="search" method="post">
+                <div class="ricerca d-flex flex-column flex-md-row justify-content-end align-items-center">
+                    <div class="Bord1">
+                        <input type="text" value="" placeholder="Ricerca per nome" id="inputName">
                     </div>
-                </form>
+                    <div class="Bord1">
+                        <input type="text" value="" placeholder="Ricerca per autore" id="inputAutor">
+                    </div>
+                    <div class="Bord1">
+                        <input type="text" value="" placeholder="Ricerca per genere" id="inputGener">
+                    </div>
+                    <div class="Bord1 col-md-3">
+                        <button class="" id="richiesta" type="submit">Search</button>
+                    </div>
+                </div>
+            </form>
         </div>
         <!-- Corpo responsitive dal tablet -->
         <div class="row pTimage">
             <div class="p0 col-md-10 offset-md-1 ">
                 <div class="Bord1 d-flex flex-column flex-md-row justify-content-start align-items-center">
                     <div class="image p-2 px-md-0 mx-2 lh-1">
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/71CUTxwwt6L.jpg">
+                        <img id="copertina" src="https://images-na.ssl-images-amazon.com/images/I/71CUTxwwt6L.jpg">
                     </div>
                     <div class="paragrafo">
                         <p>
-                        <h2><strong>Harry potter e la camera dei segreti </strong></h2>
-                        <br/>J.K.Rowling
+                        <h2 id="titolo"><strong>Harry potter e la camera dei segreti </strong></h2>
+                        <br id="autore"/> J.K.Rowling
                         <br/>
-                        <br/>A Privet Drive, durante le vacanze estive, mentre la famiglia Dursley ha invitato a cena i coniugi Mason, due potenziali clienti della ditta di zio Vernon, Harry Potter viene relegato nella sua nuova stanza, dove si domanda perché i suoi amici non gli abbiano scritto durante tutta l'estate. Un elfo domestico di nome Dobby compare all'improvviso nella stanza di Harry e lo avverte di non tornare a Hogwarts, poiché altrimenti la sua vita sarebbe in pericolo. L'elfo poi confessa di aver nascosto le lettere degli amici di Harry per fargli credere che si fossero dimenticati di lui, sperando che a seguito di ciò il ragazzo non avrebbe più voluto tornare ad Hogwarts. Nonostante tutto, Harry vuole tornare a scuola, perciò Dobby decide di eseguire una magia, facendo cadere a terra la torta preparata da zia Petunia, per poi scomparire. Un gufo irrompe nel salotto dei Dursley, spaventando i Mason e portando a Harry una lettera ufficiale del Ministero della Magia, nella quale gli viene ricordato il divieto per i maghi minorenni di effettuare magie al di fuori della scuola e avvertendolo che, se il fatto si ripeterà, verrà espulso. I Mason fuggono terrorizzati e zio Vernon, avendo scoperto che Harry non può fare magie fuori dalla scuola, decide di non permettergli di tornare ad Hogwarts, rinchiudendolo nella sua stanza e mettendogli delle sbarre alla finestra.
+                        <br id="prefazione"/>A Privet Drive, durante le vacanze estive, mentre la famiglia Dursley ha
+                        invitato a cena i coniugi Mason, due potenziali clienti della ditta di zio Vernon, Harry Potter
+                        viene relegato nella sua nuova stanza, dove si domanda perché i suoi amici non gli abbiano
+                        scritto durante tutta l'estate. Un elfo domestico di nome Dobby compare all'improvviso nella
+                        stanza di Harry e lo avverte di non tornare a Hogwarts, poiché altrimenti la sua vita sarebbe in
+                        pericolo. L'elfo poi confessa di aver nascosto le lettere degli amici di Harry per fargli
+                        credere che si fossero dimenticati di lui, sperando che a seguito di ciò il ragazzo non avrebbe
+                        più voluto tornare ad Hogwarts. Nonostante tutto, Harry vuole tornare a scuola, perciò Dobby
+                        decide di eseguire una magia, facendo cadere a terra la torta preparata da zia Petunia, per poi
+                        scomparire. Un gufo irrompe nel salotto dei Dursley, spaventando i Mason e portando a Harry una
+                        lettera ufficiale del Ministero della Magia, nella quale gli viene ricordato il divieto per i
+                        maghi minorenni di effettuare magie al di fuori della scuola e avvertendolo che, se il fatto si
+                        ripeterà, verrà espulso. I Mason fuggono terrorizzati e zio Vernon, avendo scoperto che Harry
+                        non può fare magie fuori dalla scuola, decide di non permettergli di tornare ad Hogwarts,
+                        rinchiudendolo nella sua stanza e mettendogli delle sbarre alla finestra.
                         </p>
                     </div>
                 </div>
@@ -70,30 +84,31 @@
             <div class="p0 col-md-10 offset-md-1">
                 <h3> Dettagli </h3>
                 <hr/>
-                <p><span> Editore </span>
+                <p id="id_editore"><span> Editore </span>
                     <span class="value">Mondadori</span>
                 </p>
                 <hr/>
-                <p><span> Genere </span>
+                <p id="id_genere"><span> Genere </span>
                     <span class="value">Romanzo</span>
                 </p>
                 <hr/>
-                <p><span> Pagine </span>
+                <p id="pagine"><span> Pagine </span>
                     <span class="value">309</span>
                 </p>
                 <hr/>
-                <p><span> Lingua </span>
+                <p id="lingua"><span> Lingua </span>
                     <span class="value">Italiano</span>
                 </p>
                 <hr/>
-                <p><span> Isbn </span>
+                <p id="isbn"><span> Isbn </span>
                     <span class="value">214743564</span>
                 </p>
                 <hr/>
-                <p><span> Quantità </span>
+                <p id="quantita"><span> Quantità </span>
                     <span class="value">4</span>
                 </p>
             </div>
+
         </div>
 
         <footer class="footer p-0 d-flex flex-row justify-content-between align-items-center">
@@ -109,6 +124,6 @@
         </footer>
     </div>
 </div>
-<script src=""></script>
+<script src="../../static/js/Product.js"></script>
 </body>
 </html>
