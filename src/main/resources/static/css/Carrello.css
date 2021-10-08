@@ -25,3 +25,26 @@ li{
     height: 75px;
     border: 1px solid;
 }
+form input{
+    width: 100%;
+    text-align: left;
+    font-size: large;
+    border: 1px solid;
+    height: 45px;
+    padding: 15px;
+}
+form select{
+    width: 100%;
+    text-align: left;
+    height: 45px;
+}
+form label{
+    width: 100%;
+    text-align: left;
+    font-size: 20px;
+}
+form div{
+    padding: 1px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
