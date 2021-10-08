@@ -32,7 +32,7 @@ window.addEventListener("load", function (Event) {
 
     }else if (casa_editrice.value!=""){
 
-             urlApi = "http://localhost:63342/Biblioteca/templates/show/CasaEditriceShow.html?id=" + casa_editrice.value;
+             urlApi = "http://localhost:63342/Biblioteca/templates/CaseEditrici.html?id=" + casa_editrice.value;
 
     }
         //close();
@@ -79,3 +79,4 @@ function carica(id) {
 
     })
 }
+
