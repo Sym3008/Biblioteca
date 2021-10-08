@@ -16,6 +16,29 @@ window.addEventListener('load', function (Event) {
         // console.log(data)
         carica(data);
     })
+
+    let name = document.querySelector("#inputName")
+    let autor = document.querySelector("#inputAutor")
+    let casa_editrice= document.querySelector("#inputCasaEditrice")
+
+    let link = document.querySelector("#richiesta")
+    let urlApi
+    link.addEventListener("click", function (e) {
+
+        if (name.value!=""){
+            urlApi = "http://localhost:63342/Biblioteca/templates/show/LibriShow.html?nominativo=" + name.value;
+
+        } else if (autor.value!=""){
+            urlApi = "http://localhost:63342/Biblioteca/templates/show/AutoriShow.html?nominativo=" + autor.value;
+
+        }else if (casa_editrice.value!=""){
+            urlApi = "http://localhost:63342/Biblioteca/templates/show/CaseEditriciShow.html?nominativo=" + casa_editrice.value;
+
+        }
+        close();
+        open(urlApi);
+    })
+
 })
 
 function cerca() {

@@ -13,10 +13,6 @@ window.addEventListener("load", function (Event) {
     let autor = document.querySelector("#inputAutor")
     let casa_editrice= document.querySelector("#inputCasaEditrice")
 
-    console.log("name"+name.value);
-    console.log("autore"+autor.value);
-    console.log("casa editrice"+casa_editrice.value);
-
     let link = document.querySelector("#richiesta")
     let urlApi
     link.addEventListener("click", function (e) {
