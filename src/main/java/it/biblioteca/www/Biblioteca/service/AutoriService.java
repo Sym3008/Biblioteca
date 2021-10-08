@@ -21,6 +21,9 @@ public class AutoriService {
     public Autori getAutoreById(Integer id){
         return autoriDao.getAutoreById(id);
     }
+    public List<Autori> getAutoreByNominativo(String nominativo){
+        return autoriDao.getAutoreByNominativo(nominativo);
+    }
     public void saveOrUpdateAutori(Autori autori){
         autoriDao.saveOrUpdateAutori(autori);
     }

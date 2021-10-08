@@ -21,6 +21,9 @@ public class CaseEditriciService {
     public CaseEditrici getCasaEditriceById(Integer id){
         return caseEditriciDao.getCasaEditriceById(id);
     }
+    public List<CaseEditrici> getCasaEditriceByNominativo(String nominativo){
+        return caseEditriciDao.getCasaEditriceByNominativo(nominativo);
+    }
     public void saveOrUpdateCaseEditrici(CaseEditrici caseEditrici){
         caseEditriciDao.saveOrUpdateCaseEditrici(caseEditrici);
     }

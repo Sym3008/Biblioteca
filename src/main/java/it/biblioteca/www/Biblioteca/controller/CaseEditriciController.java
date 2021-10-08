@@ -25,6 +25,11 @@ public class CaseEditriciController {
         return caseEditriciService.getCasaEditriceById(id);
     }
 
+    @GetMapping("/get-casa-editrice-nominativo/{nominativo}")
+    public List<CaseEditrici> getCasaEditriceByNominativo(@PathVariable("nominativo") String nominativo){
+        return caseEditriciService.getCasaEditriceByNominativo(nominativo);
+    }
+
     @PostMapping("/save-case-editrici")
     public void saveCaseEditrici(@RequestBody @NotNull CaseEditrici caseEditrici){
         caseEditriciService.saveOrUpdateCaseEditrici(caseEditrici);

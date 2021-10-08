@@ -25,6 +25,11 @@ public class AutoriController {
         return autoriService.getAutoreById(id);
     }
 
+    @GetMapping("/get-autore-nominativo/{nominativo}")
+    public List<Autori> getAutoreByNominativo(@PathVariable("nominativo") String nominativo){
+        return autoriService.getAutoreByNominativo(nominativo);
+    }
+
     @PostMapping("/save-autori")
     public void saveAutori(@RequestBody @NotNull Autori autori){
         autoriService.saveOrUpdateAutori(autori);

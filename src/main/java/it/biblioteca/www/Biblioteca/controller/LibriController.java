@@ -25,6 +25,11 @@ public class LibriController {
         return libriService.getLibroById(id);
     }
 
+    @GetMapping("/get-libro-titoli/{titolo}")
+    public List<Libri> getLibroByTitolo(@PathVariable("titolo") String titolo){
+        return libriService.getLibroByTitolo(titolo);
+    }
+
     @PostMapping("/save-libri")
     public void saveLibri(@RequestBody @NotNull Libri libro){
         libriService.saveOrUpdateLibri(libro);
