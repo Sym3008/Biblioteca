@@ -50,12 +50,14 @@ function inserisciRecord(){
     //let url=document.querySelector('#');
     let scaf=document.querySelector('#Scaffale');
     let rip=document.querySelector('#Ripiano');
+    let cop=document.querySelector('#Copertina')
 
     let newRecord ={
         idLibro: '',
         titolo: t.value,
         idAutore:iA.value,
         prefazione:p.value,
+        genere:iG.value,
         idCasaEditrice:iCE.value,
         isbn:isbn.value,
         numeroPagine:nP.value,
@@ -63,7 +65,8 @@ function inserisciRecord(){
         quantita: qnt.value,
         url:url.value,
         scaffale:scaf.value,
-        ripiano:rip.value};
+        ripiano:rip.value,
+        copertina:cop.value};
 
     console.log(newRecord);
 
