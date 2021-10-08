@@ -1,5 +1,5 @@
 window.addEventListener('load', function (Event) {
-    let url = 'http://localhost:8080/api/get-autori';
+    let url = 'http://localhost:8080/api/get-libri';
 
     fetch(url).then(function (response) {
         return response.json()
@@ -40,34 +40,44 @@ function carica(data){
         var row = document.createElement("tr");
 
         var cell = document.createElement("td");
-        var cellText = document.createTextNode(data[j].nominativo);
+        var cellText = document.createTextNode(data[j].titolo);
         cell.appendChild(cellText);
         row.appendChild(cell);
 
         cell = document.createElement("td");
-        cellText = document.createTextNode(data[j].dataNascita);
+        cellText = document.createTextNode(data[j].autore.nominativo);
         cell.appendChild(cellText);
         row.appendChild(cell);
 
         cell = document.createElement("td");
-        cellText = document.createTextNode(data[j].luogoNascita);
+        cellText = document.createTextNode(data[j].casaEditrice.nominativo);
         cell.appendChild(cellText);
         row.appendChild(cell);
 
         cell = document.createElement("td");
-        cellText = document.createTextNode(data[j].dataMorte);
+        cellText = document.createTextNode(data[j].genere.descrizione);
         cell.appendChild(cellText);
         row.appendChild(cell);
 
         cell = document.createElement("td");
-        cellText = document.createTextNode(data[j].luogoMorte);
+        cellText = document.createTextNode(data[j].numeroPagine);
+        cell.appendChild(cellText);
+        row.appendChild(cell);
+
+        cell = document.createElement("td");
+        cellText = document.createTextNode(data[j].lingua);
+        cell.appendChild(cellText);
+        row.appendChild(cell);
+
+        cell = document.createElement("td");
+        cellText = document.createTextNode(data[j].quantita);
         cell.appendChild(cellText);
         row.appendChild(cell);
 
         cell = document.createElement("td");
         let div = document.createElement("div");
         div.classList.add("BoxText");
-        cellText = document.createTextNode(data[j].biografia);
+        cellText = document.createTextNode(data[j].prefazione);
         div.appendChild(cellText);
         cell.appendChild(div);
         row.appendChild(cell);
@@ -96,4 +106,3 @@ function carica(data){
     // searchDiv3.appendChild(searchSpan)
     // searchDiv3.appendChild(searchImg2)
 }
-

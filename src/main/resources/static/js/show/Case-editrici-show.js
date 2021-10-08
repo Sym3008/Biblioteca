@@ -1,5 +1,5 @@
 window.addEventListener('load', function (Event) {
-    let url = 'http://localhost:8080/api/get-autori';
+    let url = 'http://localhost:8080/api/get-case_editrici';
 
     fetch(url).then(function (response) {
         return response.json()
@@ -45,31 +45,33 @@ function carica(data){
         row.appendChild(cell);
 
         cell = document.createElement("td");
-        cellText = document.createTextNode(data[j].dataNascita);
+        cellText = document.createTextNode(data[j].citta);
         cell.appendChild(cellText);
         row.appendChild(cell);
 
         cell = document.createElement("td");
-        cellText = document.createTextNode(data[j].luogoNascita);
+        cellText = document.createTextNode(data[j].cap);
         cell.appendChild(cellText);
         row.appendChild(cell);
 
         cell = document.createElement("td");
-        cellText = document.createTextNode(data[j].dataMorte);
+        cellText = document.createTextNode(data[j].indirizzo);
         cell.appendChild(cellText);
         row.appendChild(cell);
 
         cell = document.createElement("td");
-        cellText = document.createTextNode(data[j].luogoMorte);
+        cellText = document.createTextNode(data[j].telefono);
         cell.appendChild(cellText);
         row.appendChild(cell);
 
         cell = document.createElement("td");
-        let div = document.createElement("div");
-        div.classList.add("BoxText");
-        cellText = document.createTextNode(data[j].biografia);
-        div.appendChild(cellText);
-        cell.appendChild(div);
+        cellText = document.createTextNode(data[j].email);
+        cell.appendChild(cellText);
+        row.appendChild(cell);
+
+        cell = document.createElement("td");
+        cellText = document.createTextNode(data[j].sito_web);
+        cell.appendChild(cellText);
         row.appendChild(cell);
 
         // cell = document.createElement("td");
@@ -96,4 +98,3 @@ function carica(data){
     // searchDiv3.appendChild(searchSpan)
     // searchDiv3.appendChild(searchImg2)
 }
-
