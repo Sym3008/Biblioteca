@@ -19,7 +19,7 @@ window.addEventListener("load", function (Event) {
 })
 
 function carica(id) {
-    let urlApi = "http://localhost:8080/api/get-libri/" + id
+    let urlApi = "http://localhost:8080/api/get-libro/" + id
 
     console.log(id)
     console.log(urlApi)

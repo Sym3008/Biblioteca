@@ -20,7 +20,7 @@ public class LibriController {
         return libriService.getLibri();
     }
 
-    @GetMapping("/get-libri/{id}")
+    @GetMapping("/get-libro/{id}")
     public Libri getLibroById(@PathVariable("id") Integer id){
         return libriService.getLibroById(id);
     }
