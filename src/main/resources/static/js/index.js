@@ -1,45 +1,25 @@
-// let urlApi= "http://localhost:63342/Biblioteca/templates/show/AutoriShow.html?id=""+id.value
-//         window.open(urlApi);
-
-
 window.addEventListener("load", function (Event) {
 
     let name = document.querySelector("#inputName")
     let autor = document.querySelector("#inputAutor")
     let casa_editrice= document.querySelector("#inputCasaEditrice")
 
-
     let link = document.querySelector("#richiesta")
     let urlApi
     link.addEventListener("click", function (e) {
 
         if (name.value!=""){
-            console.log("ciao come stati");
-            let urlLibro="http://localhost:8080/api/get-libro-titoli/"+name.value;
-            fetch(urlLibro,
-                {
-                    method: "GET"
-                }).then(function (response) {
-                console.log(response)
-                return response.json()
-            }).then(function (listLibri) {
-                console.log(listLibri)
-                //urlApi = "http://localhost:63342/Biblioteca/templates/show/ProductShow.html?id=" + dati.idLibro;
-
-            });
+            urlApi = "http://localhost:63342/Biblioteca/templates/show/LibriShow.html?nominativo=" + name.value;
 
         } else if (autor.value!=""){
-
-            urlApi = "http://localhost:63342/Biblioteca/templates/show/AutoriShow.html";
-            //urlApi = "http://localhost:63342/Biblioteca/templates/show/AutoriShow.html?id=" + autor.value;
+            urlApi = "http://localhost:63342/Biblioteca/templates/show/AutoriShow.html?nominativo=" + autor.value;
 
         }else if (casa_editrice.value!=""){
-
-            urlApi = "http://localhost:63342/Biblioteca/templates/CaseEditrici.html?id=" + casa_editrice.value;
+            urlApi = "http://localhost:63342/Biblioteca/templates/show/CaseEditriciShowShow.html?nominativo=" + casa_editrice.value;
 
         }
-        //close();
-        //open(urlApi);
+        close();
+        open(urlApi);
     })
 
 })

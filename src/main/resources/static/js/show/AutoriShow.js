@@ -1,6 +1,14 @@
 window.addEventListener('load', function (Event) {
+    var queryString = window.location.search;
+    var urlParams = new URLSearchParams(queryString);
+    var mostra = urlParams.get('nominativo')
+    console.log(mostra);
+
     let url = 'http://localhost:8080/api/get-autori';
 
+    if (mostra!="") {
+        url = 'http://localhost:8080/api/get-autore-nominativo/'+mostra;
+    }
     fetch(url).then(function (response) {
         return response.json()
     }).then(function (data) {
@@ -81,19 +89,5 @@ function carica(data){
         tBody.appendChild(row);
     }
 
-
-    // searchDiv2.innerHTML = `${data.town}, ${data.state}`
-    // searchImg1.src = "Static/IMG/Union.png"
-    // searchSpan.innerHTML = ` $${data.price_per_square_foot}+ / ${data.beds_number} Beds / ${data.commodities}`
-    // searchImg2.src = "Static/IMG/Line.png"
-    //
-    // let ponte = document.querySelector('#idReport')
-    // ponte.appendChild(searchDiv1)
-    //
-    // searchDiv1.appendChild(searchDiv2)
-    // searchDiv1.appendChild(searchDiv3)
-    // searchDiv3.appendChild(searchImg1)
-    // searchDiv3.appendChild(searchSpan)
-    // searchDiv3.appendChild(searchImg2)
 }
 
