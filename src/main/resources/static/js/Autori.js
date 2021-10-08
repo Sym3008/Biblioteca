@@ -18,7 +18,6 @@ window.addEventListener('load', function(event){
             if(elemento!== null){
                 let mess= elemento.closest('.boxIn').querySelector('.messErr');
                 mess.innerHTML="---"+text+" obbligatorio---";
-
             }
         }
         function TogErr(elemento){
