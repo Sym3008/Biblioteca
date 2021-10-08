@@ -50,8 +50,11 @@ function carica(data){
         var row = document.createElement("tr");
 
         var cell = document.createElement("td");
+        var link = document.createElement("a");
+        link.href= "http://localhost:63342/Biblioteca/templates/show/ProductShow.html?id=" + data[j].idLibro;
         var cellText = document.createTextNode(data[j].titolo);
-        cell.appendChild(cellText);
+        link.appendChild(cellText);
+        cell.appendChild(link);
         row.appendChild(cell);
 
         cell = document.createElement("td");
@@ -92,10 +95,17 @@ function carica(data){
         cell.appendChild(div);
         row.appendChild(cell);
 
-        // cell = document.createElement("td");
-        // //cellText = document.createTextNode();
-        // cell.appendChild(cellText);
-        // row.appendChild(cell);
+        cell = document.createElement("td");
+        let btn = document.createElement("button")
+        cellText = document.createTextNode("Elimina");
+        let btn2 = document.createElement("button")
+        cellText2 = document.createTextNode("Modifica");
+
+        btn.appendChild(cellText);
+        btn2.appendChild(cellText2);
+        cell.appendChild(btn);
+        cell.appendChild(btn2);
+        row.appendChild(cell);
 
 
         tBody.appendChild(row);

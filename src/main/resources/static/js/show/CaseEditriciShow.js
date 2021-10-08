@@ -82,10 +82,17 @@ function carica(data){
         cell.appendChild(cellText);
         row.appendChild(cell);
 
-        // cell = document.createElement("td");
-        // //cellText = document.createTextNode();
-        // cell.appendChild(cellText);
-        // row.appendChild(cell);
+        cell = document.createElement("td");
+        let btn = document.createElement("button")
+        cellText = document.createTextNode("Elimina");
+        let btn2 = document.createElement("button")
+        cellText2 = document.createTextNode("Modifica");
+
+        btn.appendChild(cellText);
+        btn2.appendChild(cellText2);
+        cell.appendChild(btn);
+        cell.appendChild(btn2);
+        row.appendChild(cell);
 
 
         tBody.appendChild(row);

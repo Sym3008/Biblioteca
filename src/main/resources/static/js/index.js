@@ -15,7 +15,7 @@ window.addEventListener("load", function (Event) {
             urlApi = "http://localhost:63342/Biblioteca/templates/show/AutoriShow.html?nominativo=" + autor.value;
 
         }else if (casa_editrice.value!=""){
-            urlApi = "http://localhost:63342/Biblioteca/templates/show/CaseEditriciShowShow.html?nominativo=" + casa_editrice.value;
+            urlApi = "http://localhost:63342/Biblioteca/templates/show/CaseEditriciShow.html?nominativo=" + casa_editrice.value;
 
         }
         close();

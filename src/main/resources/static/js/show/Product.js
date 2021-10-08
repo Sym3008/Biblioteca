@@ -21,21 +21,17 @@ window.addEventListener("load", function (Event) {
     let urlApi
     link.addEventListener("click", function (e) {
 
-    if (name.value!=""){
+        if (name.value!=""){
+            urlApi = "http://localhost:63342/Biblioteca/templates/show/LibriShow.html?nominativo=" + name.value;
 
-            urlApi = "http://localhost:63342/Biblioteca/templates/show/ProductShow.html?id=" + name.value;
+        } else if (autor.value!=""){
+            urlApi = "http://localhost:63342/Biblioteca/templates/show/AutoriShow.html?nominativo=" + autor.value;
 
-    } else if (autor.value!=""){
+        }else if (casa_editrice.value!=""){
+            urlApi = "http://localhost:63342/Biblioteca/templates/show/CaseEditriciShow.html?nominativo=" + casa_editrice.value;
 
-            urlApi = "http://localhost:63342/Biblioteca/templates/show/AutoriShow.html";
-            //urlApi = "http://localhost:63342/Biblioteca/templates/show/AutoriShow.html?id=" + autor.value;
-
-    }else if (casa_editrice.value!=""){
-
-             urlApi = "http://localhost:63342/Biblioteca/templates/CaseEditrici.html?id=" + casa_editrice.value;
-
-    }
-        //close();
+        }
+        close();
         open(urlApi);
     })
 
