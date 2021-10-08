@@ -2,12 +2,12 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <link rel="stylesheet" type="text/css" href="../../static/css/Style.css"/>
     <link rel="stylesheet" type="text/css" href="../../static/css/Header.css"/>
     <link rel="stylesheet" type="text/css" href="../../static/css/Footer.css"/>
     <link rel="stylesheet" type="text/css" href="../../static/css/Carrello.css"/>
-    <link href="../../static/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="../../static/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" href="../../static/icon/icon.png">
     <meta charset="UTF-8">
     <title>FastBookCarrello</title>
@@ -35,81 +35,51 @@
         </div>
         <!-- Corpo responsitive dal tablet -->
         <div class="row ">
-            <h1><strong> Il Tuo Carrello Prenotazione</strong></h1>
+            <h1 class="titolo" id="Nominativo"> Le prenotazioni di .....</h1>
         </div>
         <!-- Inserzioni responsitive dal tablet -->
         <div class="row ">
-            <div class="col-md-10 offset-md-1" id="idReport">
-                <div class="productList" id="prodotti">
-                    <div class="d-flex flex-column flex-md-row justify-content-start align-items-start" id="oggetto">
-                        <a> <img src="../../static/image/Harry_Potter_e_il_calice_di_fuoco.jpg" width="150" ></a>
+            <div class="col-md-10 offset-md-1 d-flex flex-column" id="prodotti">
+<!--                <div class="d-flex flex-row justify-content-between align-items-center">-->
+<!--                    <img src="../../static/image/Harry_Potter_e_il_calice_di_fuoco.jpg">-->
+<!--                    <div class="">-->
+<!--                        <a href=""> Harry Potter e il Calice di Fuoco</a>-->
+<!--                    </div>-->
+<!--                    <div>N. 1</div>-->
+<!--                    <button class=" bObj" type="button" value="">Elimina</button>-->
+<!--                </div>-->
 
-                    <div class="productInfo" id="productInform">
-                        <ul class="description" id="descrizioneprod">
-                            <li class="name"><strong>Harry Potter e il Calice di Fuoco</strong></li>
-                            <br>
-                            <li class="descript"><strong>DESCRIPTION</strong></li>
-                            <div class="controlProduct">
-                                <div class="quantity col-12 col-md-6" >
-                                    <div>
-                                    <label for="select" class="fw-bold">Quantità Libri</label>
-                                    </div>
-                                    <br>
-                                    <div>
-                                    <select id="select">
-                                        <optgroup>
-                                            <option value="5" selected>5</option>
-                                            <option value="4" selected>4</option>
-                                            <option value="3" selected>3</option>
-                                            <option value="2" selected>2</option>
-                                            <option value="1" selected>1</option>
-                                        </optgroup>
-                                    </select>
-                                    </div>
-                                </div>
-                                <form>
-                                <div class="mt-4 deleteProduct">
-                                    <button class="btn btn-lg px-2 py-4 ms-auto mt-2 col-4" id="elimina" type="button" value="button">Elimina Prenotazione
-                                    </button>
-                                </div>
-                                </form>
-                            </div>
-
-                        </ul>
-                    </div>
-
-                </div>
-                </div>
-                <div class="d-flex flex-column flex-md-row justify-content-start align-items-start">
-                    <div class="col-12 col-md-6">
-                        <div>
-                        <label for="data_prenotazione"><strong>Seleziona una data per la consegna</strong></label>
-                        </div>
-                        <div>
-                        <input id="data_prenotazione" type="date" name="data_preno" maxlength="50" placeholder="Formato XX-YY-ZZZZ">
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="mt-4 ">
-                            <button class="btn btn-lg px-2 py-4 ms-auto mt-2 col-4"
-                                    id="prenota" type="button" value="button">PIANIFICA CONSEGNA</button>
-                        </div>
-                    </div>
-                </div>
-
-        <footer class="footer p-0 d-flex flex-row justify-content-between align-items-center">
-            <div class="p-0 ">
-                Fastbook © 2020
             </div>
-            <div class="p-0 d-flex flex-row justify-content-end align-items-center">
-                <span>About</span>
-                <span>FAQ</span>
-                <span>Terms & Conditions</span>
-                <span>Privacy Policy</span>
+
+            <div class="col-md-6 offset-md-6 d-flex flex-column justify-content-end">
+                <div>
+                    <label for="data_prenotazione"><strong>Pianifica la consegna</strong></label>
+                </div>
+                <div>
+                    <input id="data_prenotazione" type="date" name="data_preno" maxlength="50"
+                           placeholder="Formato XX-YY-ZZZZ">
+                </div>
+                <div>
+                    <button class="" id="conferma" type="button" value="button">
+                        CONFERMA
+                    </button>
+                </div>
             </div>
-        </footer>
+
+            <footer class="footer mt-5  p-0 d-flex flex-row justify-content-between align-items-center">
+                <div class="p-0 ">
+                    Fastbook © 2020
+                </div>
+                <div class="p-0 d-flex flex-row justify-content-end align-items-center">
+                    <span>About</span>
+                    <span>FAQ</span>
+                    <span>Terms & Conditions</span>
+                    <span>Privacy Policy</span>
+                </div>
+            </footer>
+        </div>
     </div>
 </div>
-<script src=""></script>
+<script src="../../static/js/show/CarrelloShow.js"></script>
 </body>
 </html>

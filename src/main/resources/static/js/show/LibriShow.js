@@ -74,7 +74,7 @@ function carica(data){
 
         var cell = document.createElement("td");
         var link = document.createElement("a");
-        link.href= "http://localhost:63342/Biblioteca/templates/show/ProductShow.html?id=" + data[j].idLibro;
+        link.href= "http://localhost:63342/Biblioteca/templates/show/ProductShow.html?idLib=" + data[j].idLibro;
         var cellText = document.createTextNode(data[j].titolo);
         link.appendChild(cellText);
         cell.appendChild(link);

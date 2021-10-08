@@ -1,6 +1,7 @@
 package it.biblioteca.www.Biblioteca.controller;
 
 import com.sun.istack.NotNull;
+import it.biblioteca.www.Biblioteca.model.Anagrafiche;
 import it.biblioteca.www.Biblioteca.model.Consegne;
 import it.biblioteca.www.Biblioteca.service.ConsegneService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,11 @@ public class ConsegneController {
     @GetMapping("/get-consegna/{id}")
     public Consegne getConsegnaById(@PathVariable("id") Integer id){
         return consegneService.getConsegnaById(id);
+    }
+
+    @GetMapping("/get-consegne-anagrafica/{id}")
+    public List<Consegne> getConsegnaByIdAnagrafica(@PathVariable("id") Integer id){
+        return consegneService.getConsegneByIdAnagrafica(id);
     }
 
     @PostMapping("/save-consegne")

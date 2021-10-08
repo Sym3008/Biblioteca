@@ -21,3 +21,12 @@ a {
 .libriPrimoPiano img:hover {
     width: 100%;
 }
+.textC h2{
+    margin-left: 50px;
+    text-align: start;
+    font-size: 22px;
+    color: #dc5e0c;
+    background-color: #c6bdb8;
+    border-radius: 10px;
+    padding: 3px 100px;
+}

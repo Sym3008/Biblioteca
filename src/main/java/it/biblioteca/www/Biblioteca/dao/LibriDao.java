@@ -35,6 +35,13 @@ public class LibriDao {
         return query.getResultList();
     }
 
+    public List<Libri> getLibroByIdGenere(Integer id){
+        Session currentSession = entityManager.unwrap(Session.class);
+        String sql="FROM Libri WHERE genere.idGenere = "+id;
+        Query<Libri> query = currentSession.createQuery(sql, Libri.class);
+        return query.getResultList();
+    }
+
     public void saveOrUpdateLibri (Libri libro){
         Session currentSession = entityManager.unwrap(Session.class);
         currentSession.saveOrUpdate(libro);

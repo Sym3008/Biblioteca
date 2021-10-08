@@ -5,22 +5,20 @@
 window.addEventListener("load", function (Event) {
     var queryString = window.location.search;
     var urlParams = new URLSearchParams(queryString);
-    var mostra = urlParams.get('id')
-    console.log(mostra);
-    carica(mostra);
-
+    var idLibroPassato = urlParams.get('idLib')
+    var idAnagraficaPassato = urlParams.get('idAn')
+// console.log(idAnagraficaPassato);
+    carica(idLibroPassato);
+// parte di codice in cui mi savo i possibili campi digitati e all'evento del click apre un url specifica per il risultato dell'interrogazione nel DB
     let name = document.querySelector("#inputName")
     let autor = document.querySelector("#inputAutor")
     let casa_editrice= document.querySelector("#inputCasaEditrice")
 
     let link = document.querySelector("#richiesta")
-    let urlApi
+    let urlApi="http://localhost:63342/Biblioteca/templates/show/LibriShow.html?nominativo=" + name.value;
     link.addEventListener("click", function (e) {
 
-        if (name.value!=""){
-            urlApi = "http://localhost:63342/Biblioteca/templates/show/LibriShow.html?nominativo=" + name.value;
-
-        } else if (autor.value!=""){
+        if (autor.value!=""){
             urlApi = "http://localhost:63342/Biblioteca/templates/show/AutoriShow.html?nominativo=" + autor.value;
 
         }else if (casa_editrice.value!=""){
@@ -31,21 +29,79 @@ window.addEventListener("load", function (Event) {
         open(urlApi);
     })
 
+// al click del bottone prenota sarà aggiunta la prenotazione e verremo rimandati alla pagina di tutti gli ordini in carico all'utenza
+    let prenota = document.querySelector("#prenota")
+    prenota.addEventListener("click", function (e) {
+
+
+        let anagraficaGen
+        let libroGen
+
+        fetch("http://localhost:8080/api/get-anagrafica/"+idAnagraficaPassato,
+            {
+                method: "GET"
+            }).then(function (response) {
+            console.log(response)
+            return response.json()
+        }).then(function (data) {
+            anagraficaGen=data
+
+            fetch("http://localhost:8080/api/get-libro/"+idLibroPassato,
+                {
+                    method: "GET"
+                }).then(function (response) {
+                console.log(response)
+                return response.json()
+            }).then(function (data) {
+                libroGen=data
+                let newRecord= {
+                    idConsegna: '',
+                    descrizione: '',
+                    anagrafica: anagraficaGen,
+                    dataConsegna:'',
+                    dataRestituzione:'',
+                    libro: libroGen,
+                }
+                console.log(newRecord);
+                let urlApi= "http://localhost:8080/api/save-consegne";
+                fetch(urlApi, {
+                    method: "POST",
+                    headers:{
+                        "content-type":"application/json",
+                        "Accept":"*/*",
+                        "Accept-Encoding":"gzip,deflate,br",
+                        "Connection":"keep-live"
+                    },
+                    body: JSON.stringify(newRecord),
+                }).then(function (response){
+                    console.log("record inserito");
+                    alert("Prenotato correttamente")
+                    // return response.json()
+                    close();
+                    open("http://localhost:63342/Biblioteca/templates/show/CarrelloShow.html?idAn="+idAnagraficaPassato)
+                }).then(data => {
+                    console.log('Success:', data);
+                });
+            })
+        })
+
+
+
+    })
 })
 
-function carica(id) {
-    let urlApi = "http://localhost:8080/api/get-libro/" + id
+function carica(idLibroPassato) {
+    let urlApi = "http://localhost:8080/api/get-libro/" + idLibroPassato
 
-    console.log(id)
-    console.log(urlApi)
+    // console.log(urlApi)
     fetch(urlApi,
         {
             method: "GET"
         }).then(function (response) {
-        console.log(response)
+        // console.log(response)
         return response.json()
     }).then(function (data) {
-        console.log(data)
+        // console.log(data)
 
         let div1 = document.querySelector('#copertina')
         div1.src = `${data.urlCopertina}`

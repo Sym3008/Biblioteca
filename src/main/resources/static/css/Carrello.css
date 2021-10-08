@@ -1,13 +1,27 @@
-#prenota{
-    max-width: 300px;
-    max-height: 100px;
+.titolo{
+    font-size: 25px;
+    background-color: #a5b5c4;
+    border-radius: 25px;
+    padding: 1%;
+    font-weight: bold;
+}
+div img{
+    width: 90px;
+}
+#conferma{
+    width: 50%;
     color: white;
+    font-size: 22px;
     font-family: "Helvetica Neue", sans-serif;
     background-color: forestgreen;
+    border-radius: 20px;
+    padding: 2% ;
 }
-#elimina{
-    width: 300px;
-    max-height: 100px;
+.bObj{
+    width: 20%;
+    padding: 1%;
+    font-size: 15px;
+    border-radius: 20px;
     color: black;
     font-family: "Helvetica Neue", sans-serif;
     background-color: forestgreen;
@@ -17,34 +31,11 @@
     height: 50px;
     border: 1px solid;
 }
-li{
-    display: flex;
-}
+
 #data_prenotazione{
-    width: 200px;
-    height: 75px;
+    width: 15rem;
+    height: 2rem;
     border: 1px solid;
-}
-form input{
-    width: 100%;
-    text-align: left;
-    font-size: large;
-    border: 1px solid;
-    height: 45px;
-    padding: 15px;
-}
-form select{
-    width: 100%;
-    text-align: left;
-    height: 45px;
-}
-form label{
-    width: 100%;
-    text-align: left;
-    font-size: 20px;
-}
-form div{
-    padding: 1px;
-    margin-left: 10px;
-    margin-right: 10px;
+    padding: 2%;
+    border-radius: 20px;
 }

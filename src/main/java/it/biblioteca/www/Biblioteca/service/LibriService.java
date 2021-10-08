@@ -24,6 +24,9 @@ public class LibriService {
     public List<Libri> getLibroByTitolo(String titolo){
         return libriDao.getLibroByTitolo(titolo);
     }
+    public List<Libri> getLibroByIdGenere(Integer id){
+        return libriDao.getLibroByIdGenere(id);
+    }
     public void saveOrUpdateLibri(Libri libro){
         libriDao.saveOrUpdateLibri(libro);
     }

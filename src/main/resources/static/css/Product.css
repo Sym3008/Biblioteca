@@ -18,4 +18,9 @@ img{
 }
 .prenota{
     background-color: green;
+    border-radius: 20px;
+    padding: 3%;
+    width: 50%;
+    font-size: 22px;
+    font-weight: bold;
 }

@@ -1,6 +1,7 @@
 package it.biblioteca.www.Biblioteca.service;
 
 import it.biblioteca.www.Biblioteca.dao.ConsegneDao;
+import it.biblioteca.www.Biblioteca.model.Anagrafiche;
 import it.biblioteca.www.Biblioteca.model.Consegne;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,9 @@ public class ConsegneService {
     }
     public Consegne getConsegnaById(Integer id){
         return consegneDao.getConsegnaById(id);
+    }
+    public List<Consegne> getConsegneByIdAnagrafica(Integer id){
+        return consegneDao.getConesgneByIdAnagrafica(id);
     }
     public void saveOrUpdateConsegne(Consegne consegna){
         consegneDao.saveOrUpdateConsegne(consegna);
