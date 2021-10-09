@@ -1,13 +1,18 @@
 window.addEventListener('load', function (Event) {
     var queryString = window.location.search;
     var urlParams = new URLSearchParams(queryString);
-    var mostra = urlParams.get('nominativo')
-    console.log(mostra);
+    var titolo = urlParams.get('titolo');
+    var idAu = urlParams.get('idAu');
 
     let url = 'http://localhost:8080/api/get-libri';
 
-    if (mostra!="") {
-        url = 'http://localhost:8080/api/get-libro-titoli/'+mostra;
+    if (titolo!="") {
+        console.log(titolo)
+        url = 'http://localhost:8080/api/get-libro-titoli/'+titolo;
+    }
+    if (idAu!=""){
+        console.log(idAu)
+        url = 'http://localhost:8080/api/get-libri-by-id-autore/'+idAu;
     }
 
     fetch(url).then(function (response) {
@@ -26,13 +31,13 @@ window.addEventListener('load', function (Event) {
     link.addEventListener("click", function (e) {
 
         if (name.value!=""){
-            urlApi = "http://localhost:63342/Biblioteca/templates/show/LibriShow.html?nominativo=" + name.value;
+            urlApi = "LibriShow.html?titolo=" + name.value;
 
         } else if (autor.value!=""){
-            urlApi = "http://localhost:63342/Biblioteca/templates/show/AutoriShow.html?nominativo=" + autor.value;
+            urlApi = "AutoriShow.html?nominativo=" + autor.value;
 
         }else if (casa_editrice.value!=""){
-            urlApi = "http://localhost:63342/Biblioteca/templates/show/CaseEditriciShow.html?nominativo=" + casa_editrice.value;
+            urlApi = "CaseEditriciShow.html?nominativo=" + casa_editrice.value;
 
         }
         close();
@@ -74,7 +79,7 @@ function carica(data){
 
         var cell = document.createElement("td");
         var link = document.createElement("a");
-        link.href= "http://localhost:63342/Biblioteca/templates/show/ProductShow.html?idLib=" + data[j].idLibro;
+        link.href= "ProductShow.html?idLib=" + data[j].idLibro;
         var cellText = document.createTextNode(data[j].titolo);
         link.appendChild(cellText);
         cell.appendChild(link);

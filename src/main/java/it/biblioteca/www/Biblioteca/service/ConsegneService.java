@@ -25,8 +25,17 @@ public class ConsegneService {
     public List<Consegne> getConsegneByIdAnagrafica(Integer id){
         return consegneDao.getConesgneByIdAnagrafica(id);
     }
-    public void saveOrUpdateConsegne(Consegne consegna){
-        consegneDao.saveOrUpdateConsegne(consegna);
+    public List<Consegne> getConsegneInAttesaByIdAnagrafica(Integer id){
+        return consegneDao.getConesgneInAttesaByIdAnagrafica(id);
+    }
+    public List<Consegne> getConsegneOrdinatiByIdAnagrafica(Integer id){
+        return consegneDao.getConesgneOrdinatiByIdAnagrafica(id);
+    }
+    public void saveConsegne(Consegne consegna){
+        consegneDao.saveConsegne(consegna);
+    }
+    public void updateConsegne(List<Consegne> consegne){
+        consegneDao.updateConsegne(consegne);
     }
     public void deleteConsegne(List<Consegne> consegne){
         consegneDao.deleteConsegne(consegne);

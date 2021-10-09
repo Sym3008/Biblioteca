@@ -31,18 +31,28 @@ public class ConsegneController {
         return consegneService.getConsegneByIdAnagrafica(id);
     }
 
+    @GetMapping("/get-consegne-inattesa-anagrafica/{id}")
+    public List<Consegne> getConsegnaInAttesaByIdAnagrafica(@PathVariable("id") Integer id){
+        return consegneService.getConsegneInAttesaByIdAnagrafica(id);
+    }
+
+    @GetMapping("/get-consegne-ordinati-anagrafica/{id}")
+    public List<Consegne> getConsegnaOrdinatiByIdAnagrafica(@PathVariable("id") Integer id){
+        return consegneService.getConsegneOrdinatiByIdAnagrafica(id);
+    }
+
     @PostMapping("/save-consegne")
     public void saveConsegne(@RequestBody @NotNull Consegne consegna){
-        consegneService.saveOrUpdateConsegne(consegna);
+        consegneService.saveConsegne(consegna);
     }
 
     @PutMapping("/update-consegne")
-    public void updateCaseEditrici(@RequestBody @NotNull Consegne consegna){
-        consegneService.saveOrUpdateConsegne(consegna);
+    public void updateConsegne(@RequestBody @NotNull List<Consegne> consegne){
+        consegneService.updateConsegne(consegne);
     }
 
     @DeleteMapping("/cancella-consegne")
-    public void deleteCaseEditrici(@RequestBody @NotNull List<Consegne> consegne){
+    public void deleteConsegne(@RequestBody @NotNull List<Consegne> consegne){
         consegneService.deleteConsegne(consegne);
     }
 

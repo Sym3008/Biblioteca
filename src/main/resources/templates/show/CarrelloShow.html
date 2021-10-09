@@ -38,6 +38,14 @@
             <h1 class="titolo" id="Nominativo"> Le prenotazioni di .....</h1>
         </div>
         <!-- Inserzioni responsitive dal tablet -->
+        <div class="col-md-4 offset-md-8 d-flex flex-row justify-content-end">
+            <button class="" id="ordinati" type="button" >
+                ordinati
+            </button>
+            <button class="nascondi" id="inattesa" type="button" >
+                in attesa
+            </button>
+        </div>
         <div class="row ">
             <div class="col-md-10 offset-md-1 d-flex flex-column" id="prodotti">
 <!--                <div class="d-flex flex-row justify-content-between align-items-center">-->
@@ -53,14 +61,15 @@
 
             <div class="col-md-6 offset-md-6 d-flex flex-column justify-content-end">
                 <div>
-                    <label for="data_prenotazione"><strong>Pianifica la consegna</strong></label>
+                    <label for="dataConsegnaIn"><strong>Pianifica il ritiro</strong></label>
                 </div>
                 <div>
-                    <input id="data_prenotazione" type="date" name="data_preno" maxlength="50"
+                    <input id="dataConsegnaIn" type="date" name="dataConsegna" maxlength="50"
                            placeholder="Formato XX-YY-ZZZZ">
+                    <div id="dataErrore" class="nascondi messErr">--- Data obligatoria --</div>
                 </div>
                 <div>
-                    <button class="" id="conferma" type="button" value="button">
+                    <button class="" id="conferma" type="button">
                         CONFERMA
                     </button>
                 </div>

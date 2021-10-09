@@ -17,6 +17,28 @@ div img{
     border-radius: 20px;
     padding: 2% ;
 }
+#ordinati{
+    width: 50%;
+    color: white;
+    font-size: 18px;
+    font-family: "Helvetica Neue", sans-serif;
+    background-color: forestgreen;
+    border-radius: 20px;
+    padding: 2% ;
+    margin-right: 5px;
+}
+#inattesa{
+    width: 50%;
+    color: white;
+    font-size: 18px;
+    font-family: "Helvetica Neue", sans-serif;
+    background-color: #db9a1c;
+    border-radius: 20px;
+    padding: 2% ;
+}
+.nascondi{
+    display: none;
+}
 .bObj{
     width: 20%;
     padding: 1%;
@@ -32,7 +54,7 @@ div img{
     border: 1px solid;
 }
 
-#data_prenotazione{
+#dataConsegnaIn{
     width: 15rem;
     height: 2rem;
     border: 1px solid;

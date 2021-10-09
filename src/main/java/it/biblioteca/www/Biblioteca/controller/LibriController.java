@@ -35,6 +35,11 @@ public class LibriController {
         return libriService.getLibroByIdGenere(id);
     }
 
+    @GetMapping("/get-libri-by-id-autore/{id}")
+    public List<Libri> getLibroByIdAutore(@PathVariable("id") Integer id){
+        return libriService.getLibroByIdAutore(id);
+    }
+
     @PostMapping("/save-libri")
     public void saveLibri(@RequestBody @NotNull Libri libro){
         libriService.saveOrUpdateLibri(libro);

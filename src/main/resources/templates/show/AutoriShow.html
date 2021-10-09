@@ -6,8 +6,8 @@
     <link rel="stylesheet" type="text/css" href="../../static/css/Style.css"/>
     <link rel="stylesheet" type="text/css" href="../../static/css/Header.css"/>
     <link rel="stylesheet" type="text/css" href="../../static/css/Footer.css"/>
-    <link rel="stylesheet" type="text/css" href="../../static/css/AutoriShow.css"/>
     <link href="../../static/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../static/css/AutoriShow.css"/>
     <link rel="icon" href="../../static/icon/icon.png">
     <meta charset="UTF-8">
     <title>FastBook</title>
@@ -31,6 +31,24 @@
                         </span>
                 </div>
             </nav>
+        </div>
+        <div class="p-0 col-md-10 offset-md-2">
+            <form id="search" method="post">
+                <div class="ricerca d-flex flex-column flex-md-row justify-content-end align-items-center">
+                    <div class="Bord1">
+                        <input type="text" value="" placeholder="Ricerca per titolo" id="inputName">
+                    </div>
+                    <div class="Bord1">
+                        <input type="text" value="" placeholder="Ricerca per autore" id="inputAutor">
+                    </div>
+                    <div class="Bord1">
+                        <input type="text" value="" placeholder="Ricerca per casa editrice" id="inputCasaEditrice">
+                    </div>
+                    <div class="Bord1 col-md-3">
+                        <button class="bRicerca" id="richiesta" type="submit">Ricerca</button>
+                    </div>
+                </div>
+            </form>
         </div>
         <!-- Corpo responsitive dal tablet -->
         <div class="row ">

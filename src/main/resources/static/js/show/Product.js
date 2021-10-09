@@ -15,14 +15,15 @@ window.addEventListener("load", function (Event) {
     let casa_editrice= document.querySelector("#inputCasaEditrice")
 
     let link = document.querySelector("#richiesta")
-    let urlApi="http://localhost:63342/Biblioteca/templates/show/LibriShow.html?nominativo=" + name.value;
+    // let urlApi="http://localhost:63342/Biblioteca/templates/show/LibriShow.html?nominativo=" + name.value;
+    let urlApi="LibriShow.html?nominativo=" + name.value;
     link.addEventListener("click", function (e) {
 
         if (autor.value!=""){
-            urlApi = "http://localhost:63342/Biblioteca/templates/show/AutoriShow.html?nominativo=" + autor.value;
+            urlApi = "AutoriShow.html?nominativo=" + autor.value;
 
         }else if (casa_editrice.value!=""){
-            urlApi = "http://localhost:63342/Biblioteca/templates/show/CaseEditriciShow.html?nominativo=" + casa_editrice.value;
+            urlApi = "CaseEditriciShow.html?nominativo=" + casa_editrice.value;
 
         }
         close();
@@ -78,7 +79,7 @@ window.addEventListener("load", function (Event) {
                     alert("Prenotato correttamente")
                     // return response.json()
                     close();
-                    open("http://localhost:63342/Biblioteca/templates/show/CarrelloShow.html?idAn="+idAnagraficaPassato)
+                    open("CarrelloShow.html?idAn="+idAnagraficaPassato)
                 }).then(data => {
                     console.log('Success:', data);
                 });

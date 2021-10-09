@@ -2,7 +2,24 @@ window.addEventListener('load', function (Event) {
     var queryString = window.location.search;
     var urlParams = new URLSearchParams(queryString);
     var mostra = urlParams.get('nominativo')
-    console.log(mostra);
+    // console.log(mostra);
+
+    let name = document.querySelector("#inputName")
+    let autor = document.querySelector("#inputAutor")
+    let casa_editrice= document.querySelector("#inputCasaEditrice")
+
+    let link = document.querySelector("#richiesta")
+
+    link.addEventListener("click", function (e) {
+        let url ="LibriShow.html?titolo=" + name.value;
+        if (autor.value!=""){
+            url = "AutoriShow.html?nominativo=" + autor.value;
+        }else if (casa_editrice.value!=""){
+            url = "CaseEditriciShow.html?nominativo=" + casa_editrice.value;
+        }
+        close();
+        open(url);
+    })
 
     let url = 'http://localhost:8080/api/get-autori';
 
@@ -16,6 +33,7 @@ window.addEventListener('load', function (Event) {
         carica(data);
     })
 })
+
 
 function cerca() {
     var input, filter, table, tr, td, i, txtValue;
@@ -81,10 +99,16 @@ function carica(data){
         row.appendChild(cell);
 
         cell = document.createElement("td");
-        let btn = document.createElement("button")
-        cellText = document.createTextNode("Elimina");
-        let btn2 = document.createElement("button")
-        cellText2 = document.createTextNode("Modifica");
+        let btn = document.createElement("a");
+        btn.classList.add("btn")
+        btn.classList.add("btn-primary")
+        btn.classList.add("mb-1")
+        btn.href="LibriShow.html?idAu="+data[j].idAutore
+        cellText = document.createTextNode("Libri");
+        let btn2 = document.createElement("a")
+        btn2.classList.add("btn")
+        btn2.classList.add("btn-secondary")
+        let cellText2 = document.createTextNode("Modifica");
 
         btn.appendChild(cellText);
         btn2.appendChild(cellText2);

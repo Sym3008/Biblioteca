@@ -33,10 +33,29 @@ public class ConsegneDao {
         return query.getResultList();
     }
 
-    public void saveOrUpdateConsegne(Consegne consegna){
+    public List<Consegne> getConesgneInAttesaByIdAnagrafica(Integer id){
+        Session currentSession = entityManager.unwrap(Session.class);
+//        SELECT * FROM `consegne` WHERE `id_anagrafica`= '2' AND `data_consegna` IS NULL;
+        Query<Consegne> query=currentSession.createQuery("FROM Consegne WHERE anagrafica.idAnagrafica = "+id+" AND dataConsegna IS NULL", Consegne.class);
+        return query.getResultList();
+    }
+
+    public List<Consegne> getConesgneOrdinatiByIdAnagrafica(Integer id){
+        Session currentSession = entityManager.unwrap(Session.class);
+        Query<Consegne> query=currentSession.createQuery("FROM Consegne WHERE anagrafica.idAnagrafica = "+id+" AND dataConsegna IS NOT NULL", Consegne.class);
+        return query.getResultList();
+    }
+
+    public void saveConsegne(Consegne consegna){
         Session currentSession = entityManager.unwrap(Session.class);
         currentSession.saveOrUpdate(consegna);
+    }
 
+    public void updateConsegne(List<Consegne> consegne){
+        Session currentSession = entityManager.unwrap(Session.class);
+        for (Consegne c : consegne) {
+            currentSession.saveOrUpdate(c);
+        }
     }
 
     public void deleteConsegne(List<Consegne> consegne){
