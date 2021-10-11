@@ -3,14 +3,14 @@ window.addEventListener('load', function (Event) {
     var urlParams = new URLSearchParams(queryString);
     var titolo = urlParams.get('titolo');
     var idAu = urlParams.get('idAu');
-
+    console.log(titolo+" - "+ idAu)
     let url = 'http://localhost:8080/api/get-libri';
 
-    if (titolo!="") {
+    if (titolo!=null) {
         console.log(titolo)
         url = 'http://localhost:8080/api/get-libro-titoli/'+titolo;
     }
-    if (idAu!=""){
+    if (idAu!=null){
         console.log(idAu)
         url = 'http://localhost:8080/api/get-libri-by-id-autore/'+idAu;
     }

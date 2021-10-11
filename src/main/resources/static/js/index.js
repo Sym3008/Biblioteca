@@ -1,4 +1,7 @@
 window.addEventListener("load", function (Event) {
+    let queryString = window.location.search;
+    let urlParams = new URLSearchParams(queryString);
+    let idAnagraficaPassato = urlParams.get('idAn')
 
     carica(1, "#fantasy")
     carica (9,"#cucina")
@@ -11,11 +14,11 @@ window.addEventListener("load", function (Event) {
     let link = document.querySelector("#richiesta")
 
     link.addEventListener("click", function (e) {
-        let url ="show/LibriShow.html?titoli=" + name.value;
+        let url ="show/LibriShow.html?titoli=" + name.value+"&idAn="+idAnagraficaPassato;
         if (autor.value!=""){
-            url = "show/AutoriShow.html?nominativo=" + autor.value;
+            url = "show/AutoriShow.html?nominativo=" + autor.value+"&idAn="+idAnagraficaPassato;
         }else if (casa_editrice.value!=""){
-            url = "show/CaseEditriciShow.html?nominativo=" + casa_editrice.value;
+            url = "show/CaseEditriciShow.html?nominativo=" + casa_editrice.value+"&idAn="+idAnagraficaPassato;
         }
         close();
         open(url);
@@ -53,7 +56,7 @@ function carica(id, navId) {
             if (data[i] != null) {
                 let a = document.createElement("a")
                 a.classList.add("mx-2")
-                a.href="show/ProductShow.html?idLib="+data[i].idLibro
+                a.href="show/ProductShow.html?idLib="+data[i].idLibro+"&idAn="+idAnagraficaPassato
                 let img = document.createElement("img")
                 img.src = data[i].urlCopertina
                 a.appendChild(img)

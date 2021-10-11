@@ -32,38 +32,36 @@ window.addEventListener('load', function(event){
             console.log("ERRORE!!!");
             event.preventDefault();
         } else {
-            inserisciRecord();
+            controllaDati();
             event.preventDefault();
         }
     })
 })
 
-function inserisciRecord(){
+function controllaDati(){
     let E=document.querySelector('#Email');
-    let P=document.querySelector('#Password');
+    let P=document.querySelector('#Password')
 
-    let newRecord ={
-        email:E.value,
-        password:P.value};
-
-    console.log(newRecord);
-
-    let urlApi= "http://localhost:8080/api/save-login";
-
+    let urlApi= "http://localhost:8080/api/get-anagrafiche";
+    let trovato=false;
     fetch(urlApi, {
-        method: "POST",
-        headers:{
-            "content-type":"application/json",
-            "Accept":"*/*",
-            "Accept-Encoding":"gzip,deflate,br",
-            "Connection":"keep-live"
-        },
-        body: JSON.stringify(newRecord),
+        method: "Get"
     }).then(function (response){
-        console.log("record inserito");
-        alert("Login inserita correttamente")
-        // return response.json()
+         return response.json()
     }).then(data => {
-        console.log('Success:', data);
+        for(let i=0; i<data.length; i++){
+            if (data[i].email===E.value && data[i].password===P.value){
+                console.log(data[i].idAnagrafica);
+                trovato=true;
+                close();
+                open("Index.html?IdAn="+data[i].idAnagrafica)
+            }else{
+                console.log("non trovato")
+                trovato=false
+            }
+        }
+        if (!trovato){
+            alert("Anagrafica non trovata")
+        }
     });
 }

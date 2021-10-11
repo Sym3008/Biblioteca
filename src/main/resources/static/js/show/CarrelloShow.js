@@ -6,13 +6,16 @@ window.addEventListener("load", function (Event) {
     let urlApi = "http://localhost:8080/api/get-consegne-inattesa-anagrafica/" + idAnagraficaPassato
     carica(urlApi)
 
+    let conferma = document.querySelector('#conferma')
     let ordinati = document.querySelector('#ordinati')
     let inAttesa = document.querySelector('#inattesa')
     let etichetta = document.querySelector('#etichetta')
+    // let pianificaRitiro = document.querySelector('#pianificaRitiro')
     ordinati.addEventListener("click", function (e){
         inAttesa.classList.remove("nascondi")
         ordinati.classList.add("nascondi")
         etichetta.innerHTML="Lista libri ordinati"
+        conferma.classList.add("nascondi")
         urlApi = "http://localhost:8080/api/get-consegne-ordinati-anagrafica/" + idAnagraficaPassato
         carica(urlApi)
     })
@@ -21,11 +24,12 @@ window.addEventListener("load", function (Event) {
         ordinati.classList.remove("nascondi")
         inAttesa.classList.add("nascondi")
         etichetta.innerHTML="Lista libri in attesa di prenotazione"
+        conferma.classList.remove("nascondi")
         urlApi = "http://localhost:8080/api/get-consegne-inattesa-anagrafica/" + idAnagraficaPassato
         carica(urlApi)
     })
 
-    let conferma = document.querySelector('#conferma')
+
     conferma.addEventListener("click", function (e) {
 
         let dataConsegnaIn = document.querySelector('#dataConsegnaIn')
@@ -38,7 +42,10 @@ window.addEventListener("load", function (Event) {
                 mese = 1;
                 anno++;
             }
-            let dataR = anno + "-" + mese + "-" + giorno
+            let dataR = new Date();
+            dataR.setDate(giorno);
+            dataR.setMonth(mese);
+            dataR.setFullYear(anno);
             let recordDaAggiornare=[];
             console.log(urlApi)
             console.log(dataConsegnaIn.value)
@@ -60,23 +67,30 @@ window.addEventListener("load", function (Event) {
                     }
                     recordDaAggiornare[i] = record;
                     console.log(recordDaAggiornare)
-                    let urlPut= 'http://localhost:8080/api/update-consegne'
-                    fetch(urlPut,{
-                        method:'PUT',
-                        headers:{
-                            "content-type":"application/json",
-                            "Accept":"*/*",
-                            "Accept-Encoding":"gzip,deflate,br",
-                            "Connection":"keep-live"
-                        },
-                        body: JSON.stringify(recordDaAggiornare),
-                    }).then(function (response){
-                        console.log(response);
-                        // return response.json()
-                    }).then(data => {
-                        console.log('Success:', data);
-                    });
+
+
                 }
+                let urlPut= 'http://localhost:8080/api/update-consegne'
+                fetch(urlPut,{
+                    method:'PUT',
+                    headers:{
+                        "content-type":"application/json",
+                        "Accept":"*/*",
+                        "Accept-Encoding":"gzip,deflate,br",
+                        "Connection":"keep-live"
+                    },
+                    body: JSON.stringify(recordDaAggiornare),
+                }).then(function (response){
+                    // console.log(response.text());
+                    return response.text()
+                }).then(data => {
+                    // console.log('Libri non confermati', data);
+                    if(data==null){
+                        alert("tutti i libri sono stati prenotati")
+                    }else {
+                        alert("i seguenti libri non sono stati caricati: \n" + data)
+                    }
+                });
             })
 
 
@@ -116,11 +130,14 @@ function carica(urlApi){
             a.href="ProductShow.html?idLib=" + data[i].libro.idLibro;
             a.innerHTML= data[i].libro.titolo
             let div2= document.createElement("div")
-            div2.innerHTML ="N. 1"
+            if (data[i].dataConsegna==null) {
+                div2.innerHTML = "N. 1 - in attesa di prenotazione"
+            } else {
+                div2.innerHTML = "Libro prenotato <br/> dal "+data[i].dataConsegna+" al "+data[i].dataRestituzione
+            }
             let bnt= document.createElement("button")
             bnt.classList.add("bObj")
-            bnt.type="button"
-            bnt.value=data[i].libro.idLibro
+            bnt.value=data[i].idConsegna
             bnt.innerHTML="Elimina"
             div.appendChild(img)
             div1.appendChild(a)
@@ -129,6 +146,20 @@ function carica(urlApi){
             div.appendChild(bnt)
 
             divProdotti.appendChild(div)
+
+            bnt.addEventListener("click",function (e){
+                console.log(e.currentTarget.value);
+                let urlElimina= "http://localhost:8080/api/cancella-consegna/"+data[i].idConsegna;
+                fetch(urlElimina,
+                    {
+                        method: "DELETE"
+                    }).then(function (response) {
+                    console.log(response)
+                    return response.json()
+                }).then(function (data) {
+                    console.log(data)
+                })
+            })
 
         }
     })

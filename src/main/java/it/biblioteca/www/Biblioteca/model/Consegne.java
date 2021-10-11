@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -24,13 +25,11 @@ public class Consegne {
     @JsonIgnoreProperties("consegne")
     private Anagrafiche anagrafica;
 
-    @Temporal(TemporalType.DATE)
     @Column(name = "data_consegna")
-    private Date dataConsegna;
+    private LocalDate dataConsegna;
 
-    @Temporal(TemporalType.DATE)
     @Column(name = "data_restituzione")
-    private Date dataRestituzione;
+    private LocalDate dataRestituzione;
 
     @JoinColumn(name = "id_libro")
     @ManyToOne

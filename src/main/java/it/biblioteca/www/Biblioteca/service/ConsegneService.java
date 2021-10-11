@@ -22,6 +22,9 @@ public class ConsegneService {
     public Consegne getConsegnaById(Integer id){
         return consegneDao.getConsegnaById(id);
     }
+    public List<Consegne> getConsegneByIdLibro(Integer id){
+        return consegneDao.getConesgneByIdLibro(id);
+    }
     public List<Consegne> getConsegneByIdAnagrafica(Integer id){
         return consegneDao.getConesgneByIdAnagrafica(id);
     }
