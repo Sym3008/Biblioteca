@@ -1,9 +1,9 @@
 window.addEventListener('load', function (Event) {
-    var queryString = window.location.search;
-    var urlParams = new URLSearchParams(queryString);
-    var titolo = urlParams.get('titolo');
-    var idAu = urlParams.get('idAu');
-    var idAnagraficaPassato = urlParams.get('idAn');
+    let queryString = window.location.search;
+    let urlParams = new URLSearchParams(queryString);
+    let titolo = urlParams.get('titolo');
+    let idAu = urlParams.get('idAu');
+    let idAnagraficaPassato = urlParams.get('idAn');
 
     let url = 'http://localhost:8080/api/get-libri';
 
@@ -31,10 +31,8 @@ window.addEventListener('load', function (Event) {
     let urlApi
     link.addEventListener("click", function (e) {
 
-        if (name.value!=""){
-            urlApi = "LibriShow.html?titolo=" + name.value+"&idAn="+idAnagraficaPassato;
-
-        } else if (autor.value!=""){
+        urlApi = "LibriShow.html?titolo=" + name.value+"&idAn="+idAnagraficaPassato;
+        if (autor.value!=""){
             urlApi = "AutoriShow.html?nominativo=" + autor.value+"&idAn="+idAnagraficaPassato;
 
         }else if (casa_editrice.value!=""){
@@ -91,20 +89,20 @@ function carica(data){
         cell.appendChild(cellText);
         row.appendChild(cell);
 
-        cell = document.createElement("td");
-        cellText = document.createTextNode(data[j].casaEditrice.nominativo);
-        cell.appendChild(cellText);
-        row.appendChild(cell);
-
-        cell = document.createElement("td");
-        cellText = document.createTextNode(data[j].genere.descrizione);
-        cell.appendChild(cellText);
-        row.appendChild(cell);
-
-        cell = document.createElement("td");
-        cellText = document.createTextNode(data[j].numeroPagine);
-        cell.appendChild(cellText);
-        row.appendChild(cell);
+        // cell = document.createElement("td");
+        // cellText = document.createTextNode(data[j].casaEditrice.nominativo);
+        // cell.appendChild(cellText);
+        // row.appendChild(cell);
+        //
+        // cell = document.createElement("td");
+        // cellText = document.createTextNode(data[j].genere.descrizione);
+        // cell.appendChild(cellText);
+        // row.appendChild(cell);
+        //
+        // cell = document.createElement("td");
+        // cellText = document.createTextNode(data[j].numeroPagine);
+        // cell.appendChild(cellText);
+        // row.appendChild(cell);
 
         cell = document.createElement("td");
         cellText = document.createTextNode(data[j].lingua);
@@ -125,19 +123,40 @@ function carica(data){
         row.appendChild(cell);
 
         cell = document.createElement("td");
-        let btn = document.createElement("button")
+        let btnElimin = document.createElement("button")
         cellText = document.createTextNode("Elimina");
-        let btn2 = document.createElement("button")
+        let btnModifica = document.createElement("button")
         cellText2 = document.createTextNode("Modifica");
 
-        btn.appendChild(cellText);
-        btn2.appendChild(cellText2);
-        cell.appendChild(btn);
-        cell.appendChild(btn2);
+        btnElimin.appendChild(cellText);
+        btnModifica.appendChild(cellText2);
+        cell.appendChild(btnElimin);
+        cell.appendChild(btnModifica);
         row.appendChild(cell);
 
 
         tBody.appendChild(row);
+
+        btnElimin.addEventListener("click",function (e) {
+            console.log(e.currentTarget.value);
+            let urlElm= "http://localhost:8080/api/cancella-libro/" + data[i].idLibro;
+            fetch(urlElm,
+                {
+                    method: "DELETE"
+                }).then(function (response) {
+                console.log(response)
+                return response.json()
+            }).then(function (data) {
+                console.log(data)
+            })
+            close();
+            open("LibriShow.html?titoli=&idAn=" + idAnagraficaPassato)
+        })
+        btnModifica.addEventListener("click",function (e) {
+            console.log(e.currentTarget.value);
+            close();
+            open("../Libri.html?idLb=" + data[i].idLibro)
+        })
     }
 
 }

@@ -41,7 +41,7 @@ public class ConsegneController {
     }
 
     @GetMapping("/get-consegne-libro/{id}")
-    public List<Consegne> getConsegnaByIdLibro(@PathVariable("id") Integer id){
+    public List<Consegne> getConsegneByIdLibro(@PathVariable("id") Integer id){
         return consegneService.getConsegneByIdLibro(id);
     }
 
@@ -91,28 +91,29 @@ public class ConsegneController {
                 System.out.println("size list "+consegneList.size());
             }else{
                 System.out.println("qnt NEGATIVA");
-                List<Consegne> lPrenotati = getConsegnaByIdLibro(idxL);
+
+                List<Consegne> lPrenotati= consegneService.getConsegneByIdLibro(idxL);
                 for(Consegne cXl: lPrenotati){
                     System.out.println(cXl);
                 }
-                System.out.println(lPrenotati);
-                for (Consegne cLprenotati :lPrenotati){
-                    LocalDate dCpren=cLprenotati.getDataConsegna();
-                    LocalDate dRpren=cLprenotati.getDataRestituzione();
-                    System.out.println("data da db -> "+ dCpren+" / "+dRpren);
-                    if ((dRpresunta.isBefore(dCpren) && dRpresunta.isAfter(dRpren))||(dCpresunta.isBefore(dRpren) && dCpresunta.isAfter(dCpren))){
-                        risposta=risposta+"\n"+cLprenotati.getLibro().getTitolo()+" non prenotabile";
-                        System.out.println(risposta);
-                        break;
-                    }else{
-                        System.out.println("prenotabile");
-                        giacenza--;
-                        lDaPrestare.setQuantita(giacenza);
-                        lService.saveOrUpdateLibri(lDaPrestare);
-                        consegneList.add(c);
-                        System.out.println("size list "+consegneList.size());
-                    }
-                }
+//                System.out.println(lPrenotati);
+//                for (Consegne cLprenotati :lPrenotati){
+//                    LocalDate dCpren=cLprenotati.getDataConsegna();
+//                    LocalDate dRpren=cLprenotati.getDataRestituzione();
+//                    System.out.println("data da db -> "+ dCpren+" / "+dRpren);
+//                    if ((dRpresunta.isBefore(dCpren) && dRpresunta.isAfter(dRpren))||(dCpresunta.isBefore(dRpren) && dCpresunta.isAfter(dCpren))){
+//                        risposta=risposta+"\n"+cLprenotati.getLibro().getTitolo()+" non prenotabile";
+//                        System.out.println(risposta);
+//                        break;
+//                    }else{
+//                        System.out.println("prenotabile");
+//                        giacenza--;
+//                        lDaPrestare.setQuantita(giacenza);
+//                        lService.saveOrUpdateLibri(lDaPrestare);
+//                        consegneList.add(c);
+//                        System.out.println("size list "+consegneList.size());
+//                    }
+//                }
             }
         }
         System.out.println(consegneList);

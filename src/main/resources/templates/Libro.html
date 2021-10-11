@@ -32,6 +32,24 @@
         </div>
       </nav>
     </div>
+    <div class="p-0 col-md-10 offset-md-2">
+      <form id="search" method="post">
+        <div class="ricerca d-flex flex-column flex-md-row justify-content-end align-items-center">
+          <div class="Bord1">
+            <input type="text" value="" placeholder="Ricerca per titolo" id="inputName">
+          </div>
+          <div class="Bord1">
+            <input type="text" value="" placeholder="Ricerca per autore" id="inputAutor">
+          </div>
+          <div class="Bord1">
+            <input type="text" value="" placeholder="Ricerca per casa editrice" id="inputCasaEditrice">
+          </div>
+          <div class="Bord1 col-md-3">
+            <button class="bRicerca" id="richiesta" type="submit">Ricerca</button>
+          </div>
+        </div>
+      </form>
+    </div>
     <!-- Corpo responsitive dal tablet -->
     <div class="row ">
       <div class="p-0 col-md-10 offset-md-1 ">
@@ -39,16 +57,7 @@
 
         </div>
         <form  id="registrationForm" method="post">
-          <div>
-            <div class="d-flex flex-column flex-md-row justify-content-center align-items-start">
-              <div class="col-12 col-md-6 ">
-                <input type="text" value="" placeholder="Ricerca per titolo" id="inputName">
-              </div>
-              <div class="Bord1 col-md-2">
-                <button type="submit">Search</button>
-              </div>
-            </div>
-          </div>
+
           <div class="d-flex flex-column flex-md-row justify-content-start align-items-start">
             <div class="col-12 col-md-6 boxIn">
               <div>
@@ -136,12 +145,12 @@
         </div>
         <div class="col-12 col-md-6 ">
           <select name="lingue" id="lingua" class="border-dark">
-            <option>Scegli la lingua</option>
-            <option>Italiano</option>
-            <option>English</option>
-            <option>Français</option>
-            <option>Deutsch</option>
-            <option>Español</option>
+            <option value="" selected disabled>Scegli la lingua</option>
+            <option value="Italiano">Italiano</option>
+            <option value="English">English</option>
+            <option value="Francais">Francais</option>
+            <option value="Deutsch">Deutsch</option>
+            <option value="Espanol">Espanol</option>
           </select>
         </div>
       </div>
@@ -152,7 +161,17 @@
           <label for="Quantità" class="fw-bold "> Quantità  </label>
         </div>
         <div>
-          <input class="border-dark textInput richiesto" id="Quantità" type="email"
+          <input class="border-dark textInput richiesto" id="Quantità" type="text"
+                 placeholder="Inserisci la quantità">
+        </div>
+        <div class="messErr p-0">                            </div>
+      </div>
+      <div class="col-12 col-md-6 boxIn">
+        <div>
+          <label for="URLC" class="fw-bold "> URL Copertina  </label>
+        </div>
+        <div>
+          <input class="border-dark textInput richiesto" id="URLC" type="text"
                  placeholder="Inserisci la quantità">
         </div>
         <div class="messErr p-0">                            </div>
