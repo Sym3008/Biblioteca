@@ -29,7 +29,7 @@ public class ConsegneDao {
 
     public List<Consegne> getConesgneByIdLibro(Integer id){
         Session currentSession = entityManager.unwrap(Session.class);
-        Query<Consegne> query=currentSession.createQuery("FROM Consegne WHERE libro.idLibro = "+id, Consegne.class);
+        Query<Consegne> query=currentSession.createQuery("FROM Consegne WHERE libro.idLibro = "+id+" AND dataConsegna IS NOT NULL ", Consegne.class);
         return query.getResultList();
     }
 

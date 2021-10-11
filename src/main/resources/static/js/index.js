@@ -74,16 +74,3 @@ function carica(id, navId, idAn) {
         nav.appendChild(div2);
     })
 }
-
-// <div className="d-flex flex-row justify-content-center align-items-center">
-//     <a className="mx-2"> <img src="../static/image/Harry_Potter_e_il_calice_di_fuoco.jpg"></a>
-//     <a className="mx-2"> <img src="../static/image/Harry_Potter_e_il_prigioniero_di_Azkaban.jpg"></a>
-//
-// </div>
-// <div className="d-flex flex-row justify-content-center align-items-center">
-//     <a className="mx-2" target="_blank"
-//        href="http://localhost:63342/Biblioteca/templates/Product.html?_ijt=6neo8baoi3n7rivconq9p8c5f4"> <img
-//         src="../static/image/Harry_Potter_e_la_camera_dei_segreti.jpg"></a>
-//     <a className="mx-2"> <img src="../static/image/harry_potter_e_la_pietra_filosofale.jpg"></a>
-//
-// </div>

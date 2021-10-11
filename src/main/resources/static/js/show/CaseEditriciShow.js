@@ -2,6 +2,7 @@ window.addEventListener('load', function (Event) {
     var queryString = window.location.search;
     var urlParams = new URLSearchParams(queryString);
     var mostra = urlParams.get('nominativo')
+    var idAnagraficaPassato = urlParams.get('idAn');
     console.log(mostra);
 
     let url = 'http://localhost:8080/api/get-case-editrici';

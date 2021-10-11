@@ -1,8 +1,8 @@
 window.addEventListener('load', function (Event) {
     var queryString = window.location.search;
     var urlParams = new URLSearchParams(queryString);
-    var mostra = urlParams.get('nominativo')
-    // console.log(mostra);
+    var nominativo = urlParams.get('nominativo')
+    var idAnagraficaPassato = urlParams.get('idAn');
 
     let name = document.querySelector("#inputName")
     let autor = document.querySelector("#inputAutor")
@@ -11,11 +11,11 @@ window.addEventListener('load', function (Event) {
     let link = document.querySelector("#richiesta")
 
     link.addEventListener("click", function (e) {
-        let url ="LibriShow.html?titolo=" + name.value;
+        let url ="LibriShow.html?titolo=" + name.value+"&idAn="+idAnagraficaPassato;
         if (autor.value!=""){
-            url = "AutoriShow.html?nominativo=" + autor.value;
+            url = "AutoriShow.html?nominativo=" + autor.value+"&idAn="+idAnagraficaPassato;
         }else if (casa_editrice.value!=""){
-            url = "CaseEditriciShow.html?nominativo=" + casa_editrice.value;
+            url = "CaseEditriciShow.html?nominativo=" + casa_editrice.value+"&idAn="+idAnagraficaPassato;
         }
         close();
         open(url);
@@ -23,8 +23,8 @@ window.addEventListener('load', function (Event) {
 
     let url = 'http://localhost:8080/api/get-autori';
 
-    if (mostra!="") {
-        url = 'http://localhost:8080/api/get-autore-nominativo/'+mostra;
+    if (nominativo!="") {
+        url = 'http://localhost:8080/api/get-autore-nominativo/'+nominativo;
     }
     fetch(url).then(function (response) {
         return response.json()
@@ -103,7 +103,7 @@ function carica(data){
         btn.classList.add("btn")
         btn.classList.add("btn-primary")
         btn.classList.add("mb-1")
-        btn.href="LibriShow.html?idAu="+data[j].idAutore
+        btn.href="LibriShow.html?idAu="+data[j].idAutore+"&idAn="+idAnagraficaPassato;
         cellText = document.createTextNode("Libri");
         let btn2 = document.createElement("a")
         btn2.classList.add("btn")

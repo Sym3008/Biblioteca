@@ -3,7 +3,8 @@ window.addEventListener('load', function (Event) {
     var urlParams = new URLSearchParams(queryString);
     var titolo = urlParams.get('titolo');
     var idAu = urlParams.get('idAu');
-    console.log(titolo+" - "+ idAu)
+    var idAnagraficaPassato = urlParams.get('idAn');
+
     let url = 'http://localhost:8080/api/get-libri';
 
     if (titolo!=null) {
@@ -31,13 +32,13 @@ window.addEventListener('load', function (Event) {
     link.addEventListener("click", function (e) {
 
         if (name.value!=""){
-            urlApi = "LibriShow.html?titolo=" + name.value;
+            urlApi = "LibriShow.html?titolo=" + name.value+"&idAn="+idAnagraficaPassato;
 
         } else if (autor.value!=""){
-            urlApi = "AutoriShow.html?nominativo=" + autor.value;
+            urlApi = "AutoriShow.html?nominativo=" + autor.value+"&idAn="+idAnagraficaPassato;
 
         }else if (casa_editrice.value!=""){
-            urlApi = "CaseEditriciShow.html?nominativo=" + casa_editrice.value;
+            urlApi = "CaseEditriciShow.html?nominativo=" + casa_editrice.value+"&idAn="+idAnagraficaPassato;
 
         }
         close();
