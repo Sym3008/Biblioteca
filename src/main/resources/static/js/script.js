@@ -54,7 +54,7 @@ function controllaDati(){
                 console.log(data[i].idAnagrafica);
                 trovato=true;
                 close();
-                open("Index.html?IdAn="+data[i].idAnagrafica)
+                open("Index.html?idAn="+data[i].idAnagrafica)
             }else{
                 console.log("non trovato")
                 trovato=false

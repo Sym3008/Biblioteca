@@ -3,9 +3,9 @@ window.addEventListener("load", function (Event) {
     let urlParams = new URLSearchParams(queryString);
     let idAnagraficaPassato = urlParams.get('idAn')
 
-    carica(1, "#fantasy")
-    carica (9,"#cucina")
-    carica(4,"#horror")
+    carica(1, "#fantasy",idAnagraficaPassato)
+    carica (9,"#cucina",idAnagraficaPassato)
+    carica(4,"#horror",idAnagraficaPassato)
 
     let name = document.querySelector("#inputName")
     let autor = document.querySelector("#inputAutor")
@@ -26,9 +26,10 @@ window.addEventListener("load", function (Event) {
 
 })
 
-function carica(id, navId) {
+function carica(id, navId, idAn) {
     let urlApi = "http://localhost:8080/api/get-libri-by-id-genere/" + id
 
+    console.log("id anagrafica__------___"+idAn)
     // console.log(id)
     // console.log(urlApi)
     fetch(urlApi,
@@ -52,11 +53,13 @@ function carica(id, navId) {
         div2.classList.add("flex-row")
         div2.classList.add("justify-content-center")
         div2.classList.add("align-items-center")
+        console.log("id anagrafica__!!!!___"+idAn)
         for (let i=0; i<4; i++) {
             if (data[i] != null) {
                 let a = document.createElement("a")
                 a.classList.add("mx-2")
-                a.href="show/ProductShow.html?idLib="+data[i].idLibro+"&idAn="+idAnagraficaPassato
+                console.log("id anagrafica_______"+idAn)
+                a.href="show/ProductShow.html?idLib="+data[i].idLibro+"&idAn="+idAn
                 let img = document.createElement("img")
                 img.src = data[i].urlCopertina
                 a.appendChild(img)
