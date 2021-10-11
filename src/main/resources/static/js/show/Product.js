@@ -125,7 +125,12 @@ function carica(idLibroPassato) {
         let div10 = document.querySelector('#quantita')
         div10.innerHTML = `${data.quantita}`
 
+        if (data.quantita< 0) {
+            div10.innerHTML= `${data.quantita= 0}`
+        }
+
 
     })
 }
+
 
