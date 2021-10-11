@@ -2,6 +2,7 @@ window.addEventListener('load', function (event) {
     let queryString = window.location.search;
     let urlParams = new URLSearchParams(queryString);
     let idLibropassato = urlParams.get('idLb');
+    let idAnagraficaPassato = urlParams.get('idAn');
 
 
     let name = document.querySelector("#inputName")
@@ -12,12 +13,12 @@ window.addEventListener('load', function (event) {
     let urlApi
     link.addEventListener("click", function (e) {
 
-        urlApi = "LibriShow.html?titolo=" + name.value+"&idAn="+idAnagraficaPassato;
+        urlApi = "show/LibriShow.html?titolo=" + name.value+"&idAn="+idAnagraficaPassato;
         if (autor.value!=""){
-            urlApi = "AutoriShow.html?nominativo=" + autor.value+"&idAn="+idAnagraficaPassato;
+            urlApi = "show/AutoriShow.html?nominativo=" + autor.value+"&idAn="+idAnagraficaPassato;
 
         }else if (casa_editrice.value!=""){
-            urlApi = "CaseEditriciShow.html?nominativo=" + casa_editrice.value+"&idAn="+idAnagraficaPassato;
+            urlApi = "show/CaseEditriciShow.html?nominativo=" + casa_editrice.value+"&idAn="+idAnagraficaPassato;
 
         }
         close();
