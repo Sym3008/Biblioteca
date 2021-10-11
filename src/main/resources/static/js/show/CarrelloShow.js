@@ -8,10 +8,11 @@ window.addEventListener("load", function (Event) {
 
     let ordinati = document.querySelector('#ordinati')
     let inAttesa = document.querySelector('#inattesa')
-
+    let etichetta = document.querySelector('#etichetta')
     ordinati.addEventListener("click", function (e){
         inAttesa.classList.remove("nascondi")
         ordinati.classList.add("nascondi")
+        etichetta.innerHTML="Lista libri ordinati"
         urlApi = "http://localhost:8080/api/get-consegne-ordinati-anagrafica/" + idAnagraficaPassato
         carica(urlApi)
     })
@@ -19,6 +20,7 @@ window.addEventListener("load", function (Event) {
     inAttesa.addEventListener("click", function (e){
         ordinati.classList.remove("nascondi")
         inAttesa.classList.add("nascondi")
+        etichetta.innerHTML="Lista libri in attesa di prenotazione"
         urlApi = "http://localhost:8080/api/get-consegne-inattesa-anagrafica/" + idAnagraficaPassato
         carica(urlApi)
     })
@@ -69,7 +71,7 @@ window.addEventListener("load", function (Event) {
                         },
                         body: JSON.stringify(recordDaAggiornare),
                     }).then(function (response){
-                        console.log("record inserito");
+                        console.log(response);
                         // return response.json()
                     }).then(data => {
                         console.log('Success:', data);
