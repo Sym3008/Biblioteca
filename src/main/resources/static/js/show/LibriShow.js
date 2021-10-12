@@ -7,15 +7,15 @@ window.addEventListener('load', function (Event) {
 
     let url = 'http://localhost:8080/api/get-libri';
 
-    if (titolo!=null) {
+    if (titolo!==null) {
         console.log(titolo)
         url = 'http://localhost:8080/api/get-libro-titoli/'+titolo;
     }
-    if (idAu!=null){
+    if (idAu!==null){
         console.log(idAu)
         url = 'http://localhost:8080/api/get-libri-by-id-autore/'+idAu;
     }
-
+    console.log(url)
     fetch(url).then(function (response) {
         return response.json()
     }).then(function (data) {
@@ -73,18 +73,19 @@ function carica(data){
     console.log(data.length)
     console.log(data)
     console.log(data[0])
-    for (var j = 0; j < data.length; j++) {
-        var row = document.createElement("tr");
+    for (let j = 0; j < data.length; j++) {
+        let row = document.createElement("tr");
 
-        var cell = document.createElement("td");
-        var link = document.createElement("a");
+        let cell = document.createElement("td");
+        let link = document.createElement("a");
         link.href= "ProductShow.html?idLib=" + data[j].idLibro;
-        var cellText = document.createTextNode(data[j].titolo);
+        let cellText = document.createTextNode(data[j].titolo);
         link.appendChild(cellText);
         cell.appendChild(link);
         row.appendChild(cell);
 
         cell = document.createElement("td");
+        console.log(data[j].autore.nominativo)
         cellText = document.createTextNode(data[j].autore.nominativo);
         cell.appendChild(cellText);
         row.appendChild(cell);
