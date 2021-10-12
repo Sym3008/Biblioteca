@@ -159,7 +159,7 @@ function carica(data, idAnagraficaPassato){
 
             btnElimin.addEventListener("click", function (e) {
                 console.log(e.currentTarget.value);
-                let urlElm = "http://localhost:8080/api/cancella-libro/" + data[i].idLibro;
+                let urlElm = "http://localhost:8080/api/cancella-libro/" + data[j].idLibro;
                 fetch(urlElm,
                     {
                         method: "DELETE"
@@ -174,8 +174,8 @@ function carica(data, idAnagraficaPassato){
             })
             btnModifica.addEventListener("click", function (e) {
                 console.log(e.currentTarget.value);
-                close();
-                open("../Libri.html?idLb=" + data[i].idLibro)
+                // close();
+                open("../Libro.html?idLb=" + data[j].idLibro)
             })
         }else{
             tBody.appendChild(row);
