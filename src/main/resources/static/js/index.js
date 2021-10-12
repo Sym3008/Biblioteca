@@ -36,7 +36,7 @@ window.addEventListener("load", function (Event) {
         })
     }
 
-    carica(1, "#fantasy",idAnagraficaPassato)
+    carica(2, "#romanzi",idAnagraficaPassato)
     carica (9,"#cucina",idAnagraficaPassato)
     carica(4,"#horror",idAnagraficaPassato)
 
