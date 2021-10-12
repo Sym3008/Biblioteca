@@ -25,7 +25,7 @@ window.addEventListener("load", function (Event) {
     }
 
     let urlApi = "http://localhost:8080/api/get-consegne-inattesa-anagrafica/" + idAnagraficaPassato
-    carica(urlApi)
+    carica(urlApi,idAnagraficaPassato)
 
     let conferma = document.querySelector('#conferma')
     let ordinati = document.querySelector('#ordinati')
@@ -38,7 +38,7 @@ window.addEventListener("load", function (Event) {
         etichetta.innerHTML = "Lista libri ordinati"
         conferma.classList.add("nascondi")
         urlApi = "http://localhost:8080/api/get-consegne-ordinati-anagrafica/" + idAnagraficaPassato
-        carica(urlApi)
+        carica(urlApi,idAnagraficaPassato)
     })
 
     inAttesa.addEventListener("click", function (e) {
@@ -47,7 +47,7 @@ window.addEventListener("load", function (Event) {
         etichetta.innerHTML = "Lista libri in attesa di prenotazione"
         conferma.classList.remove("nascondi")
         urlApi = "http://localhost:8080/api/get-consegne-inattesa-anagrafica/" + idAnagraficaPassato
-        carica(urlApi)
+        carica(urlApi, idAnagraficaPassato)
     })
 
 
@@ -111,7 +111,7 @@ window.addEventListener("load", function (Event) {
 })
 
 
-function carica(urlApi) {
+function carica(urlApi, idAnagraficaPassato) {
     let divProdotti = document.querySelector('#prodotti');
     divProdotti.innerHTML = "";
     fetch(urlApi,
