@@ -1,3 +1,5 @@
+let host="localhost"
+
 window.addEventListener('load', function(event){
     let form = document.querySelector('#registrationForm')
     form.addEventListener('submit', function (event){
@@ -49,7 +51,7 @@ function inserisciRecord(){
 
     console.log(newRecord);
 
-    let urlApi= "http://localhost:8080/api/save-genere";
+    let urlApi= "http://"+host+":8080/api/save-genere";
 
     fetch(urlApi, {
         method: "POST",

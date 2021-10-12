@@ -1,3 +1,5 @@
+let host="localhost"
+
 window.addEventListener('load', function (event) {
     let queryString = window.location.search;
     let urlParams = new URLSearchParams(queryString);
@@ -89,7 +91,7 @@ function aggiornaDati(idAnagraficaPassato)
     let e = document.querySelector('#Email');
     let p = document.querySelector('#Password');
     let pc = document.querySelector('#Conferma-Password');
-    let url = "http://localhost:8080/api/get-anagrafica/" + idAnagraficaPassato
+    let url = "http://"+host+":8080/api/get-anagrafica/" + idAnagraficaPassato
     fetch(url, {
         method: "GET"
     }).then(function (response) {
@@ -144,7 +146,7 @@ function inserisciRecord(idAnagraficaPassato) {
 
     if (idAnagraficaPassato >0) {
 
-        let urlApi = "http://localhost:8080/api/update-anagrafiche";
+        let urlApi = "http://"+host+":8080/api/update-anagrafiche";
 
         fetch(urlApi, {
             method: "PUT",
@@ -166,7 +168,7 @@ function inserisciRecord(idAnagraficaPassato) {
         });
     }else {
 
-        let urlApi = "http://localhost:8080/api/save-anagrafiche";
+        let urlApi = "http://"+host+":8080/api/save-anagrafiche";
 
         fetch(urlApi, {
             method: "POST",

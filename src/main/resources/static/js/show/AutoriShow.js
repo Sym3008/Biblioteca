@@ -1,3 +1,5 @@
+let host="localhost"
+
 window.addEventListener('load', function (Event) {
     var queryString = window.location.search;
     var urlParams = new URLSearchParams(queryString);
@@ -12,7 +14,7 @@ window.addEventListener('load', function (Event) {
         lgn.innerHTML=""
         let a = document.createElement("a")
         a.href="../Registrazione.html?idAn="+idAnagraficaPassato
-        let url= "http://localhost:8080/api/get-anagrafica/"+idAnagraficaPassato
+        let url= "http://"+host+":8080/api/get-anagrafica/"+idAnagraficaPassato
         fetch(url,
             {
                 method: "GET"
@@ -43,19 +45,19 @@ window.addEventListener('load', function (Event) {
 
     link.addEventListener("click", function (e) {
         let url ="LibriShow.html?titolo=" + name.value+"&idAn="+idAnagraficaPassato;
-        if (autor.value!=""){
+        if (autor.value!==""){
             url = "AutoriShow.html?nominativo=" + autor.value+"&idAn="+idAnagraficaPassato;
-        }else if (casa_editrice.value!=""){
+        }else if (casa_editrice.value!==""){
             url = "CaseEditriciShow.html?nominativo=" + casa_editrice.value+"&idAn="+idAnagraficaPassato;
         }
         close();
         open(url);
     })
 
-    let url = 'http://localhost:8080/api/get-autori';
+    let url = "http://"+host+":8080/api/get-autori";
 
-    if (nominativo!="") {
-        url = 'http://localhost:8080/api/get-autore-nominativo/'+nominativo;
+    if (nominativo!=="") {
+        url = "http://"+host+":8080/api/get-autore-nominativo/"+nominativo;
     }
     fetch(url).then(function (response) {
         return response.json()
@@ -151,7 +153,7 @@ function carica(data,idAnagraficaPassato){
 
             btnElimin.addEventListener("click", function (e) {
                 console.log(e.currentTarget.value);
-                let urlElm = "http://localhost:8080/api/cancella-autore/" + data[j].idAutore;
+                let urlElm = "http://"+host+":8080/api/cancella-autore/" + data[j].idAutore;
                 fetch(urlElm,
                     {
                         method: "DELETE"

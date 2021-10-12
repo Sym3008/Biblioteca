@@ -1,3 +1,5 @@
+let host="localhost"
+
 window.addEventListener('load', function (Event) {
     let queryString = window.location.search;
     let urlParams = new URLSearchParams(queryString);
@@ -13,7 +15,7 @@ window.addEventListener('load', function (Event) {
         lgn.innerHTML=""
         let a = document.createElement("a")
         a.href="../Registrazione.html?idAn="+idAnagraficaPassato
-        let url= "http://localhost:8080/api/get-anagrafica/"+idAnagraficaPassato
+        let url= "http://"+host+":8080/api/get-anagrafica/"+idAnagraficaPassato
         fetch(url,
             {
                 method: "GET"
@@ -36,10 +38,10 @@ window.addEventListener('load', function (Event) {
         })
     }
 
-    let url = 'http://localhost:8080/api/get-case-editrici';
+    let url = "http://"+host+":8080/api/get-case-editrici";
 
     if (mostra!="") {
-        url = 'http://localhost:8080/api/get-casa-editrice-nominativo/'+mostra;
+        url = "http://"+host+":8080/api/get-casa-editrice-nominativo/"+mostra;
     }
     fetch(url).then(function (response) {
         return response.json()
@@ -136,7 +138,7 @@ function carica(data, idAnagraficaPassato){
 
             btnElimin.addEventListener("click", function (e) {
                 console.log(e.currentTarget.value);
-                let urlElm = "http://localhost:8080/api/cancella-casa-editrice/" + data[j].idCasaEditrice;
+                let urlElm = "http://"+host+":8080/api/cancella-casa-editrice/" + data[j].idCasaEditrice;
                 fetch(urlElm,
                     {
                         method: "DELETE"

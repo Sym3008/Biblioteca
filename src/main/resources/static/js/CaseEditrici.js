@@ -1,3 +1,5 @@
+let host="localhost"
+
 window.addEventListener('load', function(event){
     let queryString = window.location.search;
     let urlParams = new URLSearchParams(queryString);
@@ -66,7 +68,7 @@ function inserisciRecord(){
 
     console.log(newRecord);
 
-    let urlApi= "http://localhost:8080/api/save-case-editrici";
+    let urlApi= "http://"+host+":8080/api/save-case-editrici";
 
     fetch(urlApi, {
         method: "POST",

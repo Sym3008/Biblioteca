@@ -1,3 +1,5 @@
+let host="localhost"
+
 window.addEventListener("load", function (Event) {
     let queryString = window.location.search;
     let urlParams = new URLSearchParams(queryString);
@@ -12,7 +14,7 @@ window.addEventListener("load", function (Event) {
         lgn.innerHTML=""
         let a = document.createElement("a")
         a.href="Registrazione.html?idAn="+idAnagraficaPassato
-        let url= "http://localhost:8080/api/get-anagrafica/"+idAnagraficaPassato
+        let url= "http://"+host+":8080/api/get-anagrafica/"+idAnagraficaPassato
         fetch(url,
             {
                 method: "GET"
@@ -60,7 +62,7 @@ window.addEventListener("load", function (Event) {
 })
 
 function carica(id, navId, idAn) {
-    let urlApi = "http://localhost:8080/api/get-libri-by-id-genere/" + id
+    let urlApi = "http://"+host+":8080/api/get-libri-by-id-genere/" + id
 
     console.log("id anagrafica__------___"+idAn)
     // console.log(id)

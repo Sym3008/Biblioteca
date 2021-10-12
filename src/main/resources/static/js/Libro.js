@@ -1,3 +1,5 @@
+let host="localhost"
+
 window.addEventListener('load', function (event) {
     let queryString = window.location.search;
     let urlParams = new URLSearchParams(queryString);
@@ -12,7 +14,7 @@ window.addEventListener('load', function (event) {
         lgn.innerHTML=""
         let a = document.createElement("a")
         a.href="../Registrazione.html?idAn="+idAnagraficaPassato
-        let url= "http://localhost:8080/api/get-anagrafica/"+idAnagraficaPassato
+        let url= "http://"+host+":8080/api/get-anagrafica/"+idAnagraficaPassato
         fetch(url,
             {
                 method: "GET"
@@ -44,10 +46,10 @@ window.addEventListener('load', function (event) {
     link.addEventListener("click", function (e) {
 
         urlApi = "show/LibriShow.html?titolo=" + name.value+"&idAn="+idAnagraficaPassato;
-        if (autor.value!=""){
+        if (autor.value!==""){
             urlApi = "show/AutoriShow.html?nominativo=" + autor.value+"&idAn="+idAnagraficaPassato;
 
-        }else if (casa_editrice.value!=""){
+        }else if (casa_editrice.value!==""){
             urlApi = "show/CaseEditriciShow.html?nominativo=" + casa_editrice.value+"&idAn="+idAnagraficaPassato;
 
         }
@@ -115,31 +117,31 @@ function inserisciRecord(idLibropassato) {
 
     let newRecord;
 
-    fetch("http://localhost:8080/api/get-autore/" + iA.value, {
+    fetch("http://"+host+":8080/api/get-autore/" + iA.value, {
         method: "Get"
     }).then(function (response) {
         return response.json();
     }).then(function (data) {
         let autore = data
-        fetch("http://localhost:8080/api/get-genere/" + iG.value, {
+        fetch("http://"+host+":8080/api/get-genere/" + iG.value, {
             method: "Get"
         }).then(function (response) {
             return response.json();
         }).then(function (data) {
             let genere = data
-            fetch("http://localhost:8080/api/get-casa-editrice/" + iCE.value, {
+            fetch("http://"+host+":8080/api/get-casa-editrice/" + iCE.value, {
                 method: "Get"
             }).then(function (response) {
                 return response.json();
             }).then(function (data) {
                 let casaEditrice = data
-                fetch("http://localhost:8080/api/get-scaffali/" + scaf.value, {
+                fetch("http://"+host+":8080/api/get-scaffali/" + scaf.value, {
                     method: "Get"
                 }).then(function (response) {
                     return response.json();
                 }).then(function (data) {
                     let scaffale = data
-                    fetch("http://localhost:8080/api/get-ripiano/" + rip.value, {
+                    fetch("http://"+host+":8080/api/get-ripiano/" + rip.value, {
                         method: "Get"
                     }).then(function (response) {
                         return response.json();
@@ -164,7 +166,7 @@ function inserisciRecord(idLibropassato) {
                         console.log(newRecord)
 
                         if (idLibropassato === "" || idLibropassato === "null" || idLibropassato === null) {
-                            let urlApi = "http://localhost:8080/api/save-libri";
+                            let urlApi = "http://"+host+":8080/api/save-libri";
                             fetch(urlApi, {
                                 method: "POST",
                                 headers: {
@@ -182,7 +184,7 @@ function inserisciRecord(idLibropassato) {
                                 console.log('Success:', data);
                             });
                         } else {
-                            let urlApi = "http://localhost:8080/api/update-libri";
+                            let urlApi = "http://"+host+":8080/api/update-libri";
                             fetch(urlApi, {
                                 method: "PUT",
                                 headers: {
@@ -223,7 +225,7 @@ function riempiCampi(idLb) {
     let scaf = document.querySelector('#Scaffale');
     let rip = document.querySelector('#Ripiano');
 
-    let url = "http://localhost:8080/api/get-libro/" + idLb;
+    let url = "http://"+host+":8080/api/get-libro/" + idLb;
     fetch(url,
         {
             method: "GET"

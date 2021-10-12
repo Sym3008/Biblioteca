@@ -102,7 +102,7 @@ public class ConsegneController {
                     LocalDate dCpren=cLprenotati.getDataConsegna();
                     LocalDate dRpren=cLprenotati.getDataRestituzione();
                     System.out.println("data da db -> "+ dCpren+" / "+dRpren);
-                    if ((dRpresunta.isBefore(dCpren) && dRpresunta.isAfter(dRpren))||(dCpresunta.isBefore(dRpren) && dCpresunta.isAfter(dCpren))){
+                    if ((dRpresunta.isBefore(dCpren) && dRpresunta.isAfter(dRpren))||(dCpresunta.isBefore(dRpren) && dCpresunta.isAfter(dCpren))||(dCpresunta.isBefore(LocalDate.now()))){
                         risposta=risposta+"\n"+cLprenotati.getLibro().getTitolo()+" non prenotabile";
                         System.out.println(risposta);
                         break;

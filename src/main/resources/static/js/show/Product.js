@@ -1,3 +1,5 @@
+let host="localhost"
+
 window.addEventListener("load", function (Event) {
     let queryString = window.location.search;
     let urlParams = new URLSearchParams(queryString);
@@ -12,7 +14,7 @@ window.addEventListener("load", function (Event) {
         lgn.innerHTML=""
         let a = document.createElement("a")
         a.href="../Registrazione.html?idAn="+idAnagraficaPassato
-        let url= "http://localhost:8080/api/get-anagrafica/"+idAnagraficaPassato
+        let url= "http://"+host+":8080/api/get-anagrafica/"+idAnagraficaPassato
         fetch(url,
             {
                 method: "GET"
@@ -46,10 +48,10 @@ window.addEventListener("load", function (Event) {
     let urlApi = "LibriShow.html?nominativo=" + name.value+"&idAn="+idAnagraficaPassato;
     link.addEventListener("click", function (e) {
 
-        if (autor.value != "") {
+        if (autor.value !== "") {
             urlApi = "AutoriShow.html?nominativo=" + autor.value+"&idAn="+idAnagraficaPassato;
 
-        } else if (casa_editrice.value != "") {
+        } else if (casa_editrice.value !== "") {
             urlApi = "CaseEditriciShow.html?nominativo=" + casa_editrice.value+"&idAn="+idAnagraficaPassato;
 
         }
@@ -68,7 +70,7 @@ window.addEventListener("load", function (Event) {
             let anagraficaGen
             let libroGen
 
-            fetch("http://localhost:8080/api/get-anagrafica/" + idAnagraficaPassato,
+            fetch("http://"+host+":8080/api/get-anagrafica/" + idAnagraficaPassato,
                 {
                     method: "GET"
                 }).then(function (response) {
@@ -77,7 +79,7 @@ window.addEventListener("load", function (Event) {
             }).then(function (data) {
                 anagraficaGen = data
 
-                fetch("http://localhost:8080/api/get-libro/" + idLibroPassato,
+                fetch("http://"+host+":8080/api/get-libro/" + idLibroPassato,
                     {
                         method: "GET"
                     }).then(function (response) {
@@ -94,7 +96,7 @@ window.addEventListener("load", function (Event) {
                         libro: libroGen,
                     }
                     console.log(newRecord);
-                    let urlApi = "http://localhost:8080/api/save-consegne";
+                    let urlApi = "http://"+host+":8080/api/save-consegne";
                     fetch(urlApi, {
                         method: "POST",
                         headers: {
@@ -122,7 +124,7 @@ window.addEventListener("load", function (Event) {
 })
 
 function carica(idLibroPassato) {
-    let urlApi = "http://localhost:8080/api/get-libro/" + idLibroPassato
+    let urlApi = "http://"+host+":8080/api/get-libro/" + idLibroPassato
 
     // console.log(urlApi)
     fetch(urlApi,

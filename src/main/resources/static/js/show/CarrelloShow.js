@@ -1,3 +1,5 @@
+let host="localhost"
+
 window.addEventListener("load", function (Event) {
     let queryString = window.location.search;
     let urlParams = new URLSearchParams(queryString);
@@ -11,7 +13,7 @@ window.addEventListener("load", function (Event) {
         lgn.innerHTML=""
         let a = document.createElement("a")
         a.href="../Registrazione.html?idAn="+idAnagraficaPassato
-        let url= "http://localhost:8080/api/get-anagrafica/"+idAnagraficaPassato
+        let url= "http://"+host+":8080/api/get-anagrafica/"+idAnagraficaPassato
         fetch(url,
             {
                 method: "GET"
@@ -34,7 +36,7 @@ window.addEventListener("load", function (Event) {
         })
     }
 
-    let urlApi = "http://localhost:8080/api/get-consegne-inattesa-anagrafica/" + idAnagraficaPassato
+    let urlApi = "http://"+host+":8080/api/get-consegne-inattesa-anagrafica/" + idAnagraficaPassato
     carica(urlApi,idAnagraficaPassato)
 
     let conferma = document.querySelector('#conferma')
@@ -47,7 +49,7 @@ window.addEventListener("load", function (Event) {
         ordinati.classList.add("nascondi")
         etichetta.innerHTML = "Lista libri ordinati"
         conferma.classList.add("nascondi")
-        urlApi = "http://localhost:8080/api/get-consegne-ordinati-anagrafica/" + idAnagraficaPassato
+        urlApi = "http://"+host+":8080/api/get-consegne-ordinati-anagrafica/" + idAnagraficaPassato
         carica(urlApi,idAnagraficaPassato)
     })
 
@@ -56,14 +58,14 @@ window.addEventListener("load", function (Event) {
         inAttesa.classList.add("nascondi")
         etichetta.innerHTML = "Lista libri in attesa di prenotazione"
         conferma.classList.remove("nascondi")
-        urlApi = "http://localhost:8080/api/get-consegne-inattesa-anagrafica/" + idAnagraficaPassato
+        urlApi = "http://"+host+":8080/api/get-consegne-inattesa-anagrafica/" + idAnagraficaPassato
         carica(urlApi, idAnagraficaPassato)
     })
 
 
     conferma.addEventListener("click", function (e) {
         let dataConsegnaIn = document.querySelector('#dataConsegnaIn')
-        if (dataConsegnaIn.value != "") {
+        if (dataConsegnaIn.value !== "") {
             let recordDaAggiornare = [];
             console.log(urlApi)
             console.log(dataConsegnaIn.value)
@@ -87,7 +89,7 @@ window.addEventListener("load", function (Event) {
 
 
                 }
-                let urlPut = 'http://localhost:8080/api/update-consegne'
+                let urlPut = "http://"+host+":8080/api/update-consegne"
                 fetch(urlPut, {
                     method: 'PUT',
                     headers: {
@@ -167,7 +169,7 @@ function carica(urlApi, idAnagraficaPassato) {
 
             bnt.addEventListener("click", function (e) {
                 console.log(e.currentTarget.value);
-                let urlElimina = "http://localhost:8080/api/cancella-consegna/" + data[i].idConsegna;
+                let urlElimina = "http://"+host+":8080/api/cancella-consegna/" + data[i].idConsegna;
                 fetch(urlElimina,
                     {
                         method: "DELETE"

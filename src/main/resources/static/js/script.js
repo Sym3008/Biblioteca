@@ -1,4 +1,6 @@
-window.addEventListener('load', function(event){
+let host="localhost"
+
+indow.addEventListener('load', function(event){
     let form = document.querySelector('#login')
     form.addEventListener('submit', function (event){
         formValido = true;
@@ -42,7 +44,7 @@ function controllaDati(){
     let E=document.querySelector('#Email');
     let P=document.querySelector('#Password')
 
-    let urlApi= "http://localhost:8080/api/get-anagrafiche";
+    let urlApi= "http://"+host+":8080/api/get-anagrafiche";
     let trovato=false;
     fetch(urlApi, {
         method: "Get"
