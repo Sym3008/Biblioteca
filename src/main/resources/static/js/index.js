@@ -36,7 +36,7 @@ window.addEventListener("load", function (Event) {
     let link = document.querySelector("#richiesta")
 
     link.addEventListener("click", function (e) {
-        let url ="show/LibriShow.html?titoli=" + name.value+"&idAn="+idAnagraficaPassato;
+        let url ="show/LibriShow.html?titolo=" + name.value+"&idAn="+idAnagraficaPassato;
         if (autor.value!=""){
             url = "show/AutoriShow.html?nominativo=" + autor.value+"&idAn="+idAnagraficaPassato;
         }else if (casa_editrice.value!=""){

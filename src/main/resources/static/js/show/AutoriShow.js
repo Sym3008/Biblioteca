@@ -30,7 +30,7 @@ window.addEventListener('load', function (Event) {
         return response.json()
     }).then(function (data) {
         // console.log(data)
-        carica(data);
+        carica(data,idAnagraficaPassato);
     })
 })
 
@@ -56,17 +56,17 @@ function cerca() {
 }
 
 
-function carica(data){
+function carica(data,idAnagraficaPassato){
     let tBody = document.querySelector("#tabellaBody")
 
     console.log(data.length)
     console.log(data)
 
-    for (var j = 0; j < data.length; j++) {
-        var row = document.createElement("tr");
+    for (let j = 0; j < data.length; j++) {
+        let row = document.createElement("tr");
 
-        var cell = document.createElement("td");
-        var cellText = document.createTextNode(data[j].nominativo);
+        let cell = document.createElement("td");
+        let cellText = document.createTextNode(data[j].nominativo);
         cell.appendChild(cellText);
         row.appendChild(cell);
 

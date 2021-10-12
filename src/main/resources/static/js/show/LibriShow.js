@@ -5,39 +5,37 @@ window.addEventListener('load', function (Event) {
     let idAu = urlParams.get('idAu');
     let idAnagraficaPassato = urlParams.get('idAn');
 
-    let lH = document.querySelector('#lHome')
-    lH.href="../Index.html?idAn="+idAnagraficaPassato
+    let lH = document.querySelector('#lHome');
+    lH.href="../Index.html?idAn="+idAnagraficaPassato;
 
-    let lgn = document.querySelector("#lgn")
+    let lgn = document.querySelector("#lgn");
     if (idAnagraficaPassato>0){
-        lgn.innerHTML=""
-        let a = document.createElement("a")
-        a.href="../Registrazione.html?idAn="+idAnagraficaPassato
-        let url= "http://localhost:8080/api/get-anagrafica/"+idAnagraficaPassato
+        lgn.innerHTML="";
+        let a = document.createElement("a");
+        a.href="../Registrazione.html?idAn="+idAnagraficaPassato;
+        let url= "http://localhost:8080/api/get-anagrafica/"+idAnagraficaPassato;
         fetch(url,
             {
                 method: "GET"
             }).then(function (response) {
             // console.log(response)
-            return response.json()
+            return response.json();
         }).then(function (data) {
-            a.innerHTML = "Benvenuto\n" +data.nome+"\n clicca per modificare i tuoi dati"
+            a.innerHTML = "Benvenuto\n" +data.nome+"\n clicca per modificare i tuoi dati";
             lgn.appendChild(a);
         })
     }
 
-    let url = 'http://localhost:8080/api/get-libri';
-
-    if (titolo!==null) {
-        console.log(titolo)
-        url = 'http://localhost:8080/api/get-libro-titoli/'+titolo;
+    let urlA = 'http://localhost:8080/api/get-libri';
+   if (titolo!=null) {
+        console.log(titolo);
+        urlA = 'http://localhost:8080/api/get-libro-titoli/'+titolo;
+    }else if (idAu!=null || idAu!==""){
+        console.log(idAu);
+        urlA = 'http://localhost:8080/api/get-libri-by-id-autore/'+idAu;
     }
-    if (idAu!==null){
-        console.log(idAu)
-        url = 'http://localhost:8080/api/get-libri-by-id-autore/'+idAu;
-    }
-    console.log(url)
-    fetch(url).then(function (response) {
+    console.log(urlA);
+    fetch(urlA).then(function (response) {
         return response.json()
     }).then(function (data) {
         // console.log(data)
