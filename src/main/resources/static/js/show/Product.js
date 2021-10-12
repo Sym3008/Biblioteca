@@ -22,6 +22,16 @@ window.addEventListener("load", function (Event) {
         }).then(function (data) {
             a.innerHTML = "Benvenuto\n" +data.nome+"\n clicca per modificare i tuoi dati"
             lgn.appendChild(a);
+
+            let m=document.querySelector('#menu')
+            let carSpan=document.createElement("span");
+            carSpan.classList.add("mScelta")
+            carSpan.classList.add("px-5")
+            let aSpan=document.createElement("a")
+            aSpan.href="show/CarrelloShow.html?idAn="+idAnagraficaPassato;
+            aSpan.innerHTML="Prenotazioni"
+            carSpan.appendChild(aSpan)
+            m.appendChild(carSpan)
         })
     }
 

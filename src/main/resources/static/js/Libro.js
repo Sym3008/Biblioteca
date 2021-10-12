@@ -4,6 +4,36 @@ window.addEventListener('load', function (event) {
     let idLibropassato = urlParams.get('idLb');
     let idAnagraficaPassato = urlParams.get('idAn');
 
+    let lH = document.querySelector('#lHome')
+    lH.href="../Index.html?idAn="+idAnagraficaPassato
+
+    let lgn = document.querySelector("#lgn")
+    if (idAnagraficaPassato>0){
+        lgn.innerHTML=""
+        let a = document.createElement("a")
+        a.href="../Registrazione.html?idAn="+idAnagraficaPassato
+        let url= "http://localhost:8080/api/get-anagrafica/"+idAnagraficaPassato
+        fetch(url,
+            {
+                method: "GET"
+            }).then(function (response) {
+            // console.log(response)
+            return response.json()
+        }).then(function (data) {
+            a.innerHTML = "Benvenuto\n" +data.nome+"\n clicca per modificare i tuoi dati"
+            lgn.appendChild(a);
+
+            let m=document.querySelector('#menu')
+            let carSpan=document.createElement("span");
+            carSpan.classList.add("mScelta")
+            carSpan.classList.add("px-5")
+            let aSpan=document.createElement("a")
+            aSpan.href="show/CarrelloShow.html?idAn="+idAnagraficaPassato;
+            aSpan.innerHTML="Prenotazioni"
+            carSpan.appendChild(aSpan)
+            m.appendChild(carSpan)
+        })
+    }
 
     let name = document.querySelector("#inputName")
     let autor = document.querySelector("#inputAutor")

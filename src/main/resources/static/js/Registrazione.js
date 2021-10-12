@@ -74,6 +74,7 @@ window.addEventListener('load', function (event) {
             event.preventDefault();
         } else {
             inserisciRecord(idAnagraficaPassato);
+            event.preventDefault();
         }
     })
 })
@@ -163,7 +164,7 @@ function inserisciRecord(idAnagraficaPassato) {
             // return response.json()
         }).then(data => {
             console.log('Success:', data);
-            close();
+            // close();
             open("Index.html?idAn="+idAnagraficaPassato)
         });
     }else {
@@ -180,13 +181,17 @@ function inserisciRecord(idAnagraficaPassato) {
             },
             body: JSON.stringify(newRecord),
         }).then(function (response) {
-            console.log("record inserito");
-            alert("Anagrafica inserita correttamente")
-            // return response.json()
+            return response.text()
         }).then(data => {
-            console.log('Success:', data);
-            close();
-            open("Index.html")
+            console.log(data)
+            if(data==="") {
+                console.log("record inserito");
+                alert("Anagrafica inserita correttamente")
+                // close();
+                open("Index.html")
+            }else{
+                alert("Errore" +data)
+            }
         });
     }
 }

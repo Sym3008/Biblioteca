@@ -28,8 +28,16 @@ public class AnagraficheController {
     }
 
     @PostMapping ("/save-anagrafiche")
-    public void saveAnagrafiche(@RequestBody @NotNull Anagrafiche anagrafiche){
+    public String saveAnagrafiche(@RequestBody @NotNull Anagrafiche anagrafiche){
+        String email = anagrafiche.getEmail();
+        List<Anagrafiche>  anaList = anagraficheService.getAnagrafiche();
+        for (Anagrafiche a: anaList){
+            if (email.equals(a.getEmail())){
+                return "e-mail già inserita";
+            }
+        }
         anagraficheService.saveOrUpdateAnagrafiche(anagrafiche);
+        return "";
     }
 
     @PutMapping ("/update-anagrafiche")

@@ -23,6 +23,22 @@ window.addEventListener('load', function (Event) {
         }).then(function (data) {
             a.innerHTML = "Benvenuto\n" +data.nome+"\n clicca per modificare i tuoi dati";
             lgn.appendChild(a);
+
+            let m=document.querySelector('#menu')
+            let carSpan=document.createElement("span");
+            carSpan.classList.add("mScelta")
+            carSpan.classList.add("px-5")
+            let aSpan=document.createElement("a")
+            aSpan.href="CarrelloShow.html?idAn="+idAnagraficaPassato;
+            aSpan.innerHTML="Prenotazioni"
+            carSpan.appendChild(aSpan)
+            m.appendChild(carSpan)
+
+            let agL=document.querySelector("#aggL")
+            let aL=document.createElement("a")
+            aL.href=("../Libro.html?idAn="+idAnagraficaPassato);
+            aL.innerHTML="Aggiungi nuovo libro";
+            agL.appendChild(aL);
         })
     }
 
