@@ -10,19 +10,16 @@ window.addEventListener('load', function (event) {
     let lgn = document.querySelector("#lgn")
     if (idAnagraficaPassato>0){
         lgn.innerHTML=""
-        let a = document.createElement("a")
-        a.href="../Registrazione.html?idAn="+idAnagraficaPassato
-        let url= "http://localhost:8080/api/get-anagrafica/"+idAnagraficaPassato
-        fetch(url,
-            {
-                method: "GET"
-            }).then(function (response) {
-            // console.log(response)
-            return response.json()
-        }).then(function (data) {
-            a.innerHTML = "Benvenuto\n" +data.nome+"\n clicca per modificare i tuoi dati"
-            lgn.appendChild(a);
-        })
+
+        let m=document.querySelector('#menu')
+        let carSpan=document.createElement("span");
+        carSpan.classList.add("mScelta")
+        carSpan.classList.add("px-5")
+        let aSpan=document.createElement("a")
+        aSpan.href="show/CarrelloShow.html?idAn="+idAnagraficaPassato;
+        aSpan.innerHTML="Prenotazioni"
+        carSpan.appendChild(aSpan)
+        m.appendChild(carSpan)
     }
 
     if (idAnagraficaPassato>0) {
