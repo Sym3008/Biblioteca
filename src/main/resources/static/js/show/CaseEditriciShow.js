@@ -79,7 +79,7 @@ function carica(data){
         row.appendChild(cell);
 
         cell = document.createElement("td");
-        cellText = document.createTextNode(data[j].sito_web);
+        cellText = document.createTextNode(data[j].sitoWeb);
         cell.appendChild(cellText);
         row.appendChild(cell);
 
