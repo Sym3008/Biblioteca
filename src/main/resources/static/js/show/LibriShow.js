@@ -5,6 +5,27 @@ window.addEventListener('load', function (Event) {
     let idAu = urlParams.get('idAu');
     let idAnagraficaPassato = urlParams.get('idAn');
 
+    let lH = document.querySelector('#lHome')
+    lH.href="../Index.html?idAn="+idAnagraficaPassato
+
+    let lgn = document.querySelector("#lgn")
+    if (idAnagraficaPassato>0){
+        lgn.innerHTML=""
+        let a = document.createElement("a")
+        a.href="../Registrazione.html?idAn="+idAnagraficaPassato
+        let url= "http://localhost:8080/api/get-anagrafica/"+idAnagraficaPassato
+        fetch(url,
+            {
+                method: "GET"
+            }).then(function (response) {
+            // console.log(response)
+            return response.json()
+        }).then(function (data) {
+            a.innerHTML = "Benvenuto\n" +data.nome+"\n clicca per modificare i tuoi dati"
+            lgn.appendChild(a);
+        })
+    }
+
     let url = 'http://localhost:8080/api/get-libri';
 
     if (titolo!==null) {
@@ -20,7 +41,7 @@ window.addEventListener('load', function (Event) {
         return response.json()
     }).then(function (data) {
         // console.log(data)
-        carica(data);
+        carica(data, idAnagraficaPassato);
     })
 
     let name = document.querySelector("#inputName")
@@ -66,7 +87,7 @@ function cerca() {
 }
 
 
-function carica(data){
+function carica(data, idAnagraficaPassato){
 
     let tBody = document.querySelector("#tabellaBody")
 
@@ -123,41 +144,44 @@ function carica(data){
         cell.appendChild(div);
         row.appendChild(cell);
 
-        cell = document.createElement("td");
-        let btnElimin = document.createElement("button")
-        cellText = document.createTextNode("Elimina");
-        let btnModifica = document.createElement("button")
-        cellText2 = document.createTextNode("Modifica");
+        if(idAnagraficaPassato<4) {
+            cell = document.createElement("td");
+            let btnElimin = document.createElement("button")
+            cellText = document.createTextNode("Elimina");
+            let btnModifica = document.createElement("button")
+            cellText2 = document.createTextNode("Modifica");
 
-        btnElimin.appendChild(cellText);
-        btnModifica.appendChild(cellText2);
-        cell.appendChild(btnElimin);
-        cell.appendChild(btnModifica);
-        row.appendChild(cell);
+            btnElimin.appendChild(cellText);
+            btnModifica.appendChild(cellText2);
+            cell.appendChild(btnElimin);
+            cell.appendChild(btnModifica);
+            row.appendChild(cell);
 
+            tBody.appendChild(row);
 
-        tBody.appendChild(row);
-
-        btnElimin.addEventListener("click",function (e) {
-            console.log(e.currentTarget.value);
-            let urlElm= "http://localhost:8080/api/cancella-libro/" + data[i].idLibro;
-            fetch(urlElm,
-                {
-                    method: "DELETE"
-                }).then(function (response) {
-                console.log(response)
-                return response.json()
-            }).then(function (data) {
-                console.log(data)
+            btnElimin.addEventListener("click", function (e) {
+                console.log(e.currentTarget.value);
+                let urlElm = "http://localhost:8080/api/cancella-libro/" + data[i].idLibro;
+                fetch(urlElm,
+                    {
+                        method: "DELETE"
+                    }).then(function (response) {
+                    console.log(response)
+                    return response.json()
+                }).then(function (data) {
+                    console.log(data)
+                })
+                close();
+                open("LibriShow.html?titoli=&idAn=" + idAnagraficaPassato)
             })
-            close();
-            open("LibriShow.html?titoli=&idAn=" + idAnagraficaPassato)
-        })
-        btnModifica.addEventListener("click",function (e) {
-            console.log(e.currentTarget.value);
-            close();
-            open("../Libri.html?idLb=" + data[i].idLibro)
-        })
+            btnModifica.addEventListener("click", function (e) {
+                console.log(e.currentTarget.value);
+                close();
+                open("../Libri.html?idLb=" + data[i].idLibro)
+            })
+        }else{
+            tBody.appendChild(row);
+        }
     }
 
 }

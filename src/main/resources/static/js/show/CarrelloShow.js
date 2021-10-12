@@ -1,7 +1,28 @@
 window.addEventListener("load", function (Event) {
-    var queryString = window.location.search;
-    var urlParams = new URLSearchParams(queryString);
-    var idAnagraficaPassato = urlParams.get('idAn');
+    let queryString = window.location.search;
+    let urlParams = new URLSearchParams(queryString);
+    let idAnagraficaPassato = urlParams.get('idAn');
+
+    let lH = document.querySelector('#lHome')
+    lH.href="../Index.html?idAn="+idAnagraficaPassato
+
+    let lgn = document.querySelector("#lgn")
+    if (idAnagraficaPassato>0){
+        lgn.innerHTML=""
+        let a = document.createElement("a")
+        a.href="../Registrazione.html?idAn="+idAnagraficaPassato
+        let url= "http://localhost:8080/api/get-anagrafica/"+idAnagraficaPassato
+        fetch(url,
+            {
+                method: "GET"
+            }).then(function (response) {
+            // console.log(response)
+            return response.json()
+        }).then(function (data) {
+            a.innerHTML = "Benvenuto\n" +data.nome+"\n clicca per modificare i tuoi dati"
+            lgn.appendChild(a);
+        })
+    }
 
     let urlApi = "http://localhost:8080/api/get-consegne-inattesa-anagrafica/" + idAnagraficaPassato
     carica(urlApi)
