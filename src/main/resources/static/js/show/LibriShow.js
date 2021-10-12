@@ -112,7 +112,7 @@ function carica(data, idAnagraficaPassato) {
 
         let cell = document.createElement("td");
         let link = document.createElement("a");
-        link.href = "ProductShow.html?idLib=" + data[j].idLibro;
+        link.href = "ProductShow.html?idLib=" + data[j].idLibro+"&idAn="+idAnagraficaPassato;
         let cellText = document.createTextNode(data[j].titolo);
         link.appendChild(cellText);
         cell.appendChild(link);
