@@ -2,7 +2,10 @@ package it.biblioteca.www.Biblioteca.Util;
 
 import org.springframework.stereotype.Component;
 
-import java.net.PasswordAuthentication;
+import javax.mail.*;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
 @Component
@@ -14,32 +17,35 @@ public class MailSenderComponent {
     private final static String SMTP_USER = "gruppo.vintage.bari@gmail.com";
     private final static String SMTP_PWD = "Gruppovintage1";
 
-    public void send(String destinatario, String oggetto, String messaggio) {
+    public void send(String destinatario, String oggetto, String messaggio){
         try {
             InternetAddress address = new InternetAddress(destinatario);
             Properties props = new Properties();
             props.put("mail.smtp.host", SMTP_HOST);
             props.put("mail.smtp.auth", SMTP_AUTH);
             props.put("mail.smtp.port", SMTP_PORT);
-            props.put("mail.smt.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-            Authenticator auth = new Autenticator() {
-                public PasswordAuthentication(SMTP_USER, SMTP_PWD);
-            }
-        } ;
-        Session session = Session.getDefaultInstance(props, auth);
+            props.put("mail.smtp.starttls.enable", "true");
+            Authenticator auth = new Authenticator() {
+                public PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(SMTP_USER, SMTP_PWD);
+                }
+            };
+            Session session = Session.getDefaultInstance(props, auth);
 
-        Message msg = new MineMessage(session);
+            Message msg = new MimeMessage(session);
 
-        InternaetAddress addressFrom = new InternetAddres(SMT_USER);
-        msg.setFrom(addressFrom);
-        msg.setRecipient(Message.RecipientType.TO, address);
-        msg.setSubject(oggetto);
-        msg.setText(messaggio);
-        Transport.send(msg);
-        }catch (AddressException e) {
+            InternetAddress addressFrom = new InternetAddress(SMTP_USER);
+            msg.setFrom(addressFrom);
+            msg.setRecipient(Message.RecipientType.TO, address);
+            msg.setSubject(oggetto);
+            msg.setText(messaggio);
+            Transport.send(msg);
+
+        } catch (AddressException e) {
             e.printStackTrace();
-        }catch(MessagingException e)
+        } catch (MessagingException e) {
             e.printStackTrace();
         }
     }
+
 }

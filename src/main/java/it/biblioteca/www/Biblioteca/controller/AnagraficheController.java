@@ -2,7 +2,9 @@ package it.biblioteca.www.Biblioteca.controller;
 
 
 import com.sun.istack.NotNull;
+import it.biblioteca.www.Biblioteca.Util.MailSenderComponent;
 import it.biblioteca.www.Biblioteca.model.Anagrafiche;
+import it.biblioteca.www.Biblioteca.model.Consegne;
 import it.biblioteca.www.Biblioteca.service.AnagraficheService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +18,9 @@ public class AnagraficheController {
 
     @Autowired
     private AnagraficheService anagraficheService;
+
+    @Autowired
+    private MailSenderComponent mailSenderComponent;
 
     @GetMapping("/get-anagrafiche")
     public List<Anagrafiche> getAnagrafiche(){
@@ -37,6 +42,11 @@ public class AnagraficheController {
             }
         }
         anagraficheService.saveOrUpdateAnagrafiche(anagrafiche);
+
+        String dest=anagrafiche.getEmail();
+        String ogg="REGISTRAZIONE FASTBOOK";
+        String mess="FASTEBOOK è lieta accogliere nel miglio modo la Vs registrazione.\n\nDi seguito le elenco le credenziali che le permetto di prenotare i libri nel nostro sito\n\n  -> Email: "+anagrafiche.getEmail()+"   -> Password: "+anagrafiche.getPassword()+"\n\nEffettua subito la prima prenotazione :)\n\n\n\nFASTBOOK SPA";
+        mailSenderComponent.send(dest,ogg,mess);
         return "";
     }
 
