@@ -176,9 +176,10 @@ function carica(urlApi, idAnagraficaPassato) {
                     return response.json()
                 }).then(function (data) {
                     console.log(data)
+                     close();
+                    open("CarrelloShow.html?idAn=" + idAnagraficaPassato)
                 })
-                close();
-                open("CarrelloShow.html?idAn=" + idAnagraficaPassato)
+
             })
 
         }
