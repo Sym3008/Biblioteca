@@ -2,12 +2,15 @@ package it.biblioteca.www.Biblioteca.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table (name="consegne")
 public class Consegne {

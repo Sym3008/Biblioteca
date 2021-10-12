@@ -6,14 +6,14 @@ window.addEventListener('load', function (Event) {
     let idAnagraficaPassato = urlParams.get('idAn');
 
     let lH = document.querySelector('#lHome');
-    lH.href="../Index.html?idAn="+idAnagraficaPassato;
+    lH.href = "../Index.html?idAn=" + idAnagraficaPassato;
 
     let lgn = document.querySelector("#lgn");
-    if (idAnagraficaPassato>0){
-        lgn.innerHTML="";
+    if (idAnagraficaPassato > 0) {
+        lgn.innerHTML = "";
         let a = document.createElement("a");
-        a.href="../Registrazione.html?idAn="+idAnagraficaPassato;
-        let url= "http://localhost:8080/api/get-anagrafica/"+idAnagraficaPassato;
+        a.href = "../Registrazione.html?idAn=" + idAnagraficaPassato;
+        let url = "http://localhost:8080/api/get-anagrafica/" + idAnagraficaPassato;
         fetch(url,
             {
                 method: "GET"
@@ -21,35 +21,34 @@ window.addEventListener('load', function (Event) {
             // console.log(response)
             return response.json();
         }).then(function (data) {
-            a.innerHTML = "Benvenuto\n" +data.nome+"\n clicca per modificare i tuoi dati";
+            a.innerHTML = "Benvenuto\n" + data.nome + "\n clicca per modificare i tuoi dati";
             lgn.appendChild(a);
 
-            let m=document.querySelector('#menu')
-            let carSpan=document.createElement("span");
+            let m = document.querySelector('#menu')
+            let carSpan = document.createElement("span");
             carSpan.classList.add("mScelta")
             carSpan.classList.add("px-5")
-            let aSpan=document.createElement("a")
-            aSpan.href="CarrelloShow.html?idAn="+idAnagraficaPassato;
-            aSpan.innerHTML="Prenotazioni"
+            let aSpan = document.createElement("a")
+            aSpan.href = "CarrelloShow.html?idAn=" + idAnagraficaPassato;
+            aSpan.innerHTML = "Prenotazioni"
             carSpan.appendChild(aSpan)
             m.appendChild(carSpan)
 
-            let agL=document.querySelector("#aggL")
-            let aL=document.createElement("a")
-            aL.href=("../Libro.html?idAn="+idAnagraficaPassato);
-            aL.innerHTML="Aggiungi nuovo libro";
+            let agL = document.querySelector("#aggL")
+            let aL = document.createElement("a")
+            aL.href = ("../Libro.html?idAn=" + idAnagraficaPassato);
+            aL.innerHTML = "Aggiungi nuovo libro";
             agL.appendChild(aL);
         })
     }
-
     let urlA = 'http://localhost:8080/api/get-libri';
-   if (titolo!=null) {
+        console.log(titolo)
+    console.log(titolo !== "" || titolo !== null || titolo !== "null")
+    if (titolo !== null && titolo!=="null" && titolo!=="" ) {
         console.log(titolo);
-        urlA = 'http://localhost:8080/api/get-libro-titoli/'+titolo;
-    }else if (idAu!=null || idAu!==""){
-        console.log(idAu);
-        urlA = 'http://localhost:8080/api/get-libri-by-id-autore/'+idAu;
+        urlA = 'http://localhost:8080/api/get-libro-titoli/' + titolo;
     }
+
     console.log(urlA);
     fetch(urlA).then(function (response) {
         return response.json()
@@ -60,18 +59,18 @@ window.addEventListener('load', function (Event) {
 
     let name = document.querySelector("#inputName")
     let autor = document.querySelector("#inputAutor")
-    let casa_editrice= document.querySelector("#inputCasaEditrice")
+    let casa_editrice = document.querySelector("#inputCasaEditrice")
 
     let link = document.querySelector("#richiesta")
     let urlApi
     link.addEventListener("click", function (e) {
 
-        urlApi = "LibriShow.html?titolo=" + name.value+"&idAn="+idAnagraficaPassato;
-        if (autor.value!=""){
-            urlApi = "AutoriShow.html?nominativo=" + autor.value+"&idAn="+idAnagraficaPassato;
+        urlApi = "LibriShow.html?titolo=" + name.value + "&idAn=" + idAnagraficaPassato;
+        if (autor.value !== "") {
+            urlApi = "AutoriShow.html?nominativo=" + autor.value + "&idAn=" + idAnagraficaPassato;
 
-        }else if (casa_editrice.value!=""){
-            urlApi = "CaseEditriciShow.html?nominativo=" + casa_editrice.value+"&idAn="+idAnagraficaPassato;
+        } else if (casa_editrice.value !== "") {
+            urlApi = "CaseEditriciShow.html?nominativo=" + casa_editrice.value + "&idAn=" + idAnagraficaPassato;
 
         }
         close();
@@ -101,7 +100,7 @@ function cerca() {
 }
 
 
-function carica(data, idAnagraficaPassato){
+function carica(data, idAnagraficaPassato) {
 
     let tBody = document.querySelector("#tabellaBody")
 
@@ -113,7 +112,7 @@ function carica(data, idAnagraficaPassato){
 
         let cell = document.createElement("td");
         let link = document.createElement("a");
-        link.href= "ProductShow.html?idLib=" + data[j].idLibro;
+        link.href = "ProductShow.html?idLib=" + data[j].idLibro;
         let cellText = document.createTextNode(data[j].titolo);
         link.appendChild(cellText);
         cell.appendChild(link);
@@ -158,7 +157,7 @@ function carica(data, idAnagraficaPassato){
         cell.appendChild(div);
         row.appendChild(cell);
 
-        if(idAnagraficaPassato<4) {
+        if (idAnagraficaPassato < 4) {
             cell = document.createElement("td");
             let btnElimin = document.createElement("button")
             btnElimin.classList.add("btn")
@@ -198,7 +197,7 @@ function carica(data, idAnagraficaPassato){
                 close();
                 open("../Libro.html?idLb=" + data[j].idLibro)
             })
-        }else{
+        } else {
             tBody.appendChild(row);
         }
     }

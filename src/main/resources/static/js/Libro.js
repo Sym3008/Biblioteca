@@ -5,7 +5,7 @@ window.addEventListener('load', function (event) {
     let idAnagraficaPassato = urlParams.get('idAn');
 
     let lH = document.querySelector('#lHome')
-    lH.href="../Index.html?idAn="+idAnagraficaPassato
+    lH.href="Index.html?idAn="+idAnagraficaPassato
 
     let lgn = document.querySelector("#lgn")
     if (idAnagraficaPassato>0){

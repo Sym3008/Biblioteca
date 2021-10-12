@@ -48,9 +48,9 @@ window.addEventListener("load", function (Event) {
 
     link.addEventListener("click", function (e) {
         let url ="show/LibriShow.html?titolo=" + name.value+"&idAn="+idAnagraficaPassato;
-        if (autor.value!=""){
+        if (autor.value!==""){
             url = "show/AutoriShow.html?nominativo=" + autor.value+"&idAn="+idAnagraficaPassato;
-        }else if (casa_editrice.value!=""){
+        }else if (casa_editrice.value!==""){
             url = "show/CaseEditriciShow.html?nominativo=" + casa_editrice.value+"&idAn="+idAnagraficaPassato;
         }
         close();
