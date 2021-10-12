@@ -5,25 +5,25 @@
     width: 100%;
 }
 .Bottone{
-    border: 3px #6935fd solid;
+    border: 3px #f4a460 solid;
     border-radius: 20px;
     padding: 1rem 2rem;
     margin: 0.900rem;
-    background: #ffffff;
+    background: #f4a460;
 }
 .Bottone:hover{
-    background: #a68af5;
+    background: #f4a460;
 }
 .hero a {
     text-decoration: none;
-    color: black;
+    color: white;
 }
 .hero a:hover {
     color: #313131;
 }
 .menu{
     margin-left: 15%;
-    background-color: #6c5dff;
+    background-color: #f4a460;
     border-radius: 10px;
     width: 80%;
 }
