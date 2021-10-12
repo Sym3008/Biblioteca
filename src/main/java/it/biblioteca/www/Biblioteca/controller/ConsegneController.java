@@ -109,8 +109,10 @@ public class ConsegneController {
                     }else{
                         System.out.println("prenotabile");
                         giacenza--;
-                        lDaPrestare.setQuantita(giacenza);
-                        lService.saveOrUpdateLibri(lDaPrestare);
+//                        lDaPrestare.setQuantita(giacenza);
+//                        lService.saveOrUpdateLibri(lDaPrestare);
+                        cLprenotati.getLibro().setQuantita(giacenza);
+                        lService.saveOrUpdateLibri(cLprenotati.getLibro());
                         consegneList.add(c);
                         System.out.println("size list "+consegneList.size());
                     }
