@@ -1,8 +1,8 @@
 window.addEventListener('load', function (Event) {
-    var queryString = window.location.search;
-    var urlParams = new URLSearchParams(queryString);
-    var mostra = urlParams.get('nominativo')
-    var idAnagraficaPassato = urlParams.get('idAn');
+    let queryString = window.location.search;
+    let urlParams = new URLSearchParams(queryString);
+    let mostra = urlParams.get('nominativo')
+    let idAnagraficaPassato = urlParams.get('idAn');
     console.log(mostra);
 
     let url = 'http://localhost:8080/api/get-case-editrici';
@@ -14,7 +14,7 @@ window.addEventListener('load', function (Event) {
         return response.json()
     }).then(function (data) {
         // console.log(data)
-        carica(data);
+        carica(data, idAnagraficaPassato);
     })
 })
 
@@ -39,17 +39,17 @@ function cerca() {
 }
 
 
-function carica(data){
+function carica(data, idAnagraficaPassato){
     let tBody = document.querySelector("#tabellaBody")
 
     console.log(data.length)
     console.log(data)
 
-    for (var j = 0; j < data.length; j++) {
-        var row = document.createElement("tr");
+    for (let j = 0; j < data.length; j++) {
+        let row = document.createElement("tr");
 
-        var cell = document.createElement("td");
-        var cellText = document.createTextNode(data[j].nominativo);
+        let cell = document.createElement("td");
+        let cellText = document.createTextNode(data[j].nominativo);
         cell.appendChild(cellText);
         row.appendChild(cell);
 
@@ -83,20 +83,49 @@ function carica(data){
         cell.appendChild(cellText);
         row.appendChild(cell);
 
-        cell = document.createElement("td");
-        let btn = document.createElement("button")
-        cellText = document.createTextNode("Elimina");
-        let btn2 = document.createElement("button")
-        cellText2 = document.createTextNode("Modifica");
+        if(idAnagraficaPassato<4) {
+            cell = document.createElement("td");
+            let btnElimin = document.createElement("button")
+            btnElimin.classList.add("btn")
+            btnElimin.classList.add("btn-primary")
+            btnElimin.classList.add("mb-1")
+            cellText = document.createTextNode("Elimina");
+            let btnModifica = document.createElement("button")
+            btnModifica.classList.add("btn")
+            btnModifica.classList.add("btn-secondary")
+            cellText2 = document.createTextNode("Modifica");
 
-        btn.appendChild(cellText);
-        btn2.appendChild(cellText2);
-        cell.appendChild(btn);
-        cell.appendChild(btn2);
-        row.appendChild(cell);
+            btnElimin.appendChild(cellText);
+            btnModifica.appendChild(cellText2);
+            cell.appendChild(btnElimin);
+            cell.appendChild(btnModifica);
+            row.appendChild(cell);
 
+            tBody.appendChild(row);
 
-        tBody.appendChild(row);
+            btnElimin.addEventListener("click", function (e) {
+                console.log(e.currentTarget.value);
+                let urlElm = "http://localhost:8080/api/cancella-casa-editrice/" + data[j].idCasaEditrice;
+                fetch(urlElm,
+                    {
+                        method: "DELETE"
+                    }).then(function (response) {
+                    console.log(response)
+                    return response.json()
+                }).then(function (data) {
+                    console.log(data)
+                })
+                close();
+                open("CaseEditriciShow.html?titolo=&idAn=" + idAnagraficaPassato)
+            })
+            btnModifica.addEventListener("click", function (e) {
+                console.log(e.currentTarget.value);
+                close();
+                open("../CaseEditrici.html?idCe=" + data[j].idCasaEditrice)
+            })
+        }else{
+            tBody.appendChild(row);
+        }
     }
 
 }

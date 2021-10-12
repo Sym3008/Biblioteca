@@ -1,4 +1,9 @@
 window.addEventListener('load', function(event){
+    let queryString = window.location.search;
+    let urlParams = new URLSearchParams(queryString);
+    let idAu = urlParams.get('idAu')
+    let idAnagraficaPassato = urlParams.get('idAn');
+    
     let form = document.querySelector('#registrationForm')
     form.addEventListener('submit', function (event){
         formValido = true;

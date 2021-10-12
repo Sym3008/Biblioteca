@@ -161,8 +161,13 @@ function carica(data, idAnagraficaPassato){
         if(idAnagraficaPassato<4) {
             cell = document.createElement("td");
             let btnElimin = document.createElement("button")
+            btnElimin.classList.add("btn")
+            btnElimin.classList.add("btn-primary")
+            btnElimin.classList.add("mb-1")
             cellText = document.createTextNode("Elimina");
             let btnModifica = document.createElement("button")
+            btnModifica.classList.add("btn")
+            btnModifica.classList.add("btn-secondary")
             cellText2 = document.createTextNode("Modifica");
 
             btnElimin.appendChild(cellText);
@@ -186,11 +191,11 @@ function carica(data, idAnagraficaPassato){
                     console.log(data)
                 })
                 close();
-                open("LibriShow.html?titoli=&idAn=" + idAnagraficaPassato)
+                open("LibriShow.html?titolo=&idAn=" + idAnagraficaPassato)
             })
             btnModifica.addEventListener("click", function (e) {
                 console.log(e.currentTarget.value);
-                // close();
+                close();
                 open("../Libro.html?idLb=" + data[j].idLibro)
             })
         }else{

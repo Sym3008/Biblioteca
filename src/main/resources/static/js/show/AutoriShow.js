@@ -98,25 +98,50 @@ function carica(data,idAnagraficaPassato){
         cell.appendChild(div);
         row.appendChild(cell);
 
-        cell = document.createElement("td");
-        let btn = document.createElement("a");
-        btn.classList.add("btn")
-        btn.classList.add("btn-primary")
-        btn.classList.add("mb-1")
-        btn.href="LibriShow.html?idAu="+data[j].idAutore+"&idAn="+idAnagraficaPassato;
-        cellText = document.createTextNode("Libri");
-        let btn2 = document.createElement("a")
-        btn2.classList.add("btn")
-        btn2.classList.add("btn-secondary")
-        let cellText2 = document.createTextNode("Modifica");
+        if(idAnagraficaPassato<4) {
+            cell = document.createElement("td");
+            let btnElimin = document.createElement("button")
+            btnElimin.classList.add("btn")
+            btnElimin.classList.add("btn-primary")
+            btnElimin.classList.add("mb-1")
+            cellText = document.createTextNode("Elimina");
+            let btnModifica = document.createElement("button")
+            btnModifica.classList.add("btn")
+            btnModifica.classList.add("btn-secondary")
+            let cellText2 = document.createTextNode("Modifica");
 
-        btn.appendChild(cellText);
-        btn2.appendChild(cellText2);
-        cell.appendChild(btn);
-        cell.appendChild(btn2);
-        row.appendChild(cell);
+            btnElimin.appendChild(cellText);
+            btnModifica.appendChild(cellText2);
+            cell.appendChild(btnElimin);
+            cell.appendChild(btnModifica);
+            row.appendChild(cell);
 
-        tBody.appendChild(row);
+            tBody.appendChild(row);
+
+            btnElimin.addEventListener("click", function (e) {
+                console.log(e.currentTarget.value);
+                let urlElm = "http://localhost:8080/api/cancella-autore/" + data[j].idAutore;
+                fetch(urlElm,
+                    {
+                        method: "DELETE"
+                    }).then(function (response) {
+                    console.log(response)
+                    return response.json()
+                }).then(function (data) {
+                    console.log(data)
+                })
+                close();
+                open("AutoriShow.html?idAn=" + idAnagraficaPassato)
+            })
+            btnModifica.addEventListener("click", function (e) {
+                console.log(e.currentTarget.value);
+                close();
+                open("../Autore.html?idAu=" + data[j].idAutore)
+            })
+
+        }else{
+            tBody.appendChild(row);
+        }
     }
 
 }
