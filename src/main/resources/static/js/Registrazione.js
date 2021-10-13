@@ -26,6 +26,8 @@ window.addEventListener('load', function (event) {
 
     if (idAnagraficaPassato>0) {
         aggiornaDati(idAnagraficaPassato)
+        btnReg= document.querySelector('#Registrati')
+        btnReg.innerHTML="Aggiorna"
     }
     let form = document.querySelector('#registrationForm')
     form.addEventListener('submit', function (event) {

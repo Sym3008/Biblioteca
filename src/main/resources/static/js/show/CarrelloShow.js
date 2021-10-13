@@ -147,7 +147,7 @@ function carica(urlApi, idAnagraficaPassato) {
             img.src = data[i].libro.urlCopertina;
             let div1 = document.createElement("div")
             let a = document.createElement("a")
-            a.href = "ProductShow.html?idLib=" + data[i].libro.idLibro;
+            a.href = "ProductShow.html?idLib=" + data[i].libro.idLibro+"&idAn="+idAnagraficaPassato;
             a.innerHTML = data[i].libro.titolo
             let div2 = document.createElement("div")
             if (data[i].dataConsegna == null) {
@@ -178,12 +178,10 @@ function carica(urlApi, idAnagraficaPassato) {
                     return response.json()
                 }).then(function (data) {
                     console.log(data)
-                     close();
+                    close();
                     open("CarrelloShow.html?idAn=" + idAnagraficaPassato)
                 })
-
             })
-
         }
     })
 }
