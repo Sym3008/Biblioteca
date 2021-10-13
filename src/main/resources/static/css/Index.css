@@ -31,8 +31,13 @@ a {
     border-radius: 10px;
     padding: 3px 100px;
 }
-
 .id\=Find{
     color: #0a53be;
-    
+}
+
+@media (max-width: 768px) {
+    .textC h2{
+        font-size: 18px;
+        padding: 3px 10px;
+    }
 }
