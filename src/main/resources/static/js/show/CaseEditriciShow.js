@@ -74,10 +74,50 @@ function cerca() {
 
 function carica(data, idAnagraficaPassato){
     let tBody = document.querySelector("#tabellaBody")
-
+    let dimS= window.innerWidth;
     console.log(data.length)
     console.log(data)
 
+    let tHead = document.querySelector("#tabellaHead")
+    tHead.innerHTML=""
+    let rowH = document.createElement("tr");
+    let cellH = document.createElement("th");
+    cellH.classList.add("intestBor")
+    cellH.innerHTML="nominativo"
+    rowH.appendChild(cellH)
+    if (dimS>767) {
+        cellH = document.createElement("th");
+        cellH.classList.add("intestBor")
+        cellH.innerHTML = "città"
+        rowH.appendChild(cellH)
+
+        cellH = document.createElement("th");
+        cellH.classList.add("intestBor")
+        cellH.innerHTML = "indirizzo"
+        rowH.appendChild(cellH)
+
+        cellH = document.createElement("th");
+        cellH.classList.add("intestBor")
+        cellH.innerHTML = "telefono"
+        rowH.appendChild(cellH)
+
+        cellH = document.createElement("th");
+        cellH.classList.add("intestBor")
+        cellH.innerHTML = "email"
+        rowH.appendChild(cellH)
+
+        cellH = document.createElement("th");
+        cellH.classList.add("intestBor")
+        cellH.innerHTML = "sito web"
+        rowH.appendChild(cellH)
+    }
+    if (idAnagraficaPassato < 4) {
+        cellH = document.createElement("th");
+        cellH.classList.add("intestBor")
+        cellH.innerHTML = ""
+        rowH.appendChild(cellH)
+    }
+    tHead.appendChild(rowH)
     for (let j = 0; j < data.length; j++) {
         let row = document.createElement("tr");
 
@@ -85,37 +125,37 @@ function carica(data, idAnagraficaPassato){
         let cellText = document.createTextNode(data[j].nominativo);
         cell.appendChild(cellText);
         row.appendChild(cell);
+        if (dimS>767) {
+            cell = document.createElement("td");
+            cellText = document.createTextNode(data[j].citta);
+            cell.appendChild(cellText);
+            row.appendChild(cell);
 
-        cell = document.createElement("td");
-        cellText = document.createTextNode(data[j].citta);
-        cell.appendChild(cellText);
-        row.appendChild(cell);
+            cell = document.createElement("td");
+            cellText = document.createTextNode(data[j].cap);
+            cell.appendChild(cellText);
+            row.appendChild(cell);
 
-        cell = document.createElement("td");
-        cellText = document.createTextNode(data[j].cap);
-        cell.appendChild(cellText);
-        row.appendChild(cell);
+            cell = document.createElement("td");
+            cellText = document.createTextNode(data[j].indirizzo);
+            cell.appendChild(cellText);
+            row.appendChild(cell);
 
-        cell = document.createElement("td");
-        cellText = document.createTextNode(data[j].indirizzo);
-        cell.appendChild(cellText);
-        row.appendChild(cell);
+            cell = document.createElement("td");
+            cellText = document.createTextNode(data[j].telefono);
+            cell.appendChild(cellText);
+            row.appendChild(cell);
 
-        cell = document.createElement("td");
-        cellText = document.createTextNode(data[j].telefono);
-        cell.appendChild(cellText);
-        row.appendChild(cell);
+            cell = document.createElement("td");
+            cellText = document.createTextNode(data[j].email);
+            cell.appendChild(cellText);
+            row.appendChild(cell);
 
-        cell = document.createElement("td");
-        cellText = document.createTextNode(data[j].email);
-        cell.appendChild(cellText);
-        row.appendChild(cell);
-
-        cell = document.createElement("td");
-        cellText = document.createTextNode(data[j].sitoWeb);
-        cell.appendChild(cellText);
-        row.appendChild(cell);
-
+            cell = document.createElement("td");
+            cellText = document.createTextNode(data[j].sitoWeb);
+            cell.appendChild(cellText);
+            row.appendChild(cell);
+        }
         if(idAnagraficaPassato<4) {
             cell = document.createElement("td");
             let btnElimin = document.createElement("button")

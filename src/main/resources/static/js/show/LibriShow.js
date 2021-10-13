@@ -36,11 +36,13 @@ window.addEventListener('load', function (Event) {
             carSpan.appendChild(aSpan)
             m.appendChild(carSpan)
 
-            let agL = document.querySelector("#aggL")
-            let aL = document.createElement("a")
-            aL.href = ("../Libro.html?idAn=" + idAnagraficaPassato);
-            aL.innerHTML = "Aggiungi nuovo libro";
-            agL.appendChild(aL);
+            if (idAnagraficaPassato < 4) {
+                let agL = document.querySelector("#aggL")
+                let aL = document.createElement("a")
+                aL.href = ("../Libro.html?idAn=" + idAnagraficaPassato);
+                aL.innerHTML = "Aggiungi nuovo libro";
+                agL.appendChild(aL);
+            }
         })
     }
     let urlA = "http://"+host+":8080/api/get-libri";
@@ -105,10 +107,47 @@ function cerca() {
 function carica(data, idAnagraficaPassato) {
 
     let tBody = document.querySelector("#tabellaBody")
-
+    let dimS= window.innerWidth;
     console.log(data.length)
     console.log(data)
     console.log(data[0])
+    let tHead = document.querySelector("#tabellaHead")
+    tHead.innerHTML=""
+    let rowH = document.createElement("tr");
+    let cellH = document.createElement("th");
+    cellH.classList.add("intestBor")
+    cellH.innerHTML="titolo"
+    rowH.appendChild(cellH)
+    if (dimS>767) {
+        cellH = document.createElement("th");
+        cellH.classList.add("intestBor")
+        cellH.innerHTML = "autore"
+        rowH.appendChild(cellH)
+
+        cellH = document.createElement("th");
+        cellH.classList.add("intestBor")
+        cellH.innerHTML = "lingua"
+        rowH.appendChild(cellH)
+
+        cellH = document.createElement("th");
+        cellH.classList.add("intestBor")
+        cellH.innerHTML = "quantità"
+        rowH.appendChild(cellH)
+
+        cellH = document.createElement("th");
+        cellH.classList.add("intestBor")
+        cellH.innerHTML = "prefazione"
+        rowH.appendChild(cellH)
+    }
+    if (idAnagraficaPassato < 4) {
+        cellH = document.createElement("th");
+        cellH.classList.add("intestBor")
+        cellH.innerHTML = ""
+        rowH.appendChild(cellH)
+    }
+
+    tHead.appendChild(rowH)
+
     for (let j = 0; j < data.length; j++) {
         let row = document.createElement("tr");
 
@@ -119,46 +158,46 @@ function carica(data, idAnagraficaPassato) {
         link.appendChild(cellText);
         cell.appendChild(link);
         row.appendChild(cell);
+        if (dimS>767) {
+            cell = document.createElement("td");
+            console.log(data[j].autore.nominativo)
+            cellText = document.createTextNode(data[j].autore.nominativo);
+            cell.appendChild(cellText);
+            row.appendChild(cell);
 
-        cell = document.createElement("td");
-        console.log(data[j].autore.nominativo)
-        cellText = document.createTextNode(data[j].autore.nominativo);
-        cell.appendChild(cellText);
-        row.appendChild(cell);
+            // cell = document.createElement("td");
+            // cellText = document.createTextNode(data[j].casaEditrice.nominativo);
+            // cell.appendChild(cellText);
+            // row.appendChild(cell);
+            //
+            // cell = document.createElement("td");
+            // cellText = document.createTextNode(data[j].genere.descrizione);
+            // cell.appendChild(cellText);
+            // row.appendChild(cell);
+            //
+            // cell = document.createElement("td");
+            // cellText = document.createTextNode(data[j].numeroPagine);
+            // cell.appendChild(cellText);
+            // row.appendChild(cell);
 
-        // cell = document.createElement("td");
-        // cellText = document.createTextNode(data[j].casaEditrice.nominativo);
-        // cell.appendChild(cellText);
-        // row.appendChild(cell);
-        //
-        // cell = document.createElement("td");
-        // cellText = document.createTextNode(data[j].genere.descrizione);
-        // cell.appendChild(cellText);
-        // row.appendChild(cell);
-        //
-        // cell = document.createElement("td");
-        // cellText = document.createTextNode(data[j].numeroPagine);
-        // cell.appendChild(cellText);
-        // row.appendChild(cell);
+            cell = document.createElement("td");
+            cellText = document.createTextNode(data[j].lingua);
+            cell.appendChild(cellText);
+            row.appendChild(cell);
 
-        cell = document.createElement("td");
-        cellText = document.createTextNode(data[j].lingua);
-        cell.appendChild(cellText);
-        row.appendChild(cell);
+            cell = document.createElement("td");
+            cellText = document.createTextNode(data[j].quantita);
+            cell.appendChild(cellText);
+            row.appendChild(cell);
 
-        cell = document.createElement("td");
-        cellText = document.createTextNode(data[j].quantita);
-        cell.appendChild(cellText);
-        row.appendChild(cell);
-
-        cell = document.createElement("td");
-        let div = document.createElement("div");
-        div.classList.add("BoxText");
-        cellText = document.createTextNode(data[j].prefazione);
-        div.appendChild(cellText);
-        cell.appendChild(div);
-        row.appendChild(cell);
-
+            cell = document.createElement("td");
+            let div = document.createElement("div");
+            div.classList.add("BoxText");
+            cellText = document.createTextNode(data[j].prefazione);
+            div.appendChild(cellText);
+            cell.appendChild(div);
+            row.appendChild(cell);
+        }
         if (idAnagraficaPassato < 4) {
             cell = document.createElement("td");
             let btnElimin = document.createElement("button")

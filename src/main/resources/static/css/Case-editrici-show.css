@@ -13,3 +13,6 @@ table tr {
 table tr:nth-child(even) {
     background-color:#F5F5DC;
 }
+.intestBor{
+    border: 1px solid black;
+}

@@ -91,9 +91,50 @@ function cerca() {
 
 function carica(data,idAnagraficaPassato){
     let tBody = document.querySelector("#tabellaBody")
-
+    let dimS= window.innerWidth;
     console.log(data.length)
     console.log(data)
+
+    let tHead = document.querySelector("#tabellaHead")
+    tHead.innerHTML=""
+    let rowH = document.createElement("tr");
+    let cellH = document.createElement("th");
+    cellH.classList.add("intestBor")
+    cellH.innerHTML="nominativo"
+    rowH.appendChild(cellH)
+    if (dimS>767) {
+        cellH = document.createElement("th");
+        cellH.classList.add("intestBor")
+        cellH.innerHTML = "data di nascita"
+        rowH.appendChild(cellH)
+
+        cellH = document.createElement("th");
+        cellH.classList.add("intestBor")
+        cellH.innerHTML = "luogo di nascita"
+        rowH.appendChild(cellH)
+
+        cellH = document.createElement("th");
+        cellH.classList.add("intestBor")
+        cellH.innerHTML = "data di morte"
+        rowH.appendChild(cellH)
+
+        cellH = document.createElement("th");
+        cellH.classList.add("intestBor")
+        cellH.innerHTML = "luogo di morte"
+        rowH.appendChild(cellH)
+
+        cellH = document.createElement("th");
+        cellH.classList.add("intestBor")
+        cellH.innerHTML = "biografia"
+        rowH.appendChild(cellH)
+    }
+    if (idAnagraficaPassato < 4) {
+        cellH = document.createElement("th");
+        cellH.classList.add("intestBor")
+        cellH.innerHTML = ""
+        rowH.appendChild(cellH)
+    }
+    tHead.appendChild(rowH)
 
     for (let j = 0; j < data.length; j++) {
         let row = document.createElement("tr");
@@ -102,35 +143,35 @@ function carica(data,idAnagraficaPassato){
         let cellText = document.createTextNode(data[j].nominativo);
         cell.appendChild(cellText);
         row.appendChild(cell);
+        if (dimS>767) {
+            cell = document.createElement("td");
+            cellText = document.createTextNode(data[j].dataNascita);
+            cell.appendChild(cellText);
+            row.appendChild(cell);
 
-        cell = document.createElement("td");
-        cellText = document.createTextNode(data[j].dataNascita);
-        cell.appendChild(cellText);
-        row.appendChild(cell);
+            cell = document.createElement("td");
+            cellText = document.createTextNode(data[j].luogoNascita);
+            cell.appendChild(cellText);
+            row.appendChild(cell);
 
-        cell = document.createElement("td");
-        cellText = document.createTextNode(data[j].luogoNascita);
-        cell.appendChild(cellText);
-        row.appendChild(cell);
+            cell = document.createElement("td");
+            cellText = document.createTextNode(data[j].dataMorte);
+            cell.appendChild(cellText);
+            row.appendChild(cell);
 
-        cell = document.createElement("td");
-        cellText = document.createTextNode(data[j].dataMorte);
-        cell.appendChild(cellText);
-        row.appendChild(cell);
+            cell = document.createElement("td");
+            cellText = document.createTextNode(data[j].luogoMorte);
+            cell.appendChild(cellText);
+            row.appendChild(cell);
 
-        cell = document.createElement("td");
-        cellText = document.createTextNode(data[j].luogoMorte);
-        cell.appendChild(cellText);
-        row.appendChild(cell);
-
-        cell = document.createElement("td");
-        let div = document.createElement("div");
-        div.classList.add("BoxText");
-        cellText = document.createTextNode(data[j].biografia);
-        div.appendChild(cellText);
-        cell.appendChild(div);
-        row.appendChild(cell);
-
+            cell = document.createElement("td");
+            let div = document.createElement("div");
+            div.classList.add("BoxText");
+            cellText = document.createTextNode(data[j].biografia);
+            div.appendChild(cellText);
+            cell.appendChild(div);
+            row.appendChild(cell);
+        }
         if(idAnagraficaPassato<4) {
             cell = document.createElement("td");
             let btnElimin = document.createElement("button")
