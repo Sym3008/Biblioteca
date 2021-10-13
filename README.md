@@ -10,7 +10,7 @@ particolare per questo progetto è stato utilizzato **Spring Boot** per la gesti
 #### Per eseguire correttamente questo sofware si ha la necessità del supporto di:
 * Apache, in ascolto sulla porta 80 
   * [Apache](https://httpd.apache.org/)
-* Tomcat, in ascolto sulla porta 8080 (dove dovarà essere runnato Spring) 
+* Tomcat, in ascolto sulla porta 8080 (dove dovarà essere runnato il .war) 
   * [Tomcat](http://tomcat.apache.org/)
 * [Java 11](https://www.oracle.com/it/java/technologies/javase/jdk11-archive-downloads.html)
 * MariaDB, in ascolto sulla porta 3306 
