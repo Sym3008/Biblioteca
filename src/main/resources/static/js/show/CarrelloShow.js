@@ -64,6 +64,7 @@ window.addEventListener("load", function (Event) {
 
 
     conferma.addEventListener("click", function (e) {
+        let email="";
         let dataConsegnaIn = document.querySelector('#dataConsegnaIn')
         if (dataConsegnaIn.value !== "") {
             let recordDaAggiornare = [];
@@ -86,8 +87,7 @@ window.addEventListener("load", function (Event) {
                     }
                     recordDaAggiornare[i] = record;
                     console.log(recordDaAggiornare)
-
-
+                    email=data[i].anagrafica.email;
                 }
                 let urlPut = "http://"+host+":8080/api/update-consegne"
                 fetch(urlPut, {
@@ -106,6 +106,7 @@ window.addEventListener("load", function (Event) {
                     // console.log('Libri non confermati', data);
                     if (data === null || data === "" || data === "null") {
                         alert("tutti i libri sono stati prenotati")
+                        alert("Ti è stata inviata una mail per la prenotazione\n-> "+email)
                     } else {
                         alert("i seguenti libri non sono stati caricati: \n" + data)
                         close()
@@ -178,6 +179,7 @@ function carica(urlApi, idAnagraficaPassato) {
                     return response.json()
                 }).then(function (data) {
                     console.log(data)
+                    alert("Prenotazione cancellata, comunicazione sulla mail di registrazione")
                     close();
                     open("CarrelloShow.html?idAn=" + idAnagraficaPassato)
                 })

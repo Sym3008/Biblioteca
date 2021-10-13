@@ -162,6 +162,7 @@ function inserisciRecord(idAnagraficaPassato) {
         }).then(function (response) {
             console.log("record inserito");
             alert("Anagrafica inserita correttamente")
+            alert("Ti è stata inviata una mail per la registrazione\n-> "+e.value)
             // return response.json()
         }).then(data => {
             console.log('Success:', data);
@@ -188,6 +189,7 @@ function inserisciRecord(idAnagraficaPassato) {
             if(data==="") {
                 console.log("record inserito");
                 alert("Anagrafica inserita correttamente")
+                alert("Ti è stata inviata una mail per la registrazione\n-> "+e.value)
                 // close();
                 open("Index.html")
             }else{
