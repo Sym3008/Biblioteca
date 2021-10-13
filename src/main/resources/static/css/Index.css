@@ -8,7 +8,8 @@ a {
     border-radius: 20px;
 }
 .libriPrimoPiano div {
-    width: 50%;
+    width: 100%;
+    min-height: 80px;
 }
 .libriPrimoPiano img {
     width: 80%;

@@ -1,6 +1,6 @@
 let host="localhost"
 
-indow.addEventListener('load', function(event){
+window.addEventListener('load', function(event){
     let form = document.querySelector('#login')
     form.addEventListener('submit', function (event){
         formValido = true;
