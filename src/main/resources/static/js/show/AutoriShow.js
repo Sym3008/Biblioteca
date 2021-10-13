@@ -155,12 +155,20 @@ function carica(data,idAnagraficaPassato){
             row.appendChild(cell);
 
             cell = document.createElement("td");
-            cellText = document.createTextNode(data[j].dataMorte);
+            if (data[j].dataMorte == null) {
+                cellText = document.createTextNode("---");
+            }else {
+                cellText = document.createTextNode(data[j].dataMorte);
+            }
             cell.appendChild(cellText);
             row.appendChild(cell);
 
             cell = document.createElement("td");
-            cellText = document.createTextNode(data[j].luogoMorte);
+            let luogoMorte=data[j].luogoMorte;
+            if(luogoMorte==null){
+                luogoMorte="---";
+            }
+            cellText = document.createTextNode(luogoMorte);
             cell.appendChild(cellText);
             row.appendChild(cell);
 
