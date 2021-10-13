@@ -108,10 +108,10 @@ window.addEventListener("load", function (Event) {
                         alert("tutti i libri sono stati prenotati")
                         alert("Ti è stata inviata una mail per la prenotazione\n-> "+email)
                     } else {
-                        alert("i seguenti libri non sono stati caricati: \n" + data)
-                        close()
-                        open("CarrelloShow.html?idAn=" + idAnagraficaPassato)
+                        alert("I seguenti libri NON sono stati caricati: \n" + data)
                     }
+                    close()
+                    open("CarrelloShow.html?idAn=" + idAnagraficaPassato)
                 });
             })
 
@@ -175,13 +175,11 @@ function carica(urlApi, idAnagraficaPassato) {
                     {
                         method: "DELETE"
                     }).then(function (response) {
-                    console.log(response)
-                    return response.json()
-                }).then(function (data) {
-                    console.log(data)
                     alert("Prenotazione cancellata, comunicazione sulla mail di registrazione")
                     close();
                     open("CarrelloShow.html?idAn=" + idAnagraficaPassato)
+                    // console.log(response)
+                    return response.json()
                 })
             })
         }
