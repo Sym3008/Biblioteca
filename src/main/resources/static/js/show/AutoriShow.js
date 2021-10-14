@@ -135,7 +135,10 @@ function carica(data,idAnagraficaPassato){
         rowH.appendChild(cellH)
     }
     tHead.appendChild(rowH)
-
+    if (data.length<1){
+        let nntL= document.querySelector('#nessunLibro')
+        nntL.innerHTML="Nessun autore trovato"
+    }
     for (let j = 0; j < data.length; j++) {
         let row = document.createElement("tr");
 

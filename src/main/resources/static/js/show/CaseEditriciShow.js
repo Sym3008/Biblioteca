@@ -38,6 +38,23 @@ window.addEventListener('load', function (Event) {
         })
     }
 
+    let name = document.querySelector("#inputName")
+    let autor = document.querySelector("#inputAutor")
+    let casa_editrice= document.querySelector("#inputCasaEditrice")
+
+    let link = document.querySelector("#richiesta")
+
+    link.addEventListener("click", function (e) {
+        let url ="LibriShow.html?titolo=" + name.value+"&idAn="+idAnagraficaPassato;
+        if (autor.value!==""){
+            url = "AutoriShow.html?nominativo=" + autor.value+"&idAn="+idAnagraficaPassato;
+        }else if (casa_editrice.value!==""){
+            url = "CaseEditriciShow.html?nominativo=" + casa_editrice.value+"&idAn="+idAnagraficaPassato;
+        }
+        close();
+        open(url);
+    })
+
     let url = "http://"+host+":8080/api/get-case-editrici";
 
     if (mostra!="") {
@@ -118,6 +135,10 @@ function carica(data, idAnagraficaPassato){
         rowH.appendChild(cellH)
     }
     tHead.appendChild(rowH)
+    if (data.length<1){
+        let nntL= document.querySelector('#nessunLibro')
+        nntL.innerHTML="Nessuna casa editrice trovata"
+    }
     for (let j = 0; j < data.length; j++) {
         let row = document.createElement("tr");
 
